@@ -4,11 +4,11 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour {
 
     public Color hoverColor;
-    
     private Renderer rend;
     private Color startColor;
     
     //Turret Building Variables:
+    private GameObject turretToBuild;
     private GameObject builtTurret;  
     public Vector3 offset;
     
@@ -35,9 +35,8 @@ public class Node : MonoBehaviour {
             return;
         }
         
-        //Build a turret - TurretManager will let more turret types be used in the future
-        //GameObject turretToBuild = TurretManager.GetTurretToBuild();
-        //turret = (GameObject)Instantiate(turretToBuild,transform.position + positionOffset,transform.rotation);
-        
+        //Build a turret: "Instantiate" creates a GameObject
+        turretToBuild = TurretManager.Instance.getTurretToBuild();
+        builtTurret = (GameObject)Instantiate(turretToBuild,transform.position + offset,transform.rotation);  
     }
 }
