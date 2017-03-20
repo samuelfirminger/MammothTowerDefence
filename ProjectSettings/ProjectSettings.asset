@@ -4,14 +4,14 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  productGUID: 4befd0dc710678e4b82cf71f67e8fe24
+  productGUID: edf294e8cb6324d40bd35c97bb5b6fc1
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: MammothTowerD
+  productName: Mammoth Software Engineering TD
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
@@ -387,14 +387,14 @@ PlayerSettings:
   additionalIl2CppArgs: 
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: MammothTowerD
+  metroPackageName: Mammoth Software Engineering TD
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: MammothTowerD
+  metroApplicationDescription: Mammoth Software Engineering TD
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -462,8 +462,9 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
-  cloudProjectId: 0c5e1904-6533-40c0-8602-6d7c460b2f12
-  projectName: MammothTowerD
+  cloudProjectId: dbdbbe99-4d2f-4f49-ad20-2d2a558c8384
+  projectName: Mammoth Software Engineering TD
   organizationId: samfirminger
   cloudEnabled: 0
