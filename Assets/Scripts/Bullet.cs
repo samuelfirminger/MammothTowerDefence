@@ -34,10 +34,15 @@ public class Bullet : MonoBehaviour {
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 	}
     
+    public void setDamage(float damageValue) {
+        damage = damageValue;
+    }
+    
     void HitTarget() {
-        //Destroy bullet on impact
-        Destroy(gameObject);
+        //Deal damage to the target enemy
+        //target.dealDamage(damage); <- Subtracts damage value from enemy health bar
         
-        //Will need to check health here and destroy enemy if necessary
+        //Destroy bullet on impact
+        Destroy(gameObject);       
     }
 }
