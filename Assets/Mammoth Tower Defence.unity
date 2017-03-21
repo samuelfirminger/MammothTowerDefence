@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2952,11 +2952,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d02eebd1008519469e2a33a248448d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBasicPrefab: {fileID: 4590694198164624, guid: 756df232961d79d4a8d5bd49747b51a4,
+  enemyBasicPrefab: {fileID: 4567494098255092, guid: 756df232961d79d4a8d5bd49747b51a4,
     type: 2}
-  enemyFastPrefab: {fileID: 4920642539313058, guid: 9c995466d6e906d45b2cd3abdcc7cc68,
+  enemyFastPrefab: {fileID: 4122381000059404, guid: 9c995466d6e906d45b2cd3abdcc7cc68,
     type: 2}
-  enemySlowPrefab: {fileID: 4887486802155570, guid: c30c659aaa9d3b749bd31cd081f10932,
+  enemySlowPrefab: {fileID: 4711311079121856, guid: eb276542f72cbef448f71fe5fcad37da,
     type: 2}
   timeBetweenWaves: 5.5
   spawnPoint: {fileID: 838430044}
