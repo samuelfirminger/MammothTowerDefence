@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   attackDamage: 1
+  healthPoints: 10
 --- !u!135 &135502935286402044
 SphereCollider:
   m_ObjectHideFlags: 1

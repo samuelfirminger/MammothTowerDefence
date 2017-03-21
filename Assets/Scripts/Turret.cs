@@ -31,7 +31,6 @@ public class Turret : MonoBehaviour {
     
     void Shoot() {
         //Get bullet script access
-        //Vector3 firePoint = transform.position;
         GameObject firedBullet = (GameObject)Instantiate(bulletPrefab, transform.position, transform.rotation);
         Bullet bullet = firedBullet.GetComponent<Bullet>();
         

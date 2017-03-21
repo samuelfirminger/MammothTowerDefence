@@ -10,16 +10,12 @@ public class Bullet : MonoBehaviour {
     //Give bullet a target
     public void Seek(Transform newTarget) {
         target = newTarget;
-        if(target != null){
-            Debug.Log("Bullet acquired target");
-        }
     }
     
 	void Update () {
 		//Destroy bullet if target is lost (reaches the end)
         if(target == null) {
             Destroy(gameObject);
-            Debug.Log("NoTarget bullet destroyed");
             return;
         }
         
