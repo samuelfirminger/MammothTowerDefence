@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -223,7 +223,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4343389107409014, guid: ee55a8fe1c55c2a4d99cb5796935dbb4,
     type: 2}
   m_PrefabInternal: {fileID: 38621561}
---- !u!1001 &39546865
 --- !u!4 &49878938 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4343389107409014, guid: ee55a8fe1c55c2a4d99cb5796935dbb4,
@@ -640,7 +639,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4660986597302432, guid: 6e45e11f7299e7f48bdf8f97f095b99e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e45e11f7299e7f48bdf8f97f095b99e, type: 2}
@@ -905,7 +904,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 69141009}
-  - {fileID: 220403492}
   - {fileID: 838430044}
   - {fileID: 231086693}
   m_Father: {fileID: 0}
@@ -2363,7 +2361,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420359603116932, guid: 30bf52e4d5fd83841bf275e83ba53329, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30bf52e4d5fd83841bf275e83ba53329, type: 2}
@@ -2936,11 +2934,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d02eebd1008519469e2a33a248448d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBasicPrefab: {fileID: 4822882682586258, guid: 756df232961d79d4a8d5bd49747b51a4,
+  enemyBasicPrefab: {fileID: 4590694198164624, guid: 756df232961d79d4a8d5bd49747b51a4,
     type: 2}
-  enemyFastPrefab: {fileID: 4322706986389022, guid: 9c995466d6e906d45b2cd3abdcc7cc68,
+  enemyFastPrefab: {fileID: 4920642539313058, guid: 9c995466d6e906d45b2cd3abdcc7cc68,
     type: 2}
-  enemySlowPrefab: {fileID: 4132162306319752, guid: c30c659aaa9d3b749bd31cd081f10932,
+  enemySlowPrefab: {fileID: 4887486802155570, guid: c30c659aaa9d3b749bd31cd081f10932,
     type: 2}
   timeBetweenWaves: 5.5
   spawnPoint: {fileID: 838430044}
@@ -5676,7 +5674,7 @@ RectTransform:
   m_GameObject: {fileID: 2103170996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 668632873}
   m_RootOrder: 2
