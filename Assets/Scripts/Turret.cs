@@ -11,11 +11,12 @@ public class Turret : MonoBehaviour {
    
     public string enemyTag = "Enemy";
     public GameObject bulletPrefab;
-    public Transform firePoint;
     
 	// Use this for initialization
 	void Start () {
-		
+        //Need to constantly update to allow turrets to change targets frequently
+        //Parameters: function name, when to run first, how often to repeat
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
 	}
 	
 	void Update () {
@@ -29,10 +30,17 @@ public class Turret : MonoBehaviour {
 	}
     
     void Shoot() {
-        //Requires bullet script;
+        //Get bullet script access
+        //Vector3 firePoint = transform.position;
+        GameObject firedBullet = (GameObject)Instantiate(bulletPrefab, transform.position, transform.rotation);
+        Bullet bullet = firedBullet.GetComponent<Bullet>();
+        
+        if(bullet != null) {
+            bullet.Seek(target);
+        }
     }
     
-    void updateTarget() {
+    void UpdateTarget() {
         //Fill array of GameObjects: all enemies in scene
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
@@ -53,7 +61,13 @@ public class Turret : MonoBehaviour {
             target = nearestEnemy.transform;
         } else {
             target = null;
-        }
-        
+        }   
+    }
+    
+    //Use to display turret range when turret is selected
+    void OnDrawGizmosSelected() {
+        //Draw at turret position, radius of size range;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
