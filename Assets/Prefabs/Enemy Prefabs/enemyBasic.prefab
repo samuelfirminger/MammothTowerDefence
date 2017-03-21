@@ -88,10 +88,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4590694198164624}
-  - component: {fileID: 33471690193797988}
   - component: {fileID: 135532262347086224}
   - component: {fileID: 23097374103524340}
   - component: {fileID: 114413765609604096}
+  - component: {fileID: 33341326130066484}
   m_Layer: 0
   m_Name: enemyBasic
   m_TagString: Enemy
@@ -107,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 1740966915993886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 1, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 224763469152019546}
   m_Father: {fileID: 0}
@@ -144,13 +144,13 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33471690193797988
+--- !u!33 &33341326130066484
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740966915993886}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: f42db563c89acd34195e0f9f9368b65d, type: 3}
 --- !u!114 &114201039851263504
 MonoBehaviour:
   m_ObjectHideFlags: 1
