@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   attackDamage: 1
-  healthPoints: 10
+  healthPoints: 5
 --- !u!114 &114548499516488086
 MonoBehaviour:
   m_ObjectHideFlags: 1

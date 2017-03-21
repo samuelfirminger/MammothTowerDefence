@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
     public float movementSpeed  = 10f;
     public float attackDamage   = 1f;
     public float healthPoints = 10f;
-    private float distanceCheck = 0.2f;
+    private float distanceCheck = 0.2f;    
     
     //Variables for storing target waypoint
     private Transform waypointTarget;
@@ -44,5 +44,16 @@ public class Enemy : MonoBehaviour {
         
         waypointIndex++;
         waypointTarget = Waypoints.points[waypointIndex];
+    }
+    
+    public float getHealth() {
+        return healthPoints;
+    }
+    
+    public void setHealth(float newHealth) {
+        healthPoints = newHealth;
+        if(healthPoints <= 0) {
+            Destroy(gameObject);
+        }
     }
 }
