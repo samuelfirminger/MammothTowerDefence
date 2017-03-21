@@ -4,13 +4,24 @@ using UnityEngine.UI;
 
 public class EnemySpawnManager : MonoBehaviour { 
 
-    //Type of enemy to spawn
-	public Transform enemyPrefab;
+    //Types of enemy to spawn
+	private Transform[] enemyTypes = new Transform[3];
+    public Transform enemyBasicPrefab;
+    public Transform enemyFastPrefab;
+    public Transform enemySlowPrefab;
+    
     public float timeBetweenWaves = 5.5f;
     private float countdown = 2f;
     private int waveIndex = 0;
     
     public Transform spawnPoint;
+    
+    void Start() {
+        //Load all enemy types into array
+        enemyTypes[0] = enemyBasicPrefab;
+        enemyTypes[1] = enemyFastPrefab;
+        enemyTypes[2] = enemySlowPrefab;
+    }
     
     void Update() {
         //Start spawning when countdown done
@@ -35,6 +46,8 @@ public class EnemySpawnManager : MonoBehaviour {
     }
     
     void SpawnEnemy() {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        //Get a random num corresponding to an enemy type, and spawn
+        var index = Random.Range(0, enemyTypes.Length);
+        Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
     }
 }

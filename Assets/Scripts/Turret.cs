@@ -6,6 +6,7 @@ public class Turret : MonoBehaviour {
 
     public float range = 15f;
     public float fireRate = 1f;
+    public float baseDamage = 20f;
     private float cooldown = 0f;
     private Transform target;
    
