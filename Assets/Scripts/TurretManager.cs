@@ -7,29 +7,33 @@ using UnityEngine;
 public class TurretManager : MonoBehaviour { 
     //Make TurretManager a "Singleton Class" : only 1 instance can ever exist
     //See: http://answers.unity3d.com/questions/753488/
-    public static TurretManager Instance;
+    public static TurretManager instance;
     
     void Awake() {
-        Instance = this;
+		if (instance != null) {
+			Debug.Log ("More than one turretManager in scene."); 
+			return; 
+		}
+
+        instance = this;
     }
-       
+		
     //Turret types: future examples commented out
     public GameObject turretBasicPrefab;
-    //public GameObject turretSlowPrefab;
+	public GameObject turretSlowPrefab; 
+	//public GameObject turretSlowPrefab;
     //public GameObject turretSniperPrefab;
     //public GameObject turretFirePrefab;
     private GameObject turretToBuild;
     
-    void Start() {
-        turretToBuild = turretBasicPrefab;
-    }
+	//set turret to build from the Shop script
+	public void setTurretToBuild(GameObject turret) { 
+		turretToBuild = turret; 
+	}
     
     public GameObject getTurretToBuild() {
         return turretToBuild;
     }
     
-    //Will be used later to add multiple different turret types
-    public void setTurretToBuild(GameObject turret) {
-        turretToBuild = turret;       
-    }
+   
 }
