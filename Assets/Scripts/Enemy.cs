@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 
     public float movementSpeed  = 10f;
     public float attackDamage   = 1f;
+    public float healthPoints = 10f;
     private float distanceCheck = 0.2f;
     
     //Variables for storing target waypoint
