@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    public float movementSpeed  = 10f;
-    public float attackDamage   = 1f;
-    public float healthPoints = 10f;
+    public float movementSpeed;
+    public float attackDamage;
+    public float healthPoints;
+    public float max_healthPoints;
     private float distanceCheck = 0.2f;
+    public GameObject healthBar;
     
     //Variables for storing target waypoint
     private Transform waypointTarget;
@@ -15,6 +17,7 @@ public class Enemy : MonoBehaviour {
 
 	void Start () {
         //Set target to 1st waypoint in Waypoints array
+        max_healthPoints = healthPoints;
 		waypointTarget = Waypoints.points[0];
 	}
 	
@@ -44,5 +47,24 @@ public class Enemy : MonoBehaviour {
         
         waypointIndex++;
         waypointTarget = Waypoints.points[waypointIndex];
+    }
+    
+    public float getHealth() {
+        return healthPoints;
+    }
+    
+    public void setHealth(float newHealth) {
+        healthPoints = newHealth;
+        float calc_Health = healthPoints / max_healthPoints;
+        SetHealthBar(calc_Health);
+
+        if(healthPoints <= 0) {
+            Destroy(gameObject);
+        }
+    }
+    public void SetHealthBar(float myHealth)
+    {
+        //myHealth value 0-1 , calculated by maxhealth/Curent health
+        healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 }

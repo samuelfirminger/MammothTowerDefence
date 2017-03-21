@@ -37,11 +37,13 @@ public class Bullet : MonoBehaviour {
     public void setDamage(float damageValue) {
         damage = damageValue;
     }
-    
+       
     void HitTarget() {
         //Deal damage to the target enemy
         //target.dealDamage(damage); <- Subtracts damage value from enemy health bar
-        
+        Enemy targetEnemy = target.GetComponent<Enemy>();
+        DealDamage.dealDamageToEnemy(targetEnemy, damage);
+       
         //Destroy bullet on impact
         Destroy(gameObject);       
     }

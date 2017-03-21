@@ -454,10 +454,10 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Build: 0
-    Collab: 0
+    Collab: 1
     ErrorHub: 0
     Hub: 0
-    UNet: 0
+    UNet: 1
   cloudProjectId: dbdbbe99-4d2f-4f49-ad20-2d2a558c8384
   projectName: Mammoth Software Engineering TD
   organizationId: samfirminger
