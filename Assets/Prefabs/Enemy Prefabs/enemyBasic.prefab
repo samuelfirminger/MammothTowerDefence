@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 33297256271369796}
   m_Layer: 0
   m_Name: enemyBasic
-  m_TagString: Enemy
+  m_TagString: Code
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,6 +285,9 @@ MonoBehaviour:
   healthPoints: 5
   max_healthPoints: 0
   healthBar: {fileID: 1617746765370252}
+  shootMe: 0
+  isEnemy: 0
+  properties: 0000000000000000
 --- !u!135 &135679843360263894
 SphereCollider:
   m_ObjectHideFlags: 1

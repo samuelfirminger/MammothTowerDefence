@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -239,7 +239,6 @@ GameObject:
   - component: {fileID: 17874979}
   - component: {fileID: 17874978}
   - component: {fileID: 17874982}
-  - component: {fileID: 17874981}
   m_Layer: 5
   m_Name: TurretShop
   m_TagString: Untagged
@@ -323,17 +322,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 17874976}
---- !u!114 &17874981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 17874976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b70e534277e014992ab69f3534ff21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &17874982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1825,6 +1813,22 @@ Transform:
   m_PrefabParentObject: {fileID: 4343389107409014, guid: ee55a8fe1c55c2a4d99cb5796935dbb4,
     type: 2}
   m_PrefabInternal: {fileID: 1995406610}
+--- !u!1 &455814522 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1167038291603870, guid: 30bf52e4d5fd83841bf275e83ba53329,
+    type: 2}
+  m_PrefabInternal: {fileID: 1099952667}
+--- !u!114 &455814526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 455814522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f209e8da7d419448a697ac3195e0abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &462655415
 Prefab:
   m_ObjectHideFlags: 0
@@ -4718,22 +4722,22 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 124.2375
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -290.75
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -4743,7 +4747,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -4753,7 +4757,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5268,22 +5272,22 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 124.2375
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -165.75
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5293,7 +5297,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5303,7 +5307,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5394,6 +5398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87abe028097f53946b94764e751da042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classification: 
   turretBasicPrefab: {fileID: 1031791547840366, guid: 45c735ea271023e43aa9f0cf96dc1cc2,
     type: 2}
   turretSlowPrefab: {fileID: 1771035743009696, guid: 1ded5ffe767f0e546b9188f4d096f575,

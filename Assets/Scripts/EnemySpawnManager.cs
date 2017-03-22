@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class EnemySpawnManager : MonoBehaviour { 
 
     //Types of enemy to spawn
-	private Transform[] enemyTypes = new Transform[3];
+	private Transform[] enemyTypes = new Transform[2];
     public Transform enemyBasicPrefab;
     public Transform enemyFastPrefab;
     public Transform enemySlowPrefab;
-    
+  
     public float timeBetweenWaves = 5.5f;
     private float countdown = 2f;
     private int waveIndex = 0;
@@ -20,7 +20,7 @@ public class EnemySpawnManager : MonoBehaviour {
         //Load all enemy types into array
         enemyTypes[0] = enemyBasicPrefab;
         enemyTypes[1] = enemyFastPrefab;
-        enemyTypes[2] = enemySlowPrefab;
+        //enemyTypes[2] = enemySlowPrefab;        
     }
     
     void Update() {

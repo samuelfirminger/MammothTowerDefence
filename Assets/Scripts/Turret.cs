@@ -10,14 +10,17 @@ public class Turret : MonoBehaviour {
     private float cooldown = 0f;
     private Transform target;
    
-    public string enemyTag = "Enemy";
+    private string enemyTag = "Enemy";
     public GameObject bulletPrefab;
+    
+    public int[] userVariables = new int[2];
     
 	// Use this for initialization
 	void Start () {
         //Need to constantly update to allow turrets to change targets frequently
         //Parameters: function name, when to run first, how often to repeat
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        enemyTag = "Code";
 	}
 	
 	void Update () {
@@ -51,9 +54,13 @@ public class Turret : MonoBehaviour {
         foreach(GameObject enemy in enemies) {
             //Get distance to each enemy
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            Enemy enemyToCheck = enemy.GetComponent<Enemy>();
+                       
             if(distanceToEnemy < shortestDistance) {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                if (checkIfEnemy(enemyToCheck.properties) == 1) {                
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
             }
         }
         
@@ -70,5 +77,17 @@ public class Turret : MonoBehaviour {
         //Draw at turret position, radius of size range;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+    
+    //Check the enemy properties against what the user has programmed the turret to fire at
+    //Return 1 if enemy meets the users specification, otherwise return 0
+    int checkIfEnemy(int[] enemyProperties) {
+        for(int i=0 ; i<userVariables.Length ; i++) {
+            if(enemyProperties[i] != userVariables[i]) {
+                return 0;
+            }
+        }
+        
+        return 1;
     }
 }

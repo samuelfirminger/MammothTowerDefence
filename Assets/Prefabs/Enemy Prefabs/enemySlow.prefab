@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 114148072178958928}
   m_Layer: 0
   m_Name: enemySlow
-  m_TagString: Enemy
+  m_TagString: Code
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,6 +167,9 @@ MonoBehaviour:
   healthPoints: 20
   max_healthPoints: 0
   healthBar: {fileID: 1221342016450492}
+  shootMe: 1
+  isEnemy: 0
+  properties: 0000000000000000
 --- !u!114 &114273084892355620
 MonoBehaviour:
   m_ObjectHideFlags: 1

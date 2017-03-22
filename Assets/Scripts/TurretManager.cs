@@ -9,15 +9,31 @@ public class TurretManager : MonoBehaviour {
     //See: http://answers.unity3d.com/questions/753488/
     public static TurretManager instance;
     
+    public int[] classification;
+    
     void Awake() {
 		if (instance != null) {
 			Debug.Log ("More than one turretManager in scene."); 
 			return; 
 		}
-
+               
+        classification = new int[2];
+        setClassification(3,4); //This to be moved somewhere else: classification of enemy changes between rounds (shoot red enemies one round, shoot blue and speed=2 enemies another round etc...)
         instance = this;
     }
-		
+	
+    public void setClassification(int property0, int property1) {
+        classification[0] = property0;
+        classification[1] = property1;
+    }
+    
+    //Set the properties that define an enemy: will change between rounds
+    //Should this be in turret manager? Probably not.   
+    public int getClassification(int index) {
+        return classification[index];
+    }
+    
+    
     //Turret types: future examples commented out
     public GameObject turretBasicPrefab;
 	public GameObject turretSlowPrefab; 
