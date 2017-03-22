@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour {
 	private Transform target;
     private float damage;
     public float speed = 70f;
+	public float slowFactor;
+	public float slowTime;
 	
     //Give bullet a target
     public void Seek(Transform newTarget) {
@@ -43,6 +45,11 @@ public class Bullet : MonoBehaviour {
         //target.dealDamage(damage); <- Subtracts damage value from enemy health bar
         Enemy targetEnemy = target.GetComponent<Enemy>();
         DealDamage.dealDamageToEnemy(targetEnemy, damage);
+
+		//Do a slow
+		if (slowFactor != null) {
+			targetEnemy.setSlow(slowFactor, slowTime);
+		}
        
         //Destroy bullet on impact
         Destroy(gameObject);       

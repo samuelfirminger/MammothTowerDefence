@@ -10,6 +10,12 @@ public class Enemy : MonoBehaviour {
     public float max_healthPoints;
     private float distanceCheck = 0.2f;
     public GameObject healthBar;
+
+	//Slow fields
+	private int slowState;
+	private float slowCooldown;
+	private float slowStartTime;
+	private float tempSpeed;
     
     //Testing variables for turret targetting
     public int shootMe, isEnemy;
@@ -23,6 +29,7 @@ public class Enemy : MonoBehaviour {
         //Set target to 1st waypoint in Waypoints array
         max_healthPoints = healthPoints;
 		waypointTarget = Waypoints.points[0];
+		slowState = 0;
         //Note: at this point, the gameObject is either set to represent an enemy (properties match enemyClassification)
         //OR  : gameObject is created as a non-enemy: properties are randomly generated within a range
         //Generate 0 or 1 randomly: 
@@ -54,6 +61,12 @@ public class Enemy : MonoBehaviour {
         if(Vector3.Distance(transform.position, waypointTarget.position) <= distanceCheck) {
             GetNextWaypoint();
         }
+
+		//Reset speed after slowCooldown
+		if (Time.time > slowStartTime + slowCooldown && slowState == 1) {
+			slowState = 0;
+			movementSpeed = tempSpeed;
+		}
 	}
     
     void GetNextWaypoint() {
@@ -90,4 +103,18 @@ public class Enemy : MonoBehaviour {
     public int GetProperties() {
         return shootMe;
     }
+
+	public void setSlow(float slowFactor, float slowTime) {
+		slowStartTime = Time.time;
+		slowCooldown = slowTime;
+		if (slowState != 1) {
+			tempSpeed = movementSpeed;
+			slowState = 1;
+			movementSpeed *= slowFactor;
+		}
+	}
+
+	public int getSlowState() {
+		return slowState;
+	}
 }
