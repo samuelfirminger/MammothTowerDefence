@@ -96,7 +96,7 @@ MonoBehaviour:
   fireRate: 0.5
   baseDamage: 1
   enemyTag: Enemy
-  bulletPrefab: {fileID: 1113054760166758, guid: 3c021a6dbcc6e304bab1d0560b2ec179,
+  bulletPrefab: {fileID: 1726691375818554, guid: dcec8a39ba6c3a34dad04ce3b7c5b2ae,
     type: 2}
 --- !u!136 &136470102610035788
 CapsuleCollider:
