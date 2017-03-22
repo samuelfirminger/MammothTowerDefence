@@ -8,9 +8,14 @@ public class Enemy : MonoBehaviour {
     public float attackDamage;
     public float healthPoints;
     public float max_healthPoints;
-	private int slowState;
     private float distanceCheck = 0.2f;
     public GameObject healthBar;
+
+	//Slow fields
+	private int slowState;
+	private float slowCooldown;
+	private float slowStartTime;
+	private float tempSpeed;
     
     //Variables for storing target waypoint
     private Transform waypointTarget;
@@ -37,6 +42,12 @@ public class Enemy : MonoBehaviour {
         if(Vector3.Distance(transform.position, waypointTarget.position) <= distanceCheck) {
             GetNextWaypoint();
         }
+
+		//Reset speed after slowCooldown
+		if (Time.time > slowStartTime + slowCooldown && slowState == 1) {
+			slowState = 0;
+			movementSpeed = tempSpeed;
+		}
 	}
     
     void GetNextWaypoint() {
@@ -70,14 +81,14 @@ public class Enemy : MonoBehaviour {
         healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 
-	public IEnumerator setSlow(float slowFactor, float slowTime) {
-		slowState = 1;
-		movementSpeed /= slowFactor;
-		Debug.Log ("Slowing down.");
-		yield return new WaitForSeconds(slowTime);
-		//TODO make enemy fast again (movementspeed *= slowfactor)
-		//TODO set slowstate to 0
-		//I can't work out how to do this send help
+	public void setSlow(float slowFactor, float slowTime) {
+		slowStartTime = Time.time;
+		slowCooldown = slowTime;
+		if (slowState != 1) {
+			tempSpeed = movementSpeed;
+			slowState = 1;
+			movementSpeed *= slowFactor;
+		}
 	}
 
 	public int getSlowState() {

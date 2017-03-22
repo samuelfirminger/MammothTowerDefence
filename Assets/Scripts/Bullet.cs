@@ -47,8 +47,8 @@ public class Bullet : MonoBehaviour {
         DealDamage.dealDamageToEnemy(targetEnemy, damage);
 
 		//Do a slow
-		if (slowFactor != 0 && targetEnemy.getSlowState() == 0) {
-			StartCoroutine(targetEnemy.setSlow(slowFactor, slowTime));
+		if (slowFactor != null) {
+			targetEnemy.setSlow(slowFactor, slowTime);
 		}
        
         //Destroy bullet on impact
