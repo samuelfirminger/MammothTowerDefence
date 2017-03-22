@@ -33,7 +33,6 @@ public class TurretManager : MonoBehaviour {
         return classification[index];
     }
     
-    
     //Turret types: future examples commented out
     public GameObject turretBasicPrefab;
 	public GameObject turretSlowPrefab; 
@@ -49,7 +48,5 @@ public class TurretManager : MonoBehaviour {
     
     public GameObject getTurretToBuild() {
         return turretToBuild;
-    }
-    
-   
+    }  
 }

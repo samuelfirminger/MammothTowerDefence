@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour {
 	private float tempSpeed;
     
     //Testing variables for turret targetting
-    public int shootMe, isEnemy;
     public int[] properties = new int[2];
     
     //Variables for storing target waypoint
@@ -94,27 +93,19 @@ public class Enemy : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    public void SetHealthBar(float myHealth)
-    {
+    
+    public void SetHealthBar(float myHealth) {
         //myHealth value 0-1 , calculated by maxhealth/Curent health
         healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
     
-    public int GetProperties() {
-        return shootMe;
-    }
-
 	public void setSlow(float slowFactor, float slowTime) {
 		slowStartTime = Time.time;
 		slowCooldown = slowTime;
-		if (slowState != 1) {
+		if (slowState == 0) {
 			tempSpeed = movementSpeed;
 			slowState = 1;
 			movementSpeed *= slowFactor;
 		}
-	}
-
-	public int getSlowState() {
-		return slowState;
 	}
 }

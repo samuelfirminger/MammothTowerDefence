@@ -97,7 +97,7 @@ MonoBehaviour:
   baseDamage: 1
   bulletPrefab: {fileID: 1726691375818554, guid: dcec8a39ba6c3a34dad04ce3b7c5b2ae,
     type: 2}
-  userVariables: 0100000001000000
+  userVariables: 0300000004000000
 --- !u!136 &136470102610035788
 CapsuleCollider:
   m_ObjectHideFlags: 1

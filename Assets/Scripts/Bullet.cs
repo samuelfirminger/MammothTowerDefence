@@ -46,8 +46,8 @@ public class Bullet : MonoBehaviour {
         Enemy targetEnemy = target.GetComponent<Enemy>();
         DealDamage.dealDamageToEnemy(targetEnemy, damage);
 
-		//Do a slow
-		if (slowFactor != null) {
+		//Slow down enemy
+		if (slowFactor != 0) {
 			targetEnemy.setSlow(slowFactor, slowTime);
 		}
        

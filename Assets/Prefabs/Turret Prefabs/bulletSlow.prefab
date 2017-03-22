@@ -93,8 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 45
-  slowFactor: 2
-  slowTime: 1
+  slowFactor: 0.5
+  slowTime: 3
 --- !u!135 &135712363271359756
 SphereCollider:
   m_ObjectHideFlags: 1
