@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
     public float attackDamage;
     public float healthPoints;
     public float max_healthPoints;
+	private int slowState;
     private float distanceCheck = 0.2f;
     public GameObject healthBar;
     
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour {
         //Set target to 1st waypoint in Waypoints array
         max_healthPoints = healthPoints;
 		waypointTarget = Waypoints.points[0];
+		slowState = 0;
 	}
 	
 	void Update () {
@@ -67,4 +69,18 @@ public class Enemy : MonoBehaviour {
         //myHealth value 0-1 , calculated by maxhealth/Curent health
         healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
+
+	public IEnumerator setSlow(float slowFactor, float slowTime) {
+		slowState = 1;
+		movementSpeed /= slowFactor;
+		Debug.Log ("Slowing down.");
+		yield return new WaitForSeconds(slowTime);
+		//TODO make enemy fast again (movementspeed *= slowfactor)
+		//TODO set slowstate to 0
+		//I can't work out how to do this send help
+	}
+
+	public int getSlowState() {
+		return slowState;
+	}
 }
