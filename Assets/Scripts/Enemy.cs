@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
     public float max_healthPoints;
     private float distanceCheck = 0.2f;
     public GameObject healthBar;
-
+ 
 	//Slow fields
 	private int slowState;
 	private float slowCooldown;
@@ -43,7 +43,6 @@ public class Enemy : MonoBehaviour {
         if(rand == 0) {
             //Creating an enemy to shoot
             rend.material.color = badColour;
-			gameObject.tag = "Enemy";
             for(int i = 0; i < properties.Length ; i++) {
                 properties[i] = TurretManager.instance.getClassification(i);            
             }

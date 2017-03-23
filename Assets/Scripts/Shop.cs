@@ -20,5 +20,10 @@ public class Shop : MonoBehaviour {
 		Debug.Log("Slowing Turret purchased"); 
 		turretManager.setTurretToBuild (turretManager.turretSlowPrefab); 
     }
+    
+    public void buySplashTurret() {
+        Debug.Log("Splash Turret purchased");
+        turretManager.setTurretToBuild (turretManager.turretSplashPrefab);
+    }
 		
 }

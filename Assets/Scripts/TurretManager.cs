@@ -36,7 +36,7 @@ public class TurretManager : MonoBehaviour {
     //Turret types: future examples commented out
     public GameObject turretBasicPrefab;
 	public GameObject turretSlowPrefab; 
-	//public GameObject turretSlowPrefab;
+	public GameObject turretSplashPrefab;
     //public GameObject turretSniperPrefab;
     //public GameObject turretFirePrefab;
     private GameObject turretToBuild;

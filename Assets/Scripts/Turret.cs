@@ -10,7 +10,7 @@ public class Turret : MonoBehaviour {
     private float cooldown = 0f;
     private Transform target;
    
-    private string enemyTag = "Enemy";
+    private string enemyTag = "Code";
     public GameObject bulletPrefab;
     
     public int[] userVariables = new int[2];

@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour {
 	//Splash fields
 	public float splashRadius;
 	public float splashDamage;
-	private string enemyTag = "Enemy";
+	private string enemyTag = "Code";
 	
     //Give bullet a target
     public void Seek(Transform newTarget) {
@@ -52,19 +52,21 @@ public class Bullet : MonoBehaviour {
         DealDamage.dealDamageToEnemy(targetEnemy, damage);
 
 		//Slow down enemy
-		slowTarget(targetEnemy);
-
-		//Deal splash damage
-		splashNearby(targetEnemy);
+        if (slowFactor != 0) {
+            slowTarget(targetEnemy);
+        }
        
+		//Deal splash damage
+        if (splashDamage != 0) {
+            splashNearby(targetEnemy);
+        }
+                    
         //Destroy bullet on impact
         Destroy(gameObject);       
     }
 
-	void slowTarget(Enemy targetEnemy) {
-		if (slowFactor != 0) {
-			targetEnemy.setSlow(slowFactor, slowTime);
-		}
+	void slowTarget(Enemy targetEnemy) {		
+        targetEnemy.setSlow(slowFactor, slowTime);
 	}
 
 	void splashNearby(Enemy targetEnemy) {
