@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 13962523}
   - component: {fileID: 13962522}
   m_Layer: 5
-  m_Name: Health Bar
+  m_Name: Player Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2052,7 +2052,7 @@ GameObject:
   - component: {fileID: 485122020}
   m_Layer: 5
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: PlayerHealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2096,7 +2096,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -3353,7 +3353,7 @@ GameObject:
   - component: {fileID: 883400676}
   - component: {fileID: 883400675}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Cash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3398,7 +3398,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -5507,7 +5507,6 @@ MonoBehaviour:
     type: 2}
   enemySlowPrefab: {fileID: 4671926486379060, guid: eb276542f72cbef448f71fe5fcad37da,
     type: 2}
-  timeBetweenWaves: 5.5
   spawnPoint: {fileID: 838430044}
 --- !u!114 &1284036671
 MonoBehaviour:
@@ -5520,7 +5519,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c8a930a9484da2b4ef72087b12e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialHealth: 20
+  healthUI: {fileID: 485122018}
   initialCash: 500
+  cashUI: {fileID: 883400673}
 --- !u!4 &1292398632 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4343389107409014, guid: ee55a8fe1c55c2a4d99cb5796935dbb4,

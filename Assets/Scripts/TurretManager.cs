@@ -50,7 +50,7 @@ public class TurretManager : MonoBehaviour {
 			return;
 		}
 
-		PlayerStats.Cash -= turretToBuild.cost;
+		PlayerStats.instance.adjustCash(-(turretToBuild.cost));
 
 		GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition (), Quaternion.identity);
 		node.builtTurret = turret;

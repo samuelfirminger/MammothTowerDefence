@@ -9,8 +9,11 @@ public class Enemy : MonoBehaviour {
     public Color badColour;
     public Color goodColour;
     
+    //Flag variable: is this code object an Enemy?
+    private bool isEnemy = false;
+    
     public float movementSpeed;
-    public float attackDamage;
+    public int attackDamage;
     public float healthPoints;
     public float max_healthPoints;
     private float distanceCheck = 0.2f;
@@ -43,6 +46,7 @@ public class Enemy : MonoBehaviour {
         if(rand == 0) {
             //Creating an enemy to shoot
             rend.material.color = badColour;
+            isEnemy = true;
             for(int i = 0; i < properties.Length ; i++) {
                 properties[i] = TurretManager.instance.getClassification(i);            
             }
@@ -78,9 +82,13 @@ public class Enemy : MonoBehaviour {
 	}
     
     void GetNextWaypoint() {
-        //Check if at the end of waypoint path, and destroy enemy if so
+        //Check if at the end of waypoint path, and destroy enemy if so 
+        //Inflict damage if code is "bad" code (an enemy)
         if(waypointIndex >= Waypoints.points.Length - 1) {
-            //Future change: instead of just destroy, subtract from some sort of "player health" variable
+            if(isEnemy) {
+                PlayerStats.instance.decreaseHealth(attackDamage);     
+                Debug.Log("HP = " + PlayerStats.Health);
+            }   
             Destroy(gameObject);
             return;
         }
@@ -99,9 +107,10 @@ public class Enemy : MonoBehaviour {
         SetHealthBar(calc_Health);
 
         if(healthPoints <= 0) {
-            Destroy(gameObject);
-			PlayerStats.Cash += 10;
-			Debug.Log ("Enemy killed. Cash = " + PlayerStats.Cash);
+            if(isEnemy) {
+                PlayerStats.instance.adjustCash(10);
+            }
+            Destroy(gameObject);			
         }
     }
     
