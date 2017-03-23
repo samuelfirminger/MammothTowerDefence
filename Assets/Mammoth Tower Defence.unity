@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -340,6 +340,9 @@ MonoBehaviour:
   turretSlow:
     prefab: {fileID: 1771035743009696, guid: 1ded5ffe767f0e546b9188f4d096f575, type: 2}
     cost: 100
+  turretSplash:
+    prefab: {fileID: 1443746652952570, guid: 0753d9dae76f0483585bd6ac0b0dae51, type: 2}
+    cost: 200
 --- !u!4 &18903047 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4343389107409014, guid: ee55a8fe1c55c2a4d99cb5796935dbb4,
@@ -4803,7 +4806,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 84.977005
+      value: 124.2375
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -4813,7 +4816,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -4828,7 +4831,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -4838,7 +4841,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5353,7 +5356,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 84.977005
+      value: 124.2375
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5363,7 +5366,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5378,7 +5381,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5388,7 +5391,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -6565,7 +6568,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 124.2375
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -6575,7 +6578,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -6590,7 +6593,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -6600,7 +6603,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -7810,6 +7813,17 @@ Prefab:
         type: 2}
       propertyPath: turretSlow.cost
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turretSplash.prefab
+      value: 
+      objectReference: {fileID: 1443746652952570, guid: 0753d9dae76f0483585bd6ac0b0dae51,
+        type: 2}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turretSplash.cost
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec5ddc848e3b84a4697e60f73b4a1bbc, type: 2}
