@@ -12,7 +12,7 @@ public class EnemySpawnManager : MonoBehaviour {
   
     public float timeBetweenWaves = 5.5f;
     private float countdown = 2f;
-    private int waveIndex = 0;
+    private int waveIndex = 3;
     
     public Transform spawnPoint;
     

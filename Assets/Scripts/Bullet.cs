@@ -9,6 +9,11 @@ public class Bullet : MonoBehaviour {
     public float speed = 70f;
 	public float slowFactor;
 	public float slowTime;
+
+	//Splash fields
+	public float splashRadius;
+	public float splashDamage;
+	private string enemyTag = "Enemy";
 	
     //Give bullet a target
     public void Seek(Transform newTarget) {
@@ -47,11 +52,31 @@ public class Bullet : MonoBehaviour {
         DealDamage.dealDamageToEnemy(targetEnemy, damage);
 
 		//Slow down enemy
-		if (slowFactor != 0) {
-			targetEnemy.setSlow(slowFactor, slowTime);
-		}
+		slowTarget(targetEnemy);
+
+		//Deal splash damage
+		splashNearby(targetEnemy);
        
         //Destroy bullet on impact
         Destroy(gameObject);       
     }
+
+	void slowTarget(Enemy targetEnemy) {
+		if (slowFactor != 0) {
+			targetEnemy.setSlow(slowFactor, slowTime);
+		}
+	}
+
+	void splashNearby(Enemy targetEnemy) {
+		//Fill array of GameObjects: all enemies in scene
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+		foreach(GameObject enemy in enemies) {
+			//Get distance to each enemy
+			float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, enemy.transform.position);
+			Enemy enemyToCheck = enemy.GetComponent<Enemy>();
+			if(distanceToEnemy <= splashRadius) {
+				DealDamage.dealDamageToEnemy(enemyToCheck, splashDamage);
+			}
+		}
+	}
 }
