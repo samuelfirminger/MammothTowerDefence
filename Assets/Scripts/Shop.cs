@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour {
 
+	public TurretSpec turretBasic;
+	public TurretSpec turretSlow;
+	public TurretSpec turretSplash;
 
 	TurretManager turretManager ; 
 
@@ -10,20 +13,20 @@ public class Shop : MonoBehaviour {
 		turretManager = TurretManager.instance; 
 	}
 
-	public void buyStandardTurret () {
+	public void chooseStandardTurret () {
 		Debug.Log("Standard Turret purchased"); 
-		turretManager.setTurretToBuild (turretManager.turretBasicPrefab); 
+		turretManager.chooseTurretToBuild (turretBasic); 
 	}
 
 
-	public void buySlowTurret() {
+	public void chooseSlowTurret() {
 		Debug.Log("Slowing Turret purchased"); 
-		turretManager.setTurretToBuild (turretManager.turretSlowPrefab); 
+		turretManager.chooseTurretToBuild (turretSlow); 
     }
     
     public void buySplashTurret() {
         Debug.Log("Splash Turret purchased");
-        turretManager.setTurretToBuild (turretManager.turretSplashPrefab);
+		turretManager.chooseTurretToBuild (turretSplash);
     }
 		
 }

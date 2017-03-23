@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -334,6 +334,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b70e534277e014992ab69f3534ff21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretBasic:
+    prefab: {fileID: 1031791547840366, guid: 45c735ea271023e43aa9f0cf96dc1cc2, type: 2}
+    cost: 100
+  turretSlow:
+    prefab: {fileID: 1771035743009696, guid: 1ded5ffe767f0e546b9188f4d096f575, type: 2}
+    cost: 100
 --- !u!4 &18903047 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4343389107409014, guid: ee55a8fe1c55c2a4d99cb5796935dbb4,
@@ -4797,7 +4803,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 84.977005
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -4862,7 +4868,7 @@ Prefab:
     - target: {fileID: 114975549631495982, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: buySlowTurret
+      value: chooseSlowTurret
       objectReference: {fileID: 0}
     - target: {fileID: 114975549631495982, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5347,7 +5353,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 84.977005
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5412,7 +5418,7 @@ Prefab:
     - target: {fileID: 114975549631495982, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: buyStandardTurret
+      value: chooseStandardTurret
       objectReference: {fileID: 0}
     - target: {fileID: 114975549631495982, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5508,9 +5514,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1284036667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9a742a0a1e7c164495423abe85d4b08, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a1c8a930a9484da2b4ef72087b12e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialCash: 500
 --- !u!4 &1292398632 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4343389107409014, guid: ee55a8fe1c55c2a4d99cb5796935dbb4,
@@ -7781,6 +7788,28 @@ Prefab:
     - target: {fileID: 4356444889119534, guid: ec5ddc848e3b84a4697e60f73b4a1bbc, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turretBasic.prefab
+      value: 
+      objectReference: {fileID: 1031791547840366, guid: 45c735ea271023e43aa9f0cf96dc1cc2,
+        type: 2}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turretSlow.prefab
+      value: 
+      objectReference: {fileID: 1771035743009696, guid: 1ded5ffe767f0e546b9188f4d096f575,
+        type: 2}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turretBasic.cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turretSlow.cost
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec5ddc848e3b84a4697e60f73b4a1bbc, type: 2}

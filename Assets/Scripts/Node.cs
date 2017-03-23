@@ -8,7 +8,8 @@ public class Node : MonoBehaviour {
     private Color startColor;
     
     //Turret Building Variables:
-    private GameObject builtTurret;  
+	[Header("Optional parameter")]
+    public GameObject builtTurret;  
     public Vector3 offset;
 
 	TurretManager turretManager ;
@@ -20,9 +21,13 @@ public class Node : MonoBehaviour {
 
 		turretManager = TurretManager.instance;
     }
+
+	public Vector3 getBuildPosition() {
+		return transform.position + offset;
+	}
        
     void OnMouseEnter() {
-		if (turretManager.getTurretToBuild() == null) {
+		if (!turretManager.canBuild) {
 			return;
 		}
 
@@ -37,7 +42,7 @@ public class Node : MonoBehaviour {
     
     void OnMouseDown() {
 
-		if (turretManager.getTurretToBuild() == null) {
+		if (!turretManager.canBuild) {
 			return;
 		}
 
@@ -46,9 +51,7 @@ public class Node : MonoBehaviour {
             Debug.Log("Cannot build over pre-existing turret!");
             return;
         }
-        
-        //Build a turret: "Instantiate" creates a GameObject
-		GameObject turretToBuild = turretManager.getTurretToBuild();
-        builtTurret = (GameObject)Instantiate(turretToBuild,transform.position + offset,transform.rotation);  
+
+		turretManager.createTurretOn (this);
     }
 }

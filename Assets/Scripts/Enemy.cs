@@ -100,6 +100,8 @@ public class Enemy : MonoBehaviour {
 
         if(healthPoints <= 0) {
             Destroy(gameObject);
+			PlayerStats.Cash += 10;
+			Debug.Log ("Enemy killed. Cash = " + PlayerStats.Cash);
         }
     }
     

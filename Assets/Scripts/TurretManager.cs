@@ -39,14 +39,26 @@ public class TurretManager : MonoBehaviour {
 	public GameObject turretSplashPrefab;
     //public GameObject turretSniperPrefab;
     //public GameObject turretFirePrefab;
-    private GameObject turretToBuild;
-    
-	//set turret to build from the Shop script
-	public void setTurretToBuild(GameObject turret) { 
-		turretToBuild = turret; 
+	private TurretSpec turretToBuild;
+
+	public bool canBuild { get { return turretToBuild != null; } }
+
+	public void createTurretOn(Node node) {
+
+		if (PlayerStats.Cash < turretToBuild.cost) {
+			Debug.Log ("Not enough cash to build");
+			return;
+		}
+
+		PlayerStats.Cash -= turretToBuild.cost;
+
+		GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition (), Quaternion.identity);
+		node.builtTurret = turret;
+
+		Debug.Log ("Turret built. Cash left = " + PlayerStats.Cash);
 	}
     
-    public GameObject getTurretToBuild() {
-        return turretToBuild;
-    }  
+	public void chooseTurretToBuild(TurretSpec turret) {
+		turretToBuild = turret;
+	} 
 }
