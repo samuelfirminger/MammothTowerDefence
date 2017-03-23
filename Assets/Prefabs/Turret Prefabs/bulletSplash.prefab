@@ -95,6 +95,8 @@ MonoBehaviour:
   speed: 50
   slowFactor: 0
   slowTime: 0
+  splashRadius: 3
+  splashDamage: 1
 --- !u!135 &135629610836233966
 SphereCollider:
   m_ObjectHideFlags: 1

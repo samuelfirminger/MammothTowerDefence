@@ -104,8 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8513c2680f8780439747bf0843cb288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  fireRate: 5
-  baseDamage: 3
-  bulletPrefab: {fileID: 0}
-  userVariables: 0000000000000000
+  range: 7
+  fireRate: 0.5
+  baseDamage: 2
+  bulletPrefab: {fileID: 1606203011598880, guid: cbe40f44ffe2144f5b4d6a0d0c7de25e,
+    type: 2}
+  userVariables: 0300000004000000
