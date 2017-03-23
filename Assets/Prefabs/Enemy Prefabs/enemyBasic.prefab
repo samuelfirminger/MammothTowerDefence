@@ -280,8 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc61e58ddcd06264183cd0a49af1e7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  badColour: {r: 1, g: 0, b: 0, a: 0}
-  goodColour: {r: 0, g: 1, b: 0.006896496, a: 0}
+  badColour: {r: 0.37254903, g: 0.6156863, b: 1, a: 0}
+  goodColour: {r: 0, g: 0, b: 0, a: 0}
   movementSpeed: 10
   attackDamage: 1
   healthPoints: 5
