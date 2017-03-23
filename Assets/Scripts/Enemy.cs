@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    //Enemy colour:
+    private Renderer rend;
+    public Color badColour;
+    public Color goodColour;
+    
     public float movementSpeed;
     public float attackDamage;
     public float healthPoints;
@@ -28,6 +33,7 @@ public class Enemy : MonoBehaviour {
         //Set target to 1st waypoint in Waypoints array
         max_healthPoints = healthPoints;
 		waypointTarget = Waypoints.points[0];
+        rend = GetComponent<Renderer>();
 		slowState = 0;
         //Note: at this point, the gameObject is either set to represent an enemy (properties match enemyClassification)
         //OR  : gameObject is created as a non-enemy: properties are randomly generated within a range
@@ -36,12 +42,15 @@ public class Enemy : MonoBehaviour {
         
         if(rand == 0) {
             //Creating an enemy to shoot
+            rend.material.color = badColour;
             for(int i = 0; i < properties.Length ; i++) {
                 properties[i] = TurretManager.instance.getClassification(i);            
             }
         } else {
+            rend.material.color = goodColour;
             for(int i = 0; i< properties.Length; i++) {
-                properties[i] = Random.Range(0,5);
+                properties[i] = -1;
+                //properties[i] = Random.Range(0,5);
             }
         }
 	}

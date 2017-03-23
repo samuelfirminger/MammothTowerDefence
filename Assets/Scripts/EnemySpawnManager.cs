@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class EnemySpawnManager : MonoBehaviour { 
 
     //Types of enemy to spawn
-	private Transform[] enemyTypes = new Transform[2];
+	private Transform[] enemyTypes = new Transform[1];
     public Transform enemyBasicPrefab;
     public Transform enemyFastPrefab;
     public Transform enemySlowPrefab;
@@ -19,7 +19,7 @@ public class EnemySpawnManager : MonoBehaviour {
     void Start() {
         //Load all enemy types into array
         enemyTypes[0] = enemyBasicPrefab;
-        enemyTypes[1] = enemyFastPrefab;
+        //enemyTypes[1] = enemyFastPrefab;
         //enemyTypes[2] = enemySlowPrefab;        
     }
     
@@ -38,10 +38,11 @@ public class EnemySpawnManager : MonoBehaviour {
     //IEnumerator: allows this code to be paused
     //Prevents enemies being created on top of one another
     IEnumerator SpawnWave() {
-        waveIndex++;
+        //waveIndex++;
+        waveIndex = 3;
         for(int i=0 ; i<waveIndex ; i++) {
             SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
     
