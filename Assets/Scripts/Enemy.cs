@@ -85,10 +85,16 @@ public class Enemy : MonoBehaviour {
         //Check if at the end of waypoint path, and destroy enemy if so 
         //Inflict damage if code is "bad" code (an enemy)
         if(waypointIndex >= Waypoints.points.Length - 1) {
-            if(isEnemy) {
-                PlayerStats.instance.decreaseHealth(attackDamage);     
-                Debug.Log("HP = " + PlayerStats.Health);
-            }   
+			if (isEnemy) {
+				PlayerStats.instance.decreaseHealth (attackDamage);     
+				Debug.Log ("HP = " + PlayerStats.Health);
+			} else { 
+				//hard code reward at this stage, can be replaced later if 
+				//different types of good code
+				int reward = 100; 
+				PlayerStats.instance.adjustCash (reward);
+				Debug.Log ("Cash = " + PlayerStats.Cash); 
+			}
             Destroy(gameObject);
             return;
         }

@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour {
         Health -= damageValue;
         updateHealth();
     }
-    
+		
     private void updateHealth() {
         healthText.text = "HEALTH: " + Health.ToString();
     }
