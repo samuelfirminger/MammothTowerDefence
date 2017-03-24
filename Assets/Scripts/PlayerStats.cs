@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
     //Make Singleton class
@@ -48,6 +49,10 @@ public class PlayerStats : MonoBehaviour {
         Debug.Log("Inflicting " + damageValue + " to health");
         Health -= damageValue;
         updateHealth();
+		//make prompt that game is over, add button to start again 
+		if (Health <= 0) {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex); 
+		}
     }
 		
     private void updateHealth() {

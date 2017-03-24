@@ -21,14 +21,23 @@ public class Pause : MonoBehaviour {
 		paused = !paused ;
 
 		if(paused) {
-			Time.timeScale = 0 ; 
+			pause ();
 			pauseText.text = "Play";
 		}
 		else if(!paused) {
-			Time.timeScale = 1 ;
+			unpause (); 
 			pauseText.text = "Pause";
 		}
 
 	}
+
+	public void pause() {
+		Time.timeScale = 0; 
+	}
+
+	public void unpause() {
+		Time.timeScale = 1; 
+	}
+
 
 }
