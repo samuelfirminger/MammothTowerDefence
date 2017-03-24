@@ -8,6 +8,7 @@ TagManager:
   - Code
   - PlayerHealth
   - ShowOnPause
+  - TurretShop
   layers:
   - Default
   - TransparentFX

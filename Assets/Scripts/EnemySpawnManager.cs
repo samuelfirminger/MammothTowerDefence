@@ -45,6 +45,7 @@ public class EnemySpawnManager : MonoBehaviour {
 			waveCooldown = timeBetweenWaves;
 			waveIndex++; 
 		} else {
+			//if at the end of a wave, enable build phase
 			if (PhaseManager.instance.start == false) {
 				PhaseManager.instance.enablePhase ();
 			}
