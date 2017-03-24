@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI ; 
+using UnityEngine.SceneManagement;
 
 public class PhaseManager : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class PhaseManager : MonoBehaviour {
 
 	public GameObject phaseUI;
 	public GameObject pauseButton; 
+	public GameObject gameOver ; 
+	public GameObject restart; 
 	public bool start = false ;
 	GameObject[] turretsInShop; 
 	GameObject turretButton ; 
@@ -24,6 +27,7 @@ public class PhaseManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		phaseUI.SetActive(false); 
+		gameOver.SetActive (false); 
 	}
 
 	public void enablePhase() {
@@ -49,4 +53,11 @@ public class PhaseManager : MonoBehaviour {
 	public void disablePhase() {
 		phaseUI.SetActive(false); 
 	}
+
+	public void gameOverPrompt() { 
+		gameOver.SetActive (true);
+		restart.SetActive (true); 
+		pauseButton.SetActive (false); 
+	}
+		
 }

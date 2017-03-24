@@ -51,7 +51,9 @@ public class PlayerStats : MonoBehaviour {
         updateHealth();
 		//make prompt that game is over, add button to start again 
 		if (Health <= 0) {
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex); 
+			PhaseManager.instance.gameOverPrompt (); 
+			Time.timeScale = 0; 
+			//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex); 
 		}
     }
 		
