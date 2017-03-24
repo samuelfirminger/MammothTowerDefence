@@ -25,12 +25,13 @@ public class PlayerStats : MonoBehaviour {
     public GameObject cashUI;
     private Text cashText;
     private string cashDisplay;
+
     
 	void Start(){
         //Initialse UI access:
         healthText = healthUI.GetComponent<Text>();
         cashText = cashUI.GetComponent<Text>();
-        
+
         //Set initial cash and health values
 		Cash = initialCash;
         Health = initialHealth;
