@@ -10,6 +10,8 @@ public class PhaseManager : MonoBehaviour {
 	public GameObject phaseUI;
 	public GameObject pauseButton; 
 	public bool start = false ;
+	GameObject[] turretsInShop; 
+	GameObject turretButton ; 
 
 	void Awake() {
 		if (instance != null) {
@@ -35,6 +37,13 @@ public class PhaseManager : MonoBehaviour {
 		phaseUI.SetActive (false); 
 		pauseButton.SetActive (true); 
 		start = true; 
+
+		turretsInShop = GameObject.FindGameObjectsWithTag ("TurretShop"); 
+		foreach (GameObject turretButton in turretsInShop) {
+			turretButton.SetActive (false); 
+		}
+		TurretManager.instance.chooseTurretToBuild (null); 
+
 	}
 	
 	public void disablePhase() {
