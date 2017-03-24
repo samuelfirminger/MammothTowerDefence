@@ -24,7 +24,8 @@ public class EnemySpawnManager : MonoBehaviour {
 	private int groupSize = 5;
     
     public Transform spawnPoint;
-    
+
+	   
     void Start() {
         //Load all enemy types into array
         enemyTypes[0] = enemyBasicPrefab;
@@ -33,18 +34,24 @@ public class EnemySpawnManager : MonoBehaviour {
 
 		//Initial time at newgame before enemies begin to spawn
 		//TODO replace this with an unlimited "build phase"
-		waveCooldown = 10f;
+		waveCooldown = 2f;
 		waveIndex = 0;
     }
     
     void Update() {
-		if(waveCooldown <= 0f && waveIndex < gameLength) {
-			StartCoroutine(spawnWave());
+		
+		if (waveCooldown <= 0f && waveIndex < gameLength) {
+			StartCoroutine (spawnWave ());
 			waveCooldown = timeBetweenWaves;
-			waveIndex++;
+			waveIndex++; 
+		} else {
+			if (PhaseManager.instance.start == false) {
+				PhaseManager.instance.enablePhase ();
+			}
 		}
 		waveCooldown -= Time.deltaTime;
     }
+
 
 	IEnumerator spawnWave() {
 		for (int i = 0; i < waveSize; i++) {
