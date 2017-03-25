@@ -23,9 +23,9 @@ public class EnemySpawnManager : MonoBehaviour {
 	private string enemyTag = "Code";
 
 	private float timeBetweenSpawns = 0.2f;
-	private float timeBetweenGroups = 6f;
-	private float timeBetweenWaves = 30f;
+	private float timeBetweenGroups = 3f ; 
 	private float waveCooldown;
+	private bool waveStart = true ;
     
     public Transform spawnPoint;
 
@@ -44,23 +44,27 @@ public class EnemySpawnManager : MonoBehaviour {
     }
     
     void Update() {
-		if (waveCooldown <= 0f && waveIndex < gameLength) {
+		//start wave start of game/new wave
+		if (waveStart && waveIndex < gameLength) {
+			waveStart = false; 
 			StartCoroutine (spawnWave ());
-			waveCooldown = timeBetweenWaves;
 			waveIndex++; 
 		}
-		waveCooldown -= Time.deltaTime;
+
+		//if all enemies of wave have spawned
 		if (enemyCnt == groupSize * waveSize) {
+			//if all enemies destroyed
 			if (!enemiesRemaining ()) {
+				//go into build if not end of game, else game over prompt
 				if (waveIndex >= gameLength) {
 					PhaseManager.instance.gameOverPrompt ();
 				}
 				else {
 					PhaseManager.instance.enablePhase ();
+					waveStart = true ; 
 				}
 			}
 		}
-		waveCooldown -= Time.deltaTime;
     }
 
 	bool enemiesRemaining() {
@@ -75,7 +79,9 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	IEnumerator spawnWave() {
 		for (int i = 0; i < waveSize; i++) {
-			StartCoroutine(spawnGroup());
+			if (enemyCnt % groupSize == 0) {
+				StartCoroutine (spawnGroup ());
+			}
 			yield return new WaitForSeconds(timeBetweenGroups);
 		}
 	}
