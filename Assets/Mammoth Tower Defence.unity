@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretBasic:
-    prefab: {fileID: 1031791547840366, guid: 45c735ea271023e43aa9f0cf96dc1cc2, type: 2}
+    prefab: {fileID: 1522913197650582, guid: a13242fc83c6eae4fba7ab055d7facd9, type: 2}
     cost: 100
   turretSlow:
     prefab: {fileID: 1771035743009696, guid: 1ded5ffe767f0e546b9188f4d096f575, type: 2}
@@ -5520,7 +5520,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 75.773506
+      value: 76.705505
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -5530,7 +5530,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 151.54701
+      value: 153.41101
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -6074,7 +6074,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 75.773506
+      value: 76.705505
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -6084,7 +6084,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 151.54701
+      value: 153.41101
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -6207,11 +6207,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classification: 
-  turretBasicPrefab: {fileID: 1031791547840366, guid: 45c735ea271023e43aa9f0cf96dc1cc2,
+  turretBasicPrefab: {fileID: 1840080461789458, guid: cc6ddd9f339051842915325a922a3146,
     type: 2}
-  turretSlowPrefab: {fileID: 1771035743009696, guid: 1ded5ffe767f0e546b9188f4d096f575,
+  turretSlowPrefab: {fileID: 1053150946027404, guid: 318b12bfc01a4c540af07ae9ecdb9fa4,
     type: 2}
-  turretSplashPrefab: {fileID: 1443746652952570, guid: 0753d9dae76f0483585bd6ac0b0dae51,
+  turretSplashPrefab: {fileID: 1960734219243278, guid: 03e2b0c888a325649822da4640c27d83,
     type: 2}
 --- !u!114 &1284036670
 MonoBehaviour:
@@ -7309,7 +7309,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 75.773506
+      value: 76.705505
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -7319,7 +7319,7 @@ Prefab:
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 151.54701
+      value: 153.41101
       objectReference: {fileID: 0}
     - target: {fileID: 224901671915061384, guid: 9c9cc63320a8476458ebb246798ddee2,
         type: 2}
@@ -8715,13 +8715,13 @@ Prefab:
         type: 2}
       propertyPath: turretBasic.prefab
       value: 
-      objectReference: {fileID: 1031791547840366, guid: 45c735ea271023e43aa9f0cf96dc1cc2,
+      objectReference: {fileID: 1840080461789458, guid: cc6ddd9f339051842915325a922a3146,
         type: 2}
     - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
         type: 2}
       propertyPath: turretSlow.prefab
       value: 
-      objectReference: {fileID: 1771035743009696, guid: 1ded5ffe767f0e546b9188f4d096f575,
+      objectReference: {fileID: 1053150946027404, guid: 318b12bfc01a4c540af07ae9ecdb9fa4,
         type: 2}
     - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
         type: 2}
@@ -8737,7 +8737,7 @@ Prefab:
         type: 2}
       propertyPath: turretSplash.prefab
       value: 
-      objectReference: {fileID: 1443746652952570, guid: 0753d9dae76f0483585bd6ac0b0dae51,
+      objectReference: {fileID: 1960734219243278, guid: 03e2b0c888a325649822da4640c27d83,
         type: 2}
     - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
         type: 2}

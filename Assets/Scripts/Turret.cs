@@ -7,8 +7,10 @@ public class Turret : MonoBehaviour {
     public float range = 15f;
     public float fireRate = 1f;
     public float baseDamage;
+	public float turnSpeed = 10f; 
     private float cooldown = 0f;
     private Transform target;
+	public Transform partToRotate ; 
    
     private string enemyTag = "Code";
     public GameObject bulletPrefab;
@@ -24,6 +26,18 @@ public class Turret : MonoBehaviour {
 	}
 	
 	void Update () {
+
+		if (target == null) {
+			return; 
+		}
+
+		//rotate the turret 
+		Vector3 dir = target.position - transform.position; 
+		Quaternion lookRotation = Quaternion.LookRotation (dir); 
+		Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles; 
+
+		partToRotate.rotation = Quaternion.Euler (0f, rotation.y, 0f); 
+
         //Check if cooldown time has passed, and shoot if so.
 		if(cooldown <= 0f) {
             Shoot();
