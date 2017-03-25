@@ -13,7 +13,7 @@ public class EnemySpawnManager : MonoBehaviour {
 	//How many waves in a game
 	private int gameLength = 2;
 	//Which wave you are on
-	private int waveIndex;
+	public int waveIndex;
 	//How many groups in a wave
 	private int waveSize = 2;
 	//How many spawns in a group
@@ -42,12 +42,13 @@ public class EnemySpawnManager : MonoBehaviour {
 		waveCooldown = 0f;
 		waveIndex = 0;
     }
-    
+
     void Update() {
 		//start wave start of game/new wave
 		if (waveStart && waveIndex < gameLength) {
 			waveStart = false; 
 			StartCoroutine (spawnWave ());
+			PlayerStats.instance.updateWave (waveIndex); 
 			waveIndex++; 
 		}
 

@@ -27,11 +27,15 @@ public class PlayerStats : MonoBehaviour {
     private Text cashText;
     private string cashDisplay;
 
+	public GameObject waveUI ; 
+	private Text waveText ; 
+
     
 	void Start(){
         //Initialse UI access:
         healthText = healthUI.GetComponent<Text>();
         cashText = cashUI.GetComponent<Text>();
+		waveText = waveUI.GetComponent<Text> (); 
 
         //Set initial cash and health values
 		Cash = initialCash;
@@ -62,6 +66,10 @@ public class PlayerStats : MonoBehaviour {
     }
     
     private void updateCash() {
-        cashText.text = "CASH: " + Cash.ToString();
+        cashText.text = "$" + Cash.ToString();
     }
+
+	public void updateWave(int waveNum) {
+		waveText.text = "WAVE " + (waveNum+1).ToString(); 
+	}
 }
