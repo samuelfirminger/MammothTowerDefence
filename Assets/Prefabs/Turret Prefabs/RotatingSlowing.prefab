@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4458437468336326}
   - component: {fileID: 33278228901305630}
-  - component: {fileID: 136383515646936488}
   - component: {fileID: 114445051380670426}
   m_Layer: 0
   m_Name: RotatingSlowing
@@ -235,16 +234,3 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1113054760166758, guid: 3c021a6dbcc6e304bab1d0560b2ec179,
     type: 2}
   userVariables: 0300000004000000
---- !u!136 &136383515646936488
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1053150946027404}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

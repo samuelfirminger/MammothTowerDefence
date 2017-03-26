@@ -10,6 +10,7 @@ public class TurretManager : MonoBehaviour {
     public static TurretManager instance;
     
     public int[] classification;
+	public bool sell ; 
     
     void Awake() {
 		if (instance != null) {
@@ -20,6 +21,7 @@ public class TurretManager : MonoBehaviour {
         classification = new int[2];
         setClassification(3,4); //This to be moved somewhere else: classification of enemy changes between rounds (shoot red enemies one round, shoot blue and speed=2 enemies another round etc...)
         instance = this;
+		sell = false; 
     }
 	
     public void setClassification(int property0, int property1) {
@@ -41,7 +43,11 @@ public class TurretManager : MonoBehaviour {
     //public GameObject turretFirePrefab;
 	private TurretSpec turretToBuild;
 
-	public bool canBuild { get { return turretToBuild != null; } }
+	public bool canBuild { 
+		get { 
+			return turretToBuild != null; 
+		} 
+	}
 
 	public void createTurretOn(Node node) {
 
@@ -62,4 +68,16 @@ public class TurretManager : MonoBehaviour {
 		turretToBuild = turret;
 	} 
 		
+
+	public void sellMode() {
+		sell = !sell; 
+		PhaseManager.instance.intoSellMode (); 
+		Debug.Log ("Sell mode activated"); 
+	}
+		
+	public void sellTurret(Node node) {
+		Destroy (node.builtTurret); 
+		PlayerStats.instance.adjustCash (+(turretToBuild.cost / 2)); 
+		Debug.Log ("Turret sold."); 
+	}
 }

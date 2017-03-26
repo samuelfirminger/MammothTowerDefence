@@ -62,6 +62,8 @@ public class EnemySpawnManager : MonoBehaviour {
 				}
 				else {
 					PhaseManager.instance.enablePhase ();
+					TurretManager.instance.sell = false;
+					PhaseManager.instance.intoSellMode (); 
 					waveStart = true ; 
 				}
 			}

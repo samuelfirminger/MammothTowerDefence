@@ -15,18 +15,27 @@ public class Shop : MonoBehaviour {
 
 	public void chooseStandardTurret () {
 		Debug.Log("Standard Turret purchased"); 
+		resetSellButton ();
 		turretManager.chooseTurretToBuild (turretBasic); 
 	}
 
 
 	public void chooseSlowTurret() {
 		Debug.Log("Slowing Turret purchased"); 
+		resetSellButton (); 
 		turretManager.chooseTurretToBuild (turretSlow); 
     }
     
     public void buySplashTurret() {
         Debug.Log("Splash Turret purchased");
+		resetSellButton (); 
 		turretManager.chooseTurretToBuild (turretSplash);
     }
-		
+
+	//if currently in sell mode and shop button is clicked,
+	//return to buy mode, alternatively, user can click on shop turret button
+	private void resetSellButton() {
+		TurretManager.instance.sell = false;
+		PhaseManager.instance.intoSellMode (); 
+	}
 }

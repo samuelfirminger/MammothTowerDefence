@@ -27,7 +27,8 @@ public class Node : MonoBehaviour {
 	}
        
     void OnMouseEnter() {
-		if (!turretManager.canBuild) {
+		if (!turretManager.canBuild && turretManager.sell == false) {
+			Debug.Log ("Whaddup"); 
 			return;
 		}
 
@@ -42,16 +43,20 @@ public class Node : MonoBehaviour {
     
     void OnMouseDown() {
 
-		if (!turretManager.canBuild) {
+        //Check for pre-existing built turret
+		if (builtTurret != null && turretManager.sell == true) {
+			turretManager.sellTurret (this); 
+			return;
+		} else if (builtTurret == null && turretManager.sell == true) {
 			return;
 		}
-
-        //Check for pre-existing built turret
-        if(builtTurret != null) {
-            Debug.Log("Cannot build over pre-existing turret!");
-            return;
-        }
-
+		else if (!turretManager.canBuild) {
+			return; 
+		}
+		else if(builtTurret != null) {
+			return ;
+		}
+			
 		turretManager.createTurretOn (this);
     }
 }
