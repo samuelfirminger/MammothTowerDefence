@@ -31,7 +31,7 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	   
     void Start() {
-		PhaseManager.instance.enablePhase ();
+		PhaseManager.instance.enableBuildPhase ();
         //Load all enemy types into array
         enemyTypes[0] = enemyBasicPrefab;
         //enemyTypes[1] = enemyFastPrefab;
@@ -61,7 +61,7 @@ public class EnemySpawnManager : MonoBehaviour {
 					PhaseManager.instance.gameOverPrompt ();
 				}
 				else {
-					PhaseManager.instance.enablePhase ();
+					PhaseManager.instance.enableBuildPhase ();
 					TurretManager.instance.sell = false;
 					PhaseManager.instance.intoSellMode (); 
 					waveStart = true ; 

@@ -68,7 +68,7 @@ public class TurretManager : MonoBehaviour {
 		turretToBuild = turret;
 	} 
 		
-
+	//revert the sell button and update text on button
 	public void sellMode() {
 		sell = !sell; 
 		PhaseManager.instance.intoSellMode (); 

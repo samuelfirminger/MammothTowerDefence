@@ -36,17 +36,19 @@ public class PhaseManager : MonoBehaviour {
 		sellButton.SetActive (true); 
 		turretsInShop = GameObject.FindGameObjectsWithTag ("TurretShop"); 
 
+		//initialise sell button
 		sellText = sellUI.GetComponent<Text> ();
 		sellText.text = "ENTER SELL MODE"; 
 
 	}
 
-	public void enablePhase() {
+	public void enableBuildPhase() {
 		start = false;
 		phaseUI.SetActive(true);
 		pauseButton.SetActive (false);
 		sellUI.SetActive (true); 
 		sellButton.SetActive (true); 
+
 		foreach (GameObject turretButton in turretsInShop) {
 			turretButton.SetActive (true); 
 		}
