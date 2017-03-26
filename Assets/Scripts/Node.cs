@@ -28,8 +28,7 @@ public class Node : MonoBehaviour {
 	}
        
     void OnMouseEnter() {
-		if (!turretManager.canBuild && turretManager.sell == false) {
-			Debug.Log ("Whaddup"); 
+		if (!turretManager.canBuild && turretManager.sell == false) {			
 			return;
 		}
 
