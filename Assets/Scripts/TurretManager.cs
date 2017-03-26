@@ -10,7 +10,7 @@ public class TurretManager : MonoBehaviour {
     public static TurretManager instance;
     
     public int[] classification;
-	public bool sell ; 
+	public bool sell; 
     
     void Awake() {
 		if (instance != null) {
@@ -55,7 +55,9 @@ public class TurretManager : MonoBehaviour {
 			Debug.Log ("Not enough cash to build");
 			return;
 		}
-
+        
+        //Store the value returned if the turret on this node is sold
+        node.setSellValue(turretToBuild.cost/2);
 		PlayerStats.instance.adjustCash(-(turretToBuild.cost));
 
 		GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition (), Quaternion.identity);
@@ -71,13 +73,13 @@ public class TurretManager : MonoBehaviour {
 	//revert the sell button and update text on button
 	public void sellMode() {
 		sell = !sell; 
-		PhaseManager.instance.intoSellMode (); 
+		PhaseManager.instance.intoSellMode(); 
 		Debug.Log ("Sell mode activated"); 
 	}
 		
 	public void sellTurret(Node node) {
 		Destroy (node.builtTurret); 
-		PlayerStats.instance.adjustCash (+(turretToBuild.cost / 2)); 
+		PlayerStats.instance.adjustCash (+(node.getSellValue())); 
 		Debug.Log ("Turret sold."); 
 	}
 }

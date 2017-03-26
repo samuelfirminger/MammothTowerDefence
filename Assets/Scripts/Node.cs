@@ -11,7 +11,8 @@ public class Node : MonoBehaviour {
 	[Header("Optional parameter")]
     public GameObject builtTurret;  
     public Vector3 offset;
-
+    private int sellValue = 0;
+    
 	TurretManager turretManager ;
     
     void Start() {
@@ -42,7 +43,6 @@ public class Node : MonoBehaviour {
     }
     
     void OnMouseDown() {
-
         //Check for pre-existing built turret
 		if (builtTurret != null && turretManager.sell == true) {
 			turretManager.sellTurret (this); 
@@ -58,5 +58,13 @@ public class Node : MonoBehaviour {
 		}
 			
 		turretManager.createTurretOn (this);
+    }
+    
+    public void setSellValue(int value) {
+        sellValue = value;
+    }
+    
+    public int getSellValue() {
+        return sellValue;
     }
 }
