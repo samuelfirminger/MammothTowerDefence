@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 95580404584407516}
   - component: {fileID: 114081928664149708}
   m_Layer: 0
-  m_Name: blockTower 2
+  m_Name: blockTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
