@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class EnemySpawnManager : MonoBehaviour { 
 
     //Types of enemy to spawn
+	[Header("Turret Prefabs")]
 	private Transform[] enemyTypes = new Transform[1];
     public Transform enemyBasicPrefab;
     public Transform enemyFastPrefab;
@@ -62,7 +63,7 @@ public class EnemySpawnManager : MonoBehaviour {
 				}
 				else {
 					PhaseManager.instance.enableBuildPhase ();
-					TurretManager.instance.sell = false;
+					TurretManager.instance.setSellState(false);
 					PhaseManager.instance.intoSellMode (); 
 					waveStart = true ; 
 				}

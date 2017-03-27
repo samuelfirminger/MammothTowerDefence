@@ -15,12 +15,14 @@ public class PlayerStats : MonoBehaviour {
         instance = this;
     }
     
+	[Header("Health")] 
     public static int Health;
     public int initialHealth = 20;
     public GameObject healthUI;
     private Text healthText;
     private string healthDisplay;
-	   
+
+	[Header("Cash")] 
     public static int Cash;
 	public int initialCash = 500;
     public GameObject cashUI;

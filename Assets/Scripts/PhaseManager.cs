@@ -8,18 +8,25 @@ public class PhaseManager : MonoBehaviour {
 
 	public static PhaseManager instance ; 
 
+	//get canvas objects to show/disable
+	[Header("UI elements on Canvas")]
 	public GameObject phaseUI;
 	public GameObject pauseButton; 
 	public GameObject gameOver ; 
 	public GameObject restart; 
-	public bool start;
+	private bool start;
 	GameObject[] turretsInShop; 
 	GameObject turretButton ; 
 
 	//get buy/sell button and text 
+	[Header("Sell Button")] 
 	public GameObject sellUI;
 	public GameObject sellButton ; 
 	private Text sellText; 
+
+	//turret shop UI 
+    public GameObject turretShop ;
+
 
 	void Awake() {
 		if (instance != null) {
@@ -34,11 +41,13 @@ public class PhaseManager : MonoBehaviour {
 		phaseUI.SetActive(true); 
 		gameOver.SetActive (false); 
 		sellButton.SetActive (true); 
+		turretShop.SetActive (true); 
 		turretsInShop = GameObject.FindGameObjectsWithTag ("TurretShop"); 
 
 		//initialise sell button
 		sellText = sellUI.GetComponent<Text> ();
 		sellText.text = "ENTER SELL MODE"; 
+
 
 	}
 
@@ -46,6 +55,7 @@ public class PhaseManager : MonoBehaviour {
 		start = false;
 		phaseUI.SetActive(true);
 		pauseButton.SetActive (false);
+		turretShop.SetActive (true); 
 		sellUI.SetActive (true); 
 		sellButton.SetActive (true); 
 
@@ -59,6 +69,7 @@ public class PhaseManager : MonoBehaviour {
 		Time.timeScale = 1; 
 		phaseUI.SetActive (false); 
 		pauseButton.SetActive (true); 
+		turretShop.SetActive (false); 
 		sellUI.SetActive (false); 
 		sellButton.SetActive (false); 
 
@@ -81,12 +92,21 @@ public class PhaseManager : MonoBehaviour {
 	}
 
 	public void intoSellMode() {
-		if (TurretManager.instance.sell == true) {
+		if (TurretManager.instance.getSellState() == true) {
 			sellText.text = "ENTER BUY MODE";
 		} else {
 			sellText.text = "ENTER SELL MODE"; 
 		}
 	}
 		
+
+	public bool getStartState() {
+		return start;
+	}
+
+	public void setStartState(bool state) {
+		start = state; 
+	}
+	
 		
 }

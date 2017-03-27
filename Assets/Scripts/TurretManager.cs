@@ -10,7 +10,7 @@ public class TurretManager : MonoBehaviour {
     public static TurretManager instance;
     
     public int[] classification;
-	public bool sell; 
+	private bool sell; 
     
     void Awake() {
 		if (instance != null) {
@@ -82,4 +82,14 @@ public class TurretManager : MonoBehaviour {
 		PlayerStats.instance.adjustCash (+(node.getSellValue())); 
 		Debug.Log ("Turret sold."); 
 	}
+
+	public bool getSellState() {
+		return sell;
+	}
+
+	public void setSellState(bool state) {
+		sell = state; 
+	}
+
+
 }

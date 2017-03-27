@@ -49,7 +49,7 @@ public class Turret : MonoBehaviour {
     
     void Shoot() {
         //Get bullet script access
-		if (PhaseManager.instance.start == true) {
+		if (PhaseManager.instance.getStartState() == true) {
 			GameObject firedBullet = (GameObject)Instantiate (bulletPrefab, transform.position, transform.rotation);        
 			Bullet bullet = firedBullet.GetComponent<Bullet> ();
 
