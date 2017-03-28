@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour {
     public int attackDamage;
     public float healthPoints;
     public float max_healthPoints;
-    private float distanceCheck = 0.2f;
+    private float distanceCheck = 0.5f;
     public GameObject healthBar;
  
 	//Slow fields
