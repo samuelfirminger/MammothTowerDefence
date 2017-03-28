@@ -280,13 +280,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc61e58ddcd06264183cd0a49af1e7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  badColour: {r: 0, g: 0, b: 0, a: 0}
+  goodColour: {r: 0, g: 0, b: 0, a: 0}
   movementSpeed: 15
   attackDamage: 1
   healthPoints: 2
   max_healthPoints: 0
   healthBar: {fileID: 1208094280521658}
-  shootMe: 0
-  isEnemy: 0
   properties: 0100000001000000
 --- !u!135 &135794509935859198
 SphereCollider:

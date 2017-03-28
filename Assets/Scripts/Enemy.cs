@@ -8,7 +8,10 @@ public class Enemy : MonoBehaviour {
     private Renderer rend;
     public Color badColour;
     public Color goodColour;
-    
+
+    //sound
+    public AudioClip clip;
+
     //Flag variable: is this code object an Enemy?
     private bool isEnemy = false;
     
@@ -37,7 +40,8 @@ public class Enemy : MonoBehaviour {
         max_healthPoints = healthPoints;
 		waypointTarget = Waypoints.points[0];
         rend = GetComponent<Renderer>();
-		slowState = 0;
+        slowState = 0;
+       
         //Note: at this point, the gameObject is either set to represent an enemy (properties match enemyClassification)
         //OR  : gameObject is created as a non-enemy: properties are randomly generated within a range
         //Generate 0 or 1 randomly: 
@@ -109,14 +113,18 @@ public class Enemy : MonoBehaviour {
     
     public void setHealth(float newHealth) {
         healthPoints = newHealth;
-        float calc_Health = healthPoints / max_healthPoints;
+        
+    float calc_Health = healthPoints / max_healthPoints;
         SetHealthBar(calc_Health);
 
         if(healthPoints <= 0) {
-            if(isEnemy) {
+         
+            if (isEnemy) {
                 PlayerStats.instance.adjustCash(10);
             }
-            Destroy(gameObject);			
+            AudioSource.PlayClipAtPoint(clip, transform.position);
+            Destroy(gameObject);
+            
         }
     }
     
