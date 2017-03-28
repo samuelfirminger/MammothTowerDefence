@@ -282,11 +282,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   badColour: {r: 0.71323526, g: 0.041955013, b: 0.041955013, a: 0}
   goodColour: {r: 0.030655269, g: 0.5955882, b: 0.04727096, a: 0}
+  clip: {fileID: 8300000, guid: 4b932d55e3a6fa34b9cc6f3f6d4295a7, type: 3}
   movementSpeed: 10
   attackDamage: 1
   healthPoints: 5
   max_healthPoints: 0
-  healthBar: {fileID: 1617746765370252}
+  healthBar: {fileID: 1798652457185046}
   properties: 0000000000000000
 --- !u!135 &135679843360263894
 SphereCollider:
