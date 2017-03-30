@@ -126,7 +126,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 19b29a07d540c76499e4ae873c38a7b4, type: 2}
+  - {fileID: 2100000, guid: c20f437b553b99f4e8ff7e83dd928787, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -282,7 +282,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   badColour: {r: 0.71323526, g: 0.041955013, b: 0.041955013, a: 0}
   goodColour: {r: 0.030655269, g: 0.5955882, b: 0.04727096, a: 0}
-  clip: {fileID: 8300000, guid: 4b932d55e3a6fa34b9cc6f3f6d4295a7, type: 3}
   movementSpeed: 10
   attackDamage: 1
   healthPoints: 5

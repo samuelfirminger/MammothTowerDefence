@@ -73,7 +73,8 @@ public class PhaseManager : MonoBehaviour {
 		sellUI.SetActive (false); 
 		sellButton.SetActive (false); 
 
-		start = true; 
+		start = true;
+        Sound.instance.newWaveSound();
 		foreach (GameObject turretButton in turretsInShop) {
 			turretButton.SetActive (false); 
 		}
@@ -85,7 +86,8 @@ public class PhaseManager : MonoBehaviour {
 		phaseUI.SetActive(false); 
 	}
 
-	public void gameOverPrompt() { 
+	public void gameOverPrompt() {
+        Sound.instance.gameOverSound();
 		gameOver.SetActive (true);
 		restart.SetActive (true); 
 		pauseButton.SetActive (false); 

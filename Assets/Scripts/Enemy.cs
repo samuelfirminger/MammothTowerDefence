@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+   
     //Enemy colour:
     private Renderer rend;
     public Color badColour;
     public Color goodColour;
-
-    //sound
-    public AudioClip clip;
 
     //Flag variable: is this code object an Enemy?
     private bool isEnemy = false;
@@ -21,9 +19,9 @@ public class Enemy : MonoBehaviour {
     public float max_healthPoints;
     private float distanceCheck = 0.5f;
     public GameObject healthBar;
- 
-	//Slow fields
-	private int slowState;
+  
+    //Slow fields
+    private int slowState;
 	private float slowCooldown;
 	private float slowStartTime;
 	private float tempSpeed;
@@ -92,12 +90,14 @@ public class Enemy : MonoBehaviour {
 			if (isEnemy) {
 				PlayerStats.instance.decreaseHealth (attackDamage);     
 				Debug.Log ("HP = " + PlayerStats.Health);
+                Sound.instance.healthlossSound();
 			} else { 
 				//hard code reward at this stage, can be replaced later if 
 				//different types of good code
 				int reward = 100; 
 				PlayerStats.instance.adjustCash (reward);
-				Debug.Log ("Cash = " + PlayerStats.Cash); 
+				Debug.Log ("Cash = " + PlayerStats.Cash);
+                Sound.instance.rewardSound(); 
 			}
             Destroy(gameObject);
             return;
@@ -118,13 +118,13 @@ public class Enemy : MonoBehaviour {
         SetHealthBar(calc_Health);
 
         if(healthPoints <= 0) {
-         
+           
             if (isEnemy) {
                 PlayerStats.instance.adjustCash(10);
+                
             }
-            AudioSource.PlayClipAtPoint(clip, transform.position);
             Destroy(gameObject);
-            
+            Sound.instance.deathSound();
         }
     }
     
