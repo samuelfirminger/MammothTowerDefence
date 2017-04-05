@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReturn: {fileID: 0}
+  typeOfBlock: 6
 --- !u!114 &114621102895039400
 MonoBehaviour:
   m_ObjectHideFlags: 1
