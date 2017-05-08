@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7fd8969c652730a46bcdb6844e48bd46
+timeCreated: 1494241711
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - portrait0: {fileID: 21300000, guid: 3d1aaf0808ca26a4ba6da3e542460bc5, type: 3}
+  - portrait1: {fileID: 21300000, guid: fa4318ff9c0769849843c216b24e2bcd, type: 3}
+  - portrait2: {fileID: 21300000, guid: 9a764b0aa4cd1de409275879d072a9e1, type: 3}
+  - briefingPortrait: {fileID: 1308803167070868, guid: 99ac1879279c02145af943a8e2dcd223,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

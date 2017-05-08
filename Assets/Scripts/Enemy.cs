@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-
-   
+    EnemySpawnManager enemySpawnManager;
+    
     //Enemy colour:
     private Renderer rend;
     public Color badColour;
@@ -27,37 +27,26 @@ public class Enemy : MonoBehaviour {
 	private float tempSpeed;
     
     //Testing variables for turret targetting
-    public int[] properties = new int[2];
-    
+    public int[] properties;
     //Variables for storing target waypoint
     private Transform waypointTarget;
     private int waypointIndex;
 
 	void Start () {
+        //Get spawnManager instance
+        enemySpawnManager = EnemySpawnManager.instance;
+        
         //Set target to 1st waypoint in Waypoints array
         max_healthPoints = healthPoints;
 		waypointTarget = Waypoints.points[0];
         rend = GetComponent<Renderer>();
         slowState = 0;
-       
-        //Note: at this point, the gameObject is either set to represent an enemy (properties match enemyClassification)
-        //OR  : gameObject is created as a non-enemy: properties are randomly generated within a range
-        //Generate 0 or 1 randomly: 
-        var rand = Random.Range(0, 2);
-        
-        if(rand == 0) {
-            //Creating an enemy to shoot
-            rend.material.color = badColour;
-            isEnemy = true;
-            for(int i = 0; i < properties.Length ; i++) {
-                properties[i] = TurretManager.instance.getClassification(i);            
-            }
+          
+        properties = new int[1];
+        if(enemySpawnManager.lastSpawned == enemySpawnManager.briefingEnemy) {
+            properties[0] = 1;
         } else {
-            rend.material.color = goodColour;
-            for(int i = 0; i< properties.Length; i++) {
-                properties[i] = -1;
-                //properties[i] = Random.Range(0,5);
-            }
+            properties[0] = 0;
         }
 	}
 	
@@ -141,5 +130,5 @@ public class Enemy : MonoBehaviour {
 			slowState = 1;
 			movementSpeed *= slowFactor;
 		}
-	}
+	}   
 }
