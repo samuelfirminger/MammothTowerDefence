@@ -62,6 +62,7 @@ public class TurretManager : MonoBehaviour {
 
 		GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition (), Quaternion.identity);
 		node.builtTurret = turret;
+        Sound.instance.placeTurretSound();
 
 		Debug.Log ("Turret built. Cash left = " + PlayerStats.Cash);
 	}
@@ -79,7 +80,8 @@ public class TurretManager : MonoBehaviour {
 		
 	public void sellTurret(Node node) {
 		Destroy (node.builtTurret); 
-		PlayerStats.instance.adjustCash (+(node.getSellValue())); 
+		PlayerStats.instance.adjustCash (+(node.getSellValue()));
+        Sound.instance.sellTurretSound();
 		Debug.Log ("Turret sold."); 
 	}
 
