@@ -3,10 +3,12 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class EnemySpawnManager : MonoBehaviour { 
-
+    //Make EnemySpawnManager a Singleton class
+    public static EnemySpawnManager instance;
+    
     //Types of enemy to spawn
 	[Header("Turret Prefabs")]
-	private Transform[] enemyTypes = new Transform[1];
+	private Transform[] enemyTypes = new Transform[3];
     public Transform enemyBasicPrefab;
     public Transform enemyFastPrefab;
     public Transform enemySlowPrefab;
@@ -29,17 +31,32 @@ public class EnemySpawnManager : MonoBehaviour {
 	private bool waveStart = true ;
     
     public Transform spawnPoint;
-
-	   
+ 
+    //For simplified programming of turrets: this variable holds
+    //the value corresponding to the enemy type for this wave and the
+    //last spawned enemy type (used in enemy class)
+    //(will be visually shown in briefing)
+    public int briefingEnemy = 0;
+    public int lastSpawned   = 0;
+    
+    void Awake() {
+		if (instance != null) {
+			Debug.Log ("More than one EnemySpawnManager in scene."); 
+			return; 
+		}
+  
+        instance = this;
+    }
+ 
     void Start() {
 		PhaseManager.instance.enableBuildPhase ();
         //Load all enemy types into array
         enemyTypes[0] = enemyBasicPrefab;
-        //enemyTypes[1] = enemyFastPrefab;
-        //enemyTypes[2] = enemySlowPrefab;
+        enemyTypes[1] = enemyFastPrefab;
+        enemyTypes[2] = enemySlowPrefab;
 
 		//Initial time at newgame before enemies begin to spawn
-		//TODO replace this with an unlimited "build phase"
+		//TODO replace this with an unlimited "build phase" -> already done?
 		waveCooldown = 0f;
 		waveIndex = 0;
     }
@@ -82,6 +99,8 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 	IEnumerator spawnWave() {
+        briefingEnemy = Random.Range(0, enemyTypes.Length);
+        Debug.Log("================ briefingEnemy = " + briefingEnemy + " ====================");
 		for (int i = 0; i < waveSize; i++) {
 			if (enemyCnt % groupSize == 0) {
 				StartCoroutine (spawnGroup ());
@@ -100,6 +119,8 @@ public class EnemySpawnManager : MonoBehaviour {
     void spawnEnemy() {
         //Spawn random enemy from list of enemy types
         var index = Random.Range(0, enemyTypes.Length);
+        lastSpawned = index;
+        //Debug.Log("(0-"+enemyTypes.Length+") Enemy spawn index " + index);
         Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
 		enemyCnt++;
     }

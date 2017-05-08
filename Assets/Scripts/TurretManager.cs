@@ -18,15 +18,14 @@ public class TurretManager : MonoBehaviour {
 			return; 
 		}
                
-        classification = new int[2];
-        setClassification(3,4); //This to be moved somewhere else: classification of enemy changes between rounds (shoot red enemies one round, shoot blue and speed=2 enemies another round etc...)
+        classification = new int[1];
+        setClassification(1); //This to be moved somewhere else: classification of enemy changes between rounds (shoot red enemies one round, shoot blue and speed=2 enemies another round etc...)
         instance = this;
 		sell = false; 
     }
 	
-    public void setClassification(int property0, int property1) {
-        classification[0] = property0;
-        classification[1] = property1;
+    public void setClassification(int property) {
+        classification[0] = property;
     }
     
     //Set the properties that define an enemy: will change between rounds

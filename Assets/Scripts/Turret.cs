@@ -15,10 +15,14 @@ public class Turret : MonoBehaviour {
     private string enemyTag = "Code";
     public GameObject bulletPrefab;
     
-    public int[] userVariables = new int[2];
+    private int[] userVariables = new int[1];
     
 	// Use this for initialization
 	void Start () {
+        //This will be replaced by some interpreter function from the drag&drop:
+        //setting = 1 here is as if the user says "if [enemy type in briefing] target"
+        userVariables[0] = 1;
+        
         //Need to constantly update to allow turrets to change targets frequently
         //Parameters: function name, when to run first, how often to repeat
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
