@@ -7029,12 +7029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d02eebd1008519469e2a33a248448d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBasicPrefab: {fileID: 4096934389587312, guid: fec97cf44310d9c4eb4701f99735582d,
-    type: 2}
-  enemyFastPrefab: {fileID: 4575132120051880, guid: 9c995466d6e906d45b2cd3abdcc7cc68,
-    type: 2}
-  enemySlowPrefab: {fileID: 4671926486379060, guid: eb276542f72cbef448f71fe5fcad37da,
-    type: 2}
+  badPrefab: {fileID: 0}
+  goodPrefab: {fileID: 0}
   waveIndex: 0
   spawnPoint: {fileID: 838430044}
   briefingEnemy: 0

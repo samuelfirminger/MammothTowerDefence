@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Ways of identifying "good" and "bad" code
-public struct CodeProperties {
+[System.Serializable]
+public class CodeProperties : MonoBehaviour {
 
 	//the extension of the file
 	//eg .zip, .exe etc.
-	string extension;
+	public string extension;
 
-	int speed;
-	int size;
+	public int speed;
+	public int size;
 
-	bool encryption;
+	public bool encryption;
 
 	//the author of the file
-	CodeSource source;
+	public CodeSource source;
 
 }

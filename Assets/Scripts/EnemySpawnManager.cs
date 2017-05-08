@@ -8,10 +8,9 @@ public class EnemySpawnManager : MonoBehaviour {
     
     //Types of enemy to spawn
 	[Header("Turret Prefabs")]
-	private Transform[] enemyTypes = new Transform[3];
-    public Transform enemyBasicPrefab;
-    public Transform enemyFastPrefab;
-    public Transform enemySlowPrefab;
+	private Transform[] enemyTypes = new Transform[2];
+    public Transform badPrefab;
+    public Transform goodPrefab;
 
 	//How many waves in a game
 	private int gameLength = 2;
@@ -23,11 +22,9 @@ public class EnemySpawnManager : MonoBehaviour {
 	private int groupSize = 5;
 	//How many enemies have we spawned
 	private int enemyCnt;
-	private string enemyTag = "Code";
 
 	private float timeBetweenSpawns = 0.2f;
 	private float timeBetweenGroups = 3f ; 
-	private float waveCooldown;
 	private bool waveStart = true ;
     
     public Transform spawnPoint;
@@ -51,13 +48,9 @@ public class EnemySpawnManager : MonoBehaviour {
     void Start() {
 		PhaseManager.instance.enableBuildPhase ();
         //Load all enemy types into array
-        enemyTypes[0] = enemyBasicPrefab;
-        enemyTypes[1] = enemyFastPrefab;
-        enemyTypes[2] = enemySlowPrefab;
+        enemyTypes[0] = badPrefab;
+        enemyTypes[1] = goodPrefab;
 
-		//Initial time at newgame before enemies begin to spawn
-		//TODO replace this with an unlimited "build phase" -> already done?
-		waveCooldown = 0f;
 		waveIndex = 0;
     }
 
@@ -89,7 +82,7 @@ public class EnemySpawnManager : MonoBehaviour {
     }
 
 	bool enemiesRemaining() {
-		if (GameObject.FindGameObjectsWithTag (enemyTag).Length == 0) {
+		if (GameObject.FindGameObjectsWithTag ("Code").Length == 0) {
 			enemyCnt = 0;
 			return false;
 		}
