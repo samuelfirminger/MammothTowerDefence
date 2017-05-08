@@ -79,7 +79,7 @@ public class Turret : MonoBehaviour {
             Enemy enemyToCheck = enemy.GetComponent<Enemy>();
                        
             if(distanceToEnemy < shortestDistance) {
-                if (checkIfEnemy(enemyToCheck.properties) == 1) {                
+                if (checkIfEnemy(enemyToCheck.properties)) {                
                     shortestDistance = distanceToEnemy;
                     nearestEnemy = enemy;
                 }
@@ -102,14 +102,8 @@ public class Turret : MonoBehaviour {
     }
     
     //Check the enemy properties against what the user has programmed the turret to fire at
-    //Return 1 if enemy meets the users specification, otherwise return 0
-    int checkIfEnemy(int[] enemyProperties) {
-        for(int i=0 ; i<userVariables.Length ; i++) {
-            if(enemyProperties[i] != userVariables[i]) {
-                return 0;
-            }
-        }
-        
-        return 1;
+    bool checkIfEnemy(CodeProperties properties) {
+        //TODO: write method to select enemies
+        return true;
     }
 }

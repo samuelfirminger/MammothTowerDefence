@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
 	private float tempSpeed;
     
     //Testing variables for turret targetting
-    public int[] properties;
+	public CodeProperties properties;
     //Variables for storing target waypoint
     private Transform waypointTarget;
     private int waypointIndex;
@@ -41,13 +41,6 @@ public class Enemy : MonoBehaviour {
 		waypointTarget = Waypoints.points[0];
         rend = GetComponent<Renderer>();
         slowState = 0;
-          
-        properties = new int[1];
-        if(enemySpawnManager.lastSpawned == enemySpawnManager.briefingEnemy) {
-            properties[0] = 1;
-        } else {
-            properties[0] = 0;
-        }
 	}
 	
 	void Update () {

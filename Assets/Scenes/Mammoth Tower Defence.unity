@@ -129,7 +129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8515908}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.0000153}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 0, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &13962522
@@ -7016,7 +7016,7 @@ MonoBehaviour:
     type: 2}
   turretSlowPrefab: {fileID: 1053150946027404, guid: 318b12bfc01a4c540af07ae9ecdb9fa4,
     type: 2}
-  turretSplashPrefab: {fileID: 1520994582422494, guid: 335eb581497dbd341b58d67e20ba2d17,
+  turretSplashPrefab: {fileID: 1960734219243278, guid: 03e2b0c888a325649822da4640c27d83,
     type: 2}
 --- !u!114 &1284036670
 MonoBehaviour:
@@ -7037,6 +7037,8 @@ MonoBehaviour:
     type: 2}
   waveIndex: 0
   spawnPoint: {fileID: 838430044}
+  briefingEnemy: 0
+  lastSpawned: 0
 --- !u!114 &1284036671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9813,7 +9815,7 @@ Prefab:
         type: 2}
       propertyPath: turretSplash.prefab
       value: 
-      objectReference: {fileID: 1520994582422494, guid: 335eb581497dbd341b58d67e20ba2d17,
+      objectReference: {fileID: 1960734219243278, guid: 03e2b0c888a325649822da4640c27d83,
         type: 2}
     - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
         type: 2}
