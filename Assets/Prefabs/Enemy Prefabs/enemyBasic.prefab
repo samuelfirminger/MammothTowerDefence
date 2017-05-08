@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23118457242648918}
   - component: {fileID: 114897597417338762}
   - component: {fileID: 33297256271369796}
+  - component: {fileID: 114048192612418424}
   m_Layer: 0
   m_Name: enemyBasic
   m_TagString: Code
@@ -151,6 +152,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1126641639689162}
   m_Mesh: {fileID: 4300000, guid: 6b18ec36f5a300144935bcf3f6be7235, type: 3}
+--- !u!114 &114048192612418424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126641639689162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef668b0f8eae42c4bf7fd9afa7defbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extension: .exe
+  speed: 10
+  size: 10
+  encryption: 0
+  source: 2
 --- !u!114 &114095850139985450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -280,14 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc61e58ddcd06264183cd0a49af1e7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  badColour: {r: 0.71323526, g: 0.041955013, b: 0.041955013, a: 0}
-  goodColour: {r: 0.030655269, g: 0.5955882, b: 0.04727096, a: 0}
-  movementSpeed: 10
-  attackDamage: 1
-  healthPoints: 5
-  max_healthPoints: 0
+  colour: {r: 0, g: 0, b: 0, a: 0}
+  isEnemy: 1
+  properties: {fileID: 114048192612418424}
   healthBar: {fileID: 1798652457185046}
-  properties: 0000000000000000
 --- !u!135 &135679843360263894
 SphereCollider:
   m_ObjectHideFlags: 1
