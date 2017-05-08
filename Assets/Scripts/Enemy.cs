@@ -3,60 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-    EnemySpawnManager enemySpawnManager;
-    
-    //Enemy colour:
-    private Renderer rend;
-    public Color badColour;
-    public Color goodColour;
+	
+    public Color colour;
 
-    //Flag variable: is this code object an Enemy?
-    private bool isEnemy = false;
+	//Testing variables for turret targetting
+	public bool isEnemy;
+	public CodeProperties properties;
     
-    public float movementSpeed;
-    public int attackDamage;
-    public float healthPoints;
-    public float max_healthPoints;
+    private float healthPoints;
+    private float maxHealthPoints;
+	public GameObject healthBar;
+
+	private int reward; 
+	private int attackDamage;
+
     private float distanceCheck = 0.5f;
-    public GameObject healthBar;
   
-    //Slow fields
-    private int slowState;
+    //Moevement fields
+	private float movementSpeed;
+    private bool slowState;
 	private float slowCooldown;
 	private float slowStartTime;
 	private float tempSpeed;
     
-    //Testing variables for turret targetting
-    public int[] properties;
     //Variables for storing target waypoint
     private Transform waypointTarget;
     private int waypointIndex;
 
 	void Start () {
-        //Get spawnManager instance
-        enemySpawnManager = EnemySpawnManager.instance;
-        
-        //Set target to 1st waypoint in Waypoints array
-        max_healthPoints = healthPoints;
+		//Get game attributes from parser attributes
+		movementSpeed = (float)properties.speed;
+		healthPoints = (float)properties.size;
+		attackDamage = properties.size;
+		reward = properties.size;
+
+		//Set target to 1st Waypoint
 		waypointTarget = Waypoints.points[0];
-        rend = GetComponent<Renderer>();
-        slowState = 0;
-          
-        properties = new int[1];
-        if(enemySpawnManager.lastSpawned == enemySpawnManager.briefingEnemy) {
-            properties[0] = 1;
-        } else {
-            properties[0] = 0;
-        }
+
+		maxHealthPoints = healthPoints;
+        slowState = false;
 	}
 	
 	void Update () {
 		//Get which way to point
         Vector3 dir = waypointTarget.position - transform.position;
-        
-        //Translate: moves enemy    
-        //Space.word: move relative to world world
-        //Time.deltaTime: keep speed indepenant of framerate.   
+         
+        //Space.world: move relative to world
+        //Time.deltaTime: keep speed independent of framerate   
         //Normalized: keeps speed fixed by movementSpeed variable
         transform.Translate(dir.normalized * movementSpeed * Time.deltaTime, Space.World);
         
@@ -66,24 +59,22 @@ public class Enemy : MonoBehaviour {
         }
 
 		//Reset speed after slowCooldown
-		if (Time.time > slowStartTime + slowCooldown && slowState == 1) {
-			slowState = 0;
+		if (Time.time > slowStartTime + slowCooldown && slowState) {
+			slowState = false;
 			movementSpeed = tempSpeed;
 		}
 	}
     
     void GetNextWaypoint() {
-        //Check if at the end of waypoint path, and destroy enemy if so 
-        //Inflict damage if code is "bad" code (an enemy)
+		//What to do at final waypoint
+        //Inflict damage if code is "bad"
+		//Reward player if code is "good"
         if(waypointIndex >= Waypoints.points.Length - 1) {
 			if (isEnemy) {
 				PlayerStats.instance.decreaseHealth (attackDamage);     
 				Debug.Log ("HP = " + PlayerStats.Health);
                 Sound.instance.healthlossSound();
-			} else { 
-				//hard code reward at this stage, can be replaced later if 
-				//different types of good code
-				int reward = 100; 
+			} else {
 				PlayerStats.instance.adjustCash (reward);
 				Debug.Log ("Cash = " + PlayerStats.Cash);
                 Sound.instance.rewardSound(); 
@@ -103,7 +94,7 @@ public class Enemy : MonoBehaviour {
     public void setHealth(float newHealth) {
         healthPoints = newHealth;
         
-    float calc_Health = healthPoints / max_healthPoints;
+    float calc_Health = healthPoints / maxHealthPoints;
         SetHealthBar(calc_Health);
 
         if(healthPoints <= 0) {
@@ -125,9 +116,9 @@ public class Enemy : MonoBehaviour {
 	public void setSlow(float slowFactor, float slowTime) {
 		slowStartTime = Time.time;
 		slowCooldown = slowTime;
-		if (slowState == 0) {
+		if (!slowState) {
 			tempSpeed = movementSpeed;
-			slowState = 1;
+			slowState = true;
 			movementSpeed *= slowFactor;
 		}
 	}   
