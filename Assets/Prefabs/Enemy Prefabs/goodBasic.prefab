@@ -273,7 +273,7 @@ MonoBehaviour:
   colour: {r: 0, g: 0, b: 0, a: 0}
   isEnemy: 0
   properties: {fileID: 114285905819034552}
-  healthBar: {fileID: 1789225295795382}
+  healthBar: {fileID: 1404810101004206, guid: 349c95a975b0c734a8d975348e3747ec, type: 2}
 --- !u!114 &114867094159140854
 MonoBehaviour:
   m_ObjectHideFlags: 1
