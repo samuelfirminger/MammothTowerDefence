@@ -301,6 +301,7 @@ MonoBehaviour:
   isEnemy: 1
   properties: {fileID: 114048192612418424}
   healthBar: {fileID: 1798652457185046}
+  properties: 
 --- !u!135 &135679843360263894
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -169,7 +169,7 @@ MonoBehaviour:
   healthPoints: 20
   max_healthPoints: 0
   healthBar: {fileID: 1221342016450492}
-  properties: 0000000000000000
+  properties: 
 --- !u!114 &114273084892355620
 MonoBehaviour:
   m_ObjectHideFlags: 1
