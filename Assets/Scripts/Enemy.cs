@@ -52,7 +52,8 @@ public class Enemy : MonoBehaviour {
         //Time.deltaTime: keep speed independent of framerate   
         //Normalized: keeps speed fixed by movementSpeed variable
         transform.Translate(dir.normalized * movementSpeed * Time.deltaTime, Space.World);
-        
+		transform.LookAt(waypointTarget);
+
         //Check if enemy is within distance 
         if(Vector3.Distance(transform.position, waypointTarget.position) <= distanceCheck) {
             GetNextWaypoint();
