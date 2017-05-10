@@ -8,7 +8,7 @@ public class CodeProperties : MonoBehaviour {
 
 	//the extension of the file
 	//eg .zip, .exe etc.
-	public string extension;
+	public CodeExtension extension;
 
 	public int speed;
 	public int size;

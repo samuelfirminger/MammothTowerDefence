@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colour: {r: 0, g: 0, b: 0, a: 0}
-  isEnemy: 1
   properties: {fileID: 114862177032707218}
   healthBar: {fileID: 1627133687465818}
 --- !u!114 &114637726814238912
@@ -242,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef668b0f8eae42c4bf7fd9afa7defbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extension: .exe
+  extension: 0
   speed: 10
   size: 10
   encryption: 0
