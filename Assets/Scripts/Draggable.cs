@@ -8,13 +8,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 {
 	public Transform parentReturn = null;
 	GameObject placeHolder = null;
-	public enum blockType {IF , ELSE, ELSEIF, OR, SHOOT, DONTSHOOT, ENEMY};
-	public blockType typeOfBlock = blockType.IF;
+	public BlockType typeOfBlock;
+	public int intValue = -1;
+	public CodeSource codeSource;
+	public CodeExtension codeExtension;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
-
 		placeHolder = new GameObject();
 		placeHolder.transform.SetParent(this.transform.parent);
 		LayoutElement layoutElement = placeHolder.AddComponent<LayoutElement>();
@@ -33,8 +33,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
-
         this.transform.position = eventData.position;
 
 		int newSiblingIndex = parentReturn.childCount;
@@ -55,7 +53,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
 		this.transform.SetParent(parentReturn);
 		this.transform.SetSiblingIndex (placeHolder.transform.GetSiblingIndex ());
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
