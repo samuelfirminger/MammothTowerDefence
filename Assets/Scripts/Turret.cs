@@ -55,9 +55,7 @@ public class Turret : MonoBehaviour {
 				bullet.setDamage(baseDamage);
 				bullet.Seek(target);
 			}
-		}
-        
-        
+		}  
     }
     
     void UpdateTarget() {
@@ -98,7 +96,7 @@ public class Turret : MonoBehaviour {
     //Check the enemy properties against what the user has programmed the turret to fire at
     bool checkIfEnemy(Enemy enemy) {
         //TODO: write method to select enemies
-		if(enemy.isEnemy) return true;
+		if(enemy.getIsEnemy()) return true;
 		else return false;
     }
 }

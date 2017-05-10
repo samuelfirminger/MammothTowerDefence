@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +6,7 @@ public class Enemy : MonoBehaviour {
 	
     public Color colour;
 
-	//Testing variables for turret targetting
-	public bool isEnemy;
+	private bool isEnemy;
 	public CodeProperties properties;
     
     private float healthPoints;
@@ -64,6 +63,14 @@ public class Enemy : MonoBehaviour {
 			slowState = false;
 			movementSpeed = tempSpeed;
 		}
+	}
+
+	public void setIsEnemy(bool isEnemy){
+		this.isEnemy = isEnemy;
+	}
+
+	public bool getIsEnemy(){
+		return isEnemy;
 	}
     
     void GetNextWaypoint() {

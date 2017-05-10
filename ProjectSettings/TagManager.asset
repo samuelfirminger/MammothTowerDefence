@@ -9,6 +9,9 @@ TagManager:
   - PlayerHealth
   - ShowOnPause
   - TurretShop
+  - CardLevel1
+  - CardLevel2
+  - CardLevel3
   layers:
   - Default
   - TransparentFX
