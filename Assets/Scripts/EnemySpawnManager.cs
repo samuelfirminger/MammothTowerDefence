@@ -48,10 +48,9 @@ public class EnemySpawnManager : MonoBehaviour {
     void Start() {
 		PhaseManager.instance.enableBuildPhase ();
 
-		/*XXX
-		Enemy enemy = badPrefab.GetComponent(typeof(Enemy)) as Enemy;
-		enemy.isEnemy = false;
-		*/
+		Interpreter interpreter = new Interpreter ();
+		interpreter.interpret (badPrefab, BetweenScenes.parsedInstructionSet);
+		interpreter.interpret (goodPrefab, BetweenScenes.parsedInstructionSet);
 
         //Load all enemy types into array
         enemyTypes[0] = badPrefab;

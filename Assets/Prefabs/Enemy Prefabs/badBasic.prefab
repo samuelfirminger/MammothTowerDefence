@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colour: {r: 0, g: 0, b: 0, a: 0}
+  isEnemy: 1
   properties: {fileID: 114862177032707218}
   healthBar: {fileID: 1627133687465818}
 --- !u!114 &114637726814238912

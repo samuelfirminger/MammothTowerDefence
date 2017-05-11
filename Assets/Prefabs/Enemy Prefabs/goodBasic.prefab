@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef668b0f8eae42c4bf7fd9afa7defbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extension: .zip
+  extension: 1
   speed: 10
   size: 5
   encryption: 0

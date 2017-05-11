@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour {
 	
     public Color colour;
 
-	private bool isEnemy;
+	public bool isEnemy;
 	public CodeProperties properties;
     
     private float healthPoints;
