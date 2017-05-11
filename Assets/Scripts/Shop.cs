@@ -7,6 +7,7 @@ public class Shop : MonoBehaviour {
 	public TurretSpec turretBasic;
 	public TurretSpec turretSlow;
 	public TurretSpec turretSplash;
+	public TurretSpec turretSniper; 
 
 
 	TurretManager turretManager ; 
@@ -34,6 +35,12 @@ public class Shop : MonoBehaviour {
 		resetSellButton (); 
 		turretManager.chooseTurretToBuild (turretSplash);
     }
+
+	public void buySniperTurret() { 
+		Debug.Log ("Sniper Turret Purchased"); 
+		resetSellButton (); 
+		turretManager.chooseTurretToBuild (turretSniper);
+	}
 
 	//if currently in sell mode and shop button is clicked,
 	//return to buy mode, alternatively, user can click on shop turret button

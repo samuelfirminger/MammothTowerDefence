@@ -102,7 +102,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4405404442113870}
-  - component: {fileID: 95849422267576908}
   - component: {fileID: 114753715904035008}
   m_Layer: 0
   m_Name: plateBasic
@@ -346,23 +345,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486060843906562}
   m_Mesh: {fileID: 4300004, guid: 4e69bcb825f68c44ea1976319dc88e03, type: 3}
---- !u!95 &95849422267576908
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1849312113349924}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4e69bcb825f68c44ea1976319dc88e03, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114753715904035008
 MonoBehaviour:
   m_ObjectHideFlags: 1
