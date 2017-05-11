@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-	
-    public Color colour;
 
 	private bool isEnemy;
 	public bool briefingEnemy;
@@ -19,7 +17,7 @@ public class Enemy : MonoBehaviour {
 
     private float distanceCheck = 0.5f;
   
-    //Moevement fields
+    //Movement fields
 	private float movementSpeed;
     private bool slowState;
 	private float slowCooldown;
@@ -30,8 +28,8 @@ public class Enemy : MonoBehaviour {
     private Transform waypointTarget;
     private int waypointIndex;
 
-	//particle effect
-	public GameObject deathEffect ;
+	//Death particle effect
+	public GameObject deathEffect;
 
 	void Start () {
 		//Get game attributes from parser attributes
