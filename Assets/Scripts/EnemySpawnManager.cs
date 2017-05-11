@@ -48,8 +48,9 @@ public class EnemySpawnManager : MonoBehaviour {
 		PhaseManager.instance.enableBuildPhase();
 
 		Interpreter interpreter = new Interpreter ();
-		interpreter.interpret (badPrefab, BetweenScenes.parsedInstructionSet);
-		interpreter.interpret (goodPrefab, BetweenScenes.parsedInstructionSet);
+		for(int i = 0; i < enemyTypes.Length; i++) {
+			interpreter.interpret(enemyTypes[i], BetweenScenes.parsedInstructionSet);
+		}
 
 		waveIndex = 0;
     }
