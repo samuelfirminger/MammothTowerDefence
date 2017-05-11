@@ -37,7 +37,5 @@ public enum BlockType {
 	EXTENSION_PROP,
 
 	// Source property values
-	SOURCE_PROP,
-
-	ENEMY
+	SOURCE_PROP
 }

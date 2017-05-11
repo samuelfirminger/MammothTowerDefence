@@ -80,14 +80,14 @@ public class Interpreter : MonoBehaviour {
 		blockNum += 2;
 		CodeProperties cp = enemyPrefab.GetComponent (typeof(CodeProperties)) as CodeProperties;
 
-		conditionMet = (blocks[blockNum].codeExtension == cp.extension);
+		conditionMet = (blocks[blockNum].getCodeExtension() == cp.extension);
 	}
 
 	private void checkSource(){
 		blockNum += 2;
 		CodeProperties cp = enemyPrefab.GetComponent (typeof(CodeProperties)) as CodeProperties;
 
-		conditionMet = (blocks [blockNum].codeSource == cp.source);
+		conditionMet = (blocks [blockNum].getCodeSource() == cp.source);
 	}
 
 	private void checkEncryption(){
@@ -153,13 +153,13 @@ public class Interpreter : MonoBehaviour {
 
 		switch (bt) {
 		case BlockType.GREATER:
-			conditionMet = (cp.size > blocks [blockNum].intValue);
+			conditionMet = (cp.size > blocks [blockNum].getIntValue());
 			return;
 		case BlockType.LESS:
-			conditionMet = (cp.size < blocks [blockNum].intValue);
+			conditionMet = (cp.size < blocks [blockNum].getIntValue());
 			return;
 		case BlockType.EQUALS:
-			conditionMet = (cp.size == blocks [blockNum].intValue);
+			conditionMet = (cp.size == blocks [blockNum].getIntValue());
 			return;
 		default:
 			Debug.Log ("Interpreter Error - checkSize()");
@@ -175,13 +175,13 @@ public class Interpreter : MonoBehaviour {
 
 		switch (bt) {
 		case BlockType.GREATER:
-			conditionMet = (cp.speed > blocks [blockNum].intValue);
+			conditionMet = (cp.speed > blocks [blockNum].getIntValue());
 			return;
 		case BlockType.LESS:
-			conditionMet = (cp.speed < blocks [blockNum].intValue);
+			conditionMet = (cp.speed < blocks [blockNum].getIntValue());
 			return;
 		case BlockType.EQUALS:
-			conditionMet = (cp.speed == blocks [blockNum].intValue);
+			conditionMet = (cp.speed == blocks [blockNum].getIntValue());
 			return;
 		default:
 			Debug.Log ("Interpreter Error - checkSpeed()");
