@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	private bool isEnemy;
 	public bool briefingEnemy;
+	public bool isEnemy;
 	public CodeProperties properties;
     
     private float healthPoints;
@@ -43,7 +43,6 @@ public class Enemy : MonoBehaviour {
 
 		maxHealthPoints = healthPoints;
         slowState = false;
-		isEnemy = true; 
 	}
 	
 	void Update () {
