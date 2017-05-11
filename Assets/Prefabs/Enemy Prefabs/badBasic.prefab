@@ -166,6 +166,8 @@ MonoBehaviour:
   colour: {r: 0, g: 0, b: 0, a: 0}
   properties: {fileID: 114862177032707218}
   healthBar: {fileID: 1627133687465818}
+  deathEffect: {fileID: 1461648493237600, guid: 238b2819ebaaa2848b0ebb0fc8d6bd0b,
+    type: 2}
 --- !u!114 &114637726814238912
 MonoBehaviour:
   m_ObjectHideFlags: 1
