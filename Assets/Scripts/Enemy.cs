@@ -44,7 +44,6 @@ public class Enemy : MonoBehaviour {
 
 		maxHealthPoints = healthPoints;
         slowState = false;
-		isEnemy = true; 
 	}
 	
 	void Update () {
