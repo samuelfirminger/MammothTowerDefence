@@ -9,9 +9,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public Transform parentReturn = null;
 	GameObject placeHolder = null;
 	public BlockType typeOfBlock;
-	public int intValue = -1;
-	public CodeSource codeSource;
-	public CodeExtension codeExtension;
+	private int intValue;
+	private CodeSource codeSource;
+	private CodeExtension codeExtension;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -59,4 +59,27 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		Destroy(placeHolder);
     }
 
+	public void setIntValue(int intValue){
+		this.intValue = intValue;
+	}
+
+	public int getIntValue(){
+		return intValue;
+	}
+
+	public void setCodeSource(CodeSource codeSource){
+		this.codeSource = codeSource;
+	}
+
+	public CodeSource getCodeSource(){
+		return codeSource;
+	}
+
+	public void setCodeExtension(CodeExtension codeExtension){
+		this.codeExtension = codeExtension;
+	}
+
+	public CodeExtension getCodeExtension(){
+		return codeExtension;
+	}
 }
