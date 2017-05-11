@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour {
 	
     public Color colour;
 
+    public static bool levelOne;
+
 	private bool isEnemy;
 	public CodeProperties properties;
     
@@ -35,9 +37,25 @@ public class Enemy : MonoBehaviour {
 		healthPoints = (float)properties.size;
 		attackDamage = properties.size;
 		reward = properties.size;
+        levelOne = true; 
+        if(Waypoints.points.Length > 12)
+        {
+            levelOne = false;
+        }
 
 		//Set target to 1st Waypoint
 		waypointTarget = Waypoints.points[0];
+
+        if(levelOne == false)
+        {
+            int rand = Random.Range(0, 2);
+            if (rand == 1)
+            {   
+                waypointTarget = Waypoints.points[13];
+                waypointIndex = 13;
+            }
+        }
+
 
 		maxHealthPoints = healthPoints;
         slowState = false;
@@ -76,7 +94,13 @@ public class Enemy : MonoBehaviour {
 		//What to do at final waypoint
         //Inflict damage if code is "bad"
 		//Reward player if code is "good"
-        if(waypointIndex >= Waypoints.points.Length - 1) {
+        if(waypointIndex == 15)
+        {
+            waypointTarget = Waypoints.points[12];
+            waypointIndex = 11;
+        }
+
+        if(waypointIndex == 12) { //length of level 1, and longest path.
 			if (isEnemy) {
 				PlayerStats.instance.decreaseHealth (attackDamage);     
 				Debug.Log ("HP = " + PlayerStats.Health);
@@ -91,7 +115,10 @@ public class Enemy : MonoBehaviour {
         }
         
         waypointIndex++;
-        waypointTarget = Waypoints.points[waypointIndex];
+        if (waypointIndex < Waypoints.points.Length)
+        {
+            waypointTarget = Waypoints.points[waypointIndex];
+        }
     }
     
     public float getHealth() {
