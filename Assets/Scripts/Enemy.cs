@@ -83,12 +83,12 @@ public class Enemy : MonoBehaviour {
         //Inflict damage if code is "bad"
 		//Reward player if code is "good"
         if(waypointIndex >= Waypoints.points.Length - 1) {
-			if (isEnemy) {
-				PlayerStats.instance.decreaseHealth (attackDamage);     
-				Debug.Log ("HP = " + PlayerStats.Health);
+			if (briefingEnemy) {
+				PlayerStats.instance.decreaseHealth(attackDamage);     
+				Debug.Log("HP = " + PlayerStats.Health);
                 Sound.instance.healthlossSound();
 			} else {
-				PlayerStats.instance.adjustCash (reward);
+				PlayerStats.instance.adjustCash(reward);
 				Debug.Log ("Cash = " + PlayerStats.Cash);
                 Sound.instance.rewardSound(); 
 			}
@@ -119,15 +119,15 @@ public class Enemy : MonoBehaviour {
 			else {
 				PlayerStats.instance.decreaseHealth(1);
 			}
-			GameObject particleEffect = (GameObject)Instantiate (deathEffect, transform.position, transform.rotation); 
-			Destroy (particleEffect, 0.5f); 
+			GameObject particleEffect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation); 
+			Destroy(particleEffect, 0.5f); 
             Destroy(gameObject);
             Sound.instance.deathSound();
         }
     }
     
     public void SetHealthBar(float myHealth) {
-        //myHealth value 0-1 , calculated by maxhealth/Curent health
+        //myHealth value 0-1 , calculated by maxhealth/Current health
         healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
     
