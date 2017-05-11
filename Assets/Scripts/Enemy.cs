@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour {
     private Transform waypointTarget;
     private int waypointIndex;
 
+	//particle effect
+	public GameObject deathEffect ;
+
 	void Start () {
 		//Get game attributes from parser attributes
 		movementSpeed = (float)properties.speed;
@@ -41,6 +44,7 @@ public class Enemy : MonoBehaviour {
 
 		maxHealthPoints = healthPoints;
         slowState = false;
+		isEnemy = true; 
 	}
 	
 	void Update () {
@@ -111,6 +115,8 @@ public class Enemy : MonoBehaviour {
                 PlayerStats.instance.adjustCash(10);
                 
             }
+			GameObject particleEffect = (GameObject)Instantiate (deathEffect, transform.position, transform.rotation); 
+			Destroy (particleEffect, 0.5f); 
             Destroy(gameObject);
             Sound.instance.deathSound();
         }

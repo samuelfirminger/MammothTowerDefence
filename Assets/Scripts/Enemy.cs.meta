@@ -1,12 +1,14 @@
 fileFormatVersion: 2
 guid: dc61e58ddcd06264183cd0a49af1e7fd
-timeCreated: 1490695918
+timeCreated: 1494499093
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - deathSound: {instanceID: 0}
+  - properties: {instanceID: 0}
   - healthBar: {instanceID: 0}
+  - deathEffect: {fileID: 1461648493237600, guid: 238b2819ebaaa2848b0ebb0fc8d6bd0b,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
