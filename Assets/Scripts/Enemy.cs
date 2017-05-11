@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
     public Color colour;
 
 	private bool isEnemy;
+	public bool briefingEnemy;
 	public CodeProperties properties;
     
     private float healthPoints;
@@ -106,15 +107,18 @@ public class Enemy : MonoBehaviour {
     public void setHealth(float newHealth) {
         healthPoints = newHealth;
         
-    float calc_Health = healthPoints / maxHealthPoints;
+    	float calc_Health = healthPoints / maxHealthPoints;
         SetHealthBar(calc_Health);
 
         if(healthPoints <= 0) {
            
-            if (isEnemy) {
+            if (briefingEnemy) {
                 PlayerStats.instance.adjustCash(10);
                 
             }
+			else {
+				PlayerStats.instance.decreaseHealth(1);
+			}
 			GameObject particleEffect = (GameObject)Instantiate (deathEffect, transform.position, transform.rotation); 
 			Destroy (particleEffect, 0.5f); 
             Destroy(gameObject);
