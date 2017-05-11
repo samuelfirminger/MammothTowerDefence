@@ -183,8 +183,31 @@ public class Parser : MonoBehaviour {
 		nextBlock ();
 
 		bt = blocks [blockNum].typeOfBlock;
-		if (bt != BlockType.EXTENSION_PROP)
+		if (bt != BlockType.EXTENSION_PROP) {
 			validInstruction = false;
+			return;
+		}
+
+		//Dropdown dropDown = blocks [blockNum].GetComponent (typeof(Dropdown)) as Dropdown;
+		Dropdown dropDown = blocks[blockNum].GetComponentInChildren(typeof(Dropdown)) as Dropdown;
+
+		switch (dropDown.value) {
+		case 0:
+			blocks [blockNum].setCodeExtension (CodeExtension.BAT);
+			return;
+		case 1:
+			blocks [blockNum].setCodeExtension (CodeExtension.EXE);
+			return;
+		case 2:
+			blocks [blockNum].setCodeExtension (CodeExtension.SYS);
+			return;
+		case 3:
+			blocks [blockNum].setCodeExtension (CodeExtension.XLS);
+			return;
+		default:
+			Debug.Log ("Parser error - checkExtension() failed");
+			return;
+		}
 	}
 
 	// Check current block is an integer
@@ -200,6 +223,26 @@ public class Parser : MonoBehaviour {
 		bt = blocks [blockNum].typeOfBlock;
 		if (bt != BlockType.INTEGER)
 			validInstruction = false;
+		else {
+			InputField inputField = blocks [blockNum].GetComponentInChildren (typeof(InputField)) as InputField;
+			string text = inputField.text;
+
+			// check user has made an entry
+			if (text == null || text.Equals ("")) {
+				validInstruction = false;
+				return;
+			} 
+
+			int num = int.Parse (inputField.text);
+			// check user entry is >0
+			if (num < 0) {
+				validInstruction = false;
+				Debug.Log ("Error: Negative integer entered");
+				return;
+			}
+				
+			blocks [blockNum].setIntValue (num);
+		}
 	}
 
 	// Check current block is a source property e.g. trusted, known
@@ -213,8 +256,31 @@ public class Parser : MonoBehaviour {
 		nextBlock ();
 
 		bt = blocks [blockNum].typeOfBlock;
-		if (bt != BlockType.SOURCE_PROP)
+		if (bt != BlockType.SOURCE_PROP) {
 			validInstruction = false;
+			return;
+		}
+
+		Dropdown dropDown = blocks [blockNum].GetComponentInChildren (typeof(Dropdown)) as Dropdown;
+
+		switch (dropDown.value) {
+		case 0:
+			blocks [blockNum].setCodeSource(CodeSource.Trusted);
+			return;
+		case 1:
+			blocks [blockNum].setCodeSource(CodeSource.Known);
+			return;
+		case 2:
+			blocks [blockNum].setCodeSource(CodeSource.Unknown);
+			return;
+		case 3:
+			blocks [blockNum].setCodeSource(CodeSource.Suspicious);
+			return;
+		default:
+			Debug.Log ("Parser error - checkSource failed");
+			return;
+		}
+		
 	}
 
 	private void checkPostValue(){
