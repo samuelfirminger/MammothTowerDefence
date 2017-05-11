@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-	
-    public Color colour;
 
-	private bool isEnemy;
+	public bool briefingEnemy;
+	public bool isEnemy;
 	public CodeProperties properties;
     
     private float healthPoints;
@@ -18,7 +17,7 @@ public class Enemy : MonoBehaviour {
 
     private float distanceCheck = 0.5f;
   
-    //Moevement fields
+    //Movement fields
 	private float movementSpeed;
     private bool slowState;
 	private float slowCooldown;
@@ -29,8 +28,8 @@ public class Enemy : MonoBehaviour {
     private Transform waypointTarget;
     private int waypointIndex;
 
-	//particle effect
-	public GameObject deathEffect ;
+	//Death particle effect
+	public GameObject deathEffect;
 
 	void Start () {
 		//Get game attributes from parser attributes
@@ -44,7 +43,6 @@ public class Enemy : MonoBehaviour {
 
 		maxHealthPoints = healthPoints;
         slowState = false;
-		isEnemy = true; 
 	}
 	
 	void Update () {
@@ -82,12 +80,12 @@ public class Enemy : MonoBehaviour {
         //Inflict damage if code is "bad"
 		//Reward player if code is "good"
         if(waypointIndex >= Waypoints.points.Length - 1) {
-			if (isEnemy) {
-				PlayerStats.instance.decreaseHealth (attackDamage);     
-				Debug.Log ("HP = " + PlayerStats.Health);
+			if (briefingEnemy) {
+				PlayerStats.instance.decreaseHealth(attackDamage);     
+				Debug.Log("HP = " + PlayerStats.Health);
                 Sound.instance.healthlossSound();
 			} else {
-				PlayerStats.instance.adjustCash (reward);
+				PlayerStats.instance.adjustCash(reward);
 				Debug.Log ("Cash = " + PlayerStats.Cash);
                 Sound.instance.rewardSound(); 
 			}
@@ -106,24 +104,27 @@ public class Enemy : MonoBehaviour {
     public void setHealth(float newHealth) {
         healthPoints = newHealth;
         
-    float calc_Health = healthPoints / maxHealthPoints;
+    	float calc_Health = healthPoints / maxHealthPoints;
         SetHealthBar(calc_Health);
 
         if(healthPoints <= 0) {
            
-            if (isEnemy) {
+            if (briefingEnemy) {
                 PlayerStats.instance.adjustCash(10);
                 
             }
-			GameObject particleEffect = (GameObject)Instantiate (deathEffect, transform.position, transform.rotation); 
-			Destroy (particleEffect, 0.5f); 
+			else {
+				PlayerStats.instance.decreaseHealth(1);
+			}
+			GameObject particleEffect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation); 
+			Destroy(particleEffect, 0.5f); 
             Destroy(gameObject);
             Sound.instance.deathSound();
         }
     }
     
     public void SetHealthBar(float myHealth) {
-        //myHealth value 0-1 , calculated by maxhealth/Curent health
+        //myHealth value 0-1 , calculated by maxhealth/Current health
         healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
     

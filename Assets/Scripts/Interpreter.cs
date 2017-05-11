@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interpreter : MonoBehaviour {
+public class Interpreter {
 	private Draggable[] blocks = null;
 	private Transform enemyPrefab = null;
 	private int blockNum = 0;
@@ -10,17 +10,7 @@ public class Interpreter : MonoBehaviour {
 	private bool endReached = false;
 	private bool isEnemy = false;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	void Interpret(Transform enemyPrefab, Draggable[] blocks){
+	public void interpret(Transform enemyPrefab, Draggable[] blocks){
 		this.blocks = blocks;
 		this.enemyPrefab = enemyPrefab;
 		blockNum = 0;
@@ -34,7 +24,12 @@ public class Interpreter : MonoBehaviour {
 		}
 
 		Enemy enemy = enemyPrefab.GetComponent (typeof(Enemy)) as Enemy;
-		enemy.setIsEnemy (isEnemy);
+		//XXX
+		if (isEnemy == true) {
+			Debug.Log ("isEnemy == true");
+		}
+		//XXXX
+		enemy.isEnemy = isEnemy;
 	}
 
 	private void runInterpret(){
@@ -78,8 +73,21 @@ public class Interpreter : MonoBehaviour {
 
 	private void checkExtension(){
 		blockNum += 2;
+		//XXXXXX
+		Debug.Log ("Test -------");
+		if (blocks [0].typeOfBlock == BlockType.IF) {
+			Debug.Log ("Test 2 ------");
+		}
+		//XXXXXX
 		CodeProperties cp = enemyPrefab.GetComponent (typeof(CodeProperties)) as CodeProperties;
-
+		//XXXX
+		if (cp.extension == CodeExtension.BAT) {
+			Debug.Log ("Test extension --------");
+		}
+		if (blocks [blockNum].getCodeExtension() == CodeExtension.BAT) {
+			Debug.Log ("Test extension 2 --------");
+		}
+		//XXXX
 		conditionMet = (blocks[blockNum].getCodeExtension() == cp.extension);
 	}
 
@@ -109,8 +117,10 @@ public class Interpreter : MonoBehaviour {
 	}
 
 	private void checkShootStatement(){
-		if (conditionMet)
+		if (conditionMet) {
 			setIsEnemy ();
+			return;
+		}
 			
 		if(blocks.Length == (blockNum + 1))
 			endReached = true;
