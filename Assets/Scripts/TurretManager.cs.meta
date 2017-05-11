@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 87abe028097f53946b94764e751da042
-timeCreated: 1490032808
+timeCreated: 1494501180
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - buildTurretEffect: {fileID: 1178509773728980, guid: adbc5a524e0ff2340b78d73eba80d399,
+      type: 2}
+  - turretBasicPrefab: {instanceID: 0}
+  - turretSlowPrefab: {instanceID: 0}
+  - turretSplashPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

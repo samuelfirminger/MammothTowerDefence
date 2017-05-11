@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour {
     private Transform waypointTarget;
     private int waypointIndex;
 
+	//particle effect
+	public GameObject deathEffect ;
+
 	void Start () {
 		//Get game attributes from parser attributes
 		movementSpeed = (float)properties.speed;
@@ -41,6 +44,7 @@ public class Enemy : MonoBehaviour {
 
 		maxHealthPoints = healthPoints;
         slowState = false;
+		isEnemy = true; 
 	}
 	
 	void Update () {
@@ -51,7 +55,8 @@ public class Enemy : MonoBehaviour {
         //Time.deltaTime: keep speed independent of framerate   
         //Normalized: keeps speed fixed by movementSpeed variable
         transform.Translate(dir.normalized * movementSpeed * Time.deltaTime, Space.World);
-        
+		transform.LookAt(waypointTarget);
+
         //Check if enemy is within distance 
         if(Vector3.Distance(transform.position, waypointTarget.position) <= distanceCheck) {
             GetNextWaypoint();
@@ -110,6 +115,8 @@ public class Enemy : MonoBehaviour {
                 PlayerStats.instance.adjustCash(10);
                 
             }
+			GameObject particleEffect = (GameObject)Instantiate (deathEffect, transform.position, transform.rotation); 
+			Destroy (particleEffect, 0.5f); 
             Destroy(gameObject);
             Sound.instance.deathSound();
         }

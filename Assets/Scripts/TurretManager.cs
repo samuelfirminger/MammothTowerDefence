@@ -60,6 +60,7 @@ public class TurretManager : MonoBehaviour {
 		PlayerStats.instance.adjustCash(-(turretToBuild.cost));
 
 		GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition (), Quaternion.identity);
+
 		node.builtTurret = turret;
         Sound.instance.placeTurretSound();
 
