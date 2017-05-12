@@ -24,7 +24,7 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	private float timeBetweenSpawns = 0.2f;
 	private float timeBetweenGroups = 3f ; 
-	private bool waveStart = true ;
+	private bool waveStart = false ;
     
     public Transform spawnPoint;
  
@@ -76,7 +76,6 @@ public class EnemySpawnManager : MonoBehaviour {
 					PhaseManager.instance.enableBuildPhase ();
 					TurretManager.instance.setSellState(false);
 					PhaseManager.instance.intoSellMode (); 
-					waveStart = true ; 
 				}
 			}
 		}
@@ -118,4 +117,8 @@ public class EnemySpawnManager : MonoBehaviour {
         Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
 		enemyCnt++;
     }
+
+	public void setWaveStart(bool flag) {
+		waveStart = flag;
+	}
 }
