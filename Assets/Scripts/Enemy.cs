@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -79,13 +79,19 @@ public class Enemy : MonoBehaviour {
 		//What to do at final waypoint
         //Inflict damage if code is "bad"
 		//Reward player if code is "good"
-        if(waypointIndex >= Waypoints.points.Length - 1) {
+        if(waypointIndex == 15)
+        {
+            waypointTarget = Waypoints.points[12];
+            waypointIndex = 11;
+        }
+
+        if(waypointIndex == 12) { //length of level 1, and longest path.
 			if (briefingEnemy) {
-				PlayerStats.instance.decreaseHealth(attackDamage);     
-				Debug.Log("HP = " + PlayerStats.Health);
+				PlayerStats.instance.decreaseHealth (attackDamage);     
+				Debug.Log ("HP = " + PlayerStats.Health);
                 Sound.instance.healthlossSound();
 			} else {
-				PlayerStats.instance.adjustCash(reward);
+				PlayerStats.instance.adjustCash (reward);
 				Debug.Log ("Cash = " + PlayerStats.Cash);
                 Sound.instance.rewardSound(); 
 			}
