@@ -8,10 +8,12 @@ public class EnemySpawnManager : MonoBehaviour {
     
     //Types of enemy to spawn
 	[Header("Turret Prefabs")]
-	private Transform[] enemyTypes = new Transform[2];
+	private Transform[] enemyTypes = new Transform[4];
     public Transform badPrefab;
     public Transform goodPrefab;
-
+    public Transform fastPrefab;
+    public Transform slowPrefab;
+    
 	//How many waves in a game
 	private int gameLength = 2;
 	//Which wave you are on
@@ -46,7 +48,7 @@ public class EnemySpawnManager : MonoBehaviour {
     }
  
     void Start() {
-		PhaseManager.instance.enableBuildPhase ();
+		PhaseManager.instance.enableBuildPhase();
 
 		/*XXX
 		Enemy enemy = badPrefab.GetComponent(typeof(Enemy)) as Enemy;
@@ -56,7 +58,9 @@ public class EnemySpawnManager : MonoBehaviour {
         //Load all enemy types into array
         enemyTypes[0] = badPrefab;
         enemyTypes[1] = goodPrefab;
-
+        enemyTypes[2] = fastPrefab;
+        enemyTypes[3] = slowPrefab;
+ 
 		waveIndex = 0;
     }
 
