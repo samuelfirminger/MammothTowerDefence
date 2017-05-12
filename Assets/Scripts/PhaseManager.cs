@@ -46,7 +46,7 @@ public class PhaseManager : MonoBehaviour {
 
 		//initialise sell button
 		sellText = sellUI.GetComponent<Text> ();
-		sellText.text = "ENTER SELL MODE"; 
+		sellText.text = "SELL TURRETS"; 
 
 
 	}
@@ -95,9 +95,9 @@ public class PhaseManager : MonoBehaviour {
 
 	public void intoSellMode() {
 		if (TurretManager.instance.getSellState() == true) {
-			sellText.text = "ENTER BUY MODE";
+			sellText.text = "BUY TURRETS";
 		} else {
-			sellText.text = "ENTER SELL MODE"; 
+			sellText.text = "SELL TURRETS"; 
 		}
 	}
 		
