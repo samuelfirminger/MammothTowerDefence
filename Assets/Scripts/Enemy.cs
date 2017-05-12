@@ -1,12 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-	
-    public Color colour;
 
-	private bool isEnemy;
+	public bool levelOne;
+	public bool briefingEnemy;
+	public bool isEnemy;
 	public CodeProperties properties;
     
     private float healthPoints;
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour {
 
     private float distanceCheck = 0.5f;
   
-    //Moevement fields
+    //Movement fields
 	private float movementSpeed;
     private bool slowState;
 	private float slowCooldown;
@@ -29,8 +29,8 @@ public class Enemy : MonoBehaviour {
     private Transform waypointTarget;
     private int waypointIndex;
 
-	//particle effect
-	public GameObject deathEffect ;
+	//Death particle effect
+	public GameObject deathEffect;
 
 	void Start () {
 		//Get game attributes from parser attributes
@@ -39,12 +39,27 @@ public class Enemy : MonoBehaviour {
 		attackDamage = properties.size;
 		reward = properties.size;
 
+		levelOne = true; 
+		if(Waypoints.points.Length > 12)
+		{
+			levelOne = false;
+		}
+
 		//Set target to 1st Waypoint
 		waypointTarget = Waypoints.points[0];
 
+		if(levelOne == false)
+		{
+			int rand = Random.Range(0, 2);
+			if (rand == 1)
+			{   
+				waypointTarget = Waypoints.points[13];
+				waypointIndex = 13;
+			}
+		}
+
 		maxHealthPoints = healthPoints;
         slowState = false;
-		isEnemy = true; 
 	}
 	
 	void Update () {
@@ -81,8 +96,14 @@ public class Enemy : MonoBehaviour {
 		//What to do at final waypoint
         //Inflict damage if code is "bad"
 		//Reward player if code is "good"
-        if(waypointIndex >= Waypoints.points.Length - 1) {
-			if (isEnemy) {
+        if(waypointIndex == 15)
+        {
+            waypointTarget = Waypoints.points[12];
+            waypointIndex = 11;
+        }
+
+        if(waypointIndex == 12) { //length of level 1, and longest path.
+			if (briefingEnemy) {
 				PlayerStats.instance.decreaseHealth (attackDamage);     
 				Debug.Log ("HP = " + PlayerStats.Health);
                 Sound.instance.healthlossSound();
@@ -96,7 +117,10 @@ public class Enemy : MonoBehaviour {
         }
         
         waypointIndex++;
-        waypointTarget = Waypoints.points[waypointIndex];
+		if (waypointIndex < Waypoints.points.Length)
+		{
+			waypointTarget = Waypoints.points[waypointIndex];
+		}
     }
     
     public float getHealth() {
@@ -106,24 +130,27 @@ public class Enemy : MonoBehaviour {
     public void setHealth(float newHealth) {
         healthPoints = newHealth;
         
-    float calc_Health = healthPoints / maxHealthPoints;
+    	float calc_Health = healthPoints / maxHealthPoints;
         SetHealthBar(calc_Health);
 
         if(healthPoints <= 0) {
            
-            if (isEnemy) {
+            if (briefingEnemy) {
                 PlayerStats.instance.adjustCash(10);
                 
             }
-			GameObject particleEffect = (GameObject)Instantiate (deathEffect, transform.position, transform.rotation); 
-			Destroy (particleEffect, 0.5f); 
+			else {
+				PlayerStats.instance.decreaseHealth(1);
+			}
+			GameObject particleEffect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation); 
+			Destroy(particleEffect, 0.5f); 
             Destroy(gameObject);
             Sound.instance.deathSound();
         }
     }
     
     public void SetHealthBar(float myHealth) {
-        //myHealth value 0-1 , calculated by maxhealth/Curent health
+        //myHealth value 0-1 , calculated by maxhealth/Current health
         healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
     

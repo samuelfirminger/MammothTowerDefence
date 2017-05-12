@@ -36,7 +36,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4005395415802406}
-  - component: {fileID: 95489428129105092}
   - component: {fileID: 114833229563088096}
   m_Layer: 0
   m_Name: dalekTower
@@ -484,23 +483,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1107085352254748}
   m_Mesh: {fileID: 4300002, guid: a68d9c583e450e64a9dc076b0043ec3a, type: 3}
---- !u!95 &95489428129105092
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1177937868983076}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a68d9c583e450e64a9dc076b0043ec3a, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114833229563088096
 MonoBehaviour:
   m_ObjectHideFlags: 1

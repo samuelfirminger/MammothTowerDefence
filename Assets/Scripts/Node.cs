@@ -24,7 +24,7 @@ public class Node : MonoBehaviour {
     }
 
 	public Vector3 getBuildPosition() {
-		return transform.position + offset;
+		return transform.position + offset ;
 	}
        
     void OnMouseEnter() {

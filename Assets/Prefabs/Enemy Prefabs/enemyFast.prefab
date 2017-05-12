@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 135794509935859198}
   - component: {fileID: 23086859615716178}
   - component: {fileID: 114891398321694956}
+  - component: {fileID: 114203130784131450}
+  - component: {fileID: 114540999414658272}
   m_Layer: 0
   m_Name: enemyFast
   m_TagString: Code
@@ -151,6 +153,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009777201294172}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114203130784131450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009777201294172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef668b0f8eae42c4bf7fd9afa7defbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extension: 1
+  speed: 15
+  size: 5
+  encryption: 1
+  source: 2
 --- !u!114 &114399302392976114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,6 +185,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114540999414658272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009777201294172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef668b0f8eae42c4bf7fd9afa7defbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extension: 0
+  speed: 15
+  size: 0
+  encryption: 0
+  source: 0
 --- !u!114 &114552937023805978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -280,14 +314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc61e58ddcd06264183cd0a49af1e7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  badColour: {r: 0, g: 0, b: 0, a: 0}
-  goodColour: {r: 0, g: 0, b: 0, a: 0}
-  movementSpeed: 15
-  attackDamage: 1
-  healthPoints: 2
-  max_healthPoints: 0
-  healthBar: {fileID: 1208094280521658}
-  properties: 
+  briefingEnemy: 1
+  isEnemy: 1
+  properties: {fileID: 114203130784131450}
+  healthBar: {fileID: 1404810101004206, guid: 349c95a975b0c734a8d975348e3747ec, type: 2}
+  deathEffect: {fileID: 1461648493237600, guid: 238b2819ebaaa2848b0ebb0fc8d6bd0b,
+    type: 2}
 --- !u!135 &135794509935859198
 SphereCollider:
   m_ObjectHideFlags: 1
