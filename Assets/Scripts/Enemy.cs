@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+	public bool levelOne;
 	public bool briefingEnemy;
 	public bool isEnemy;
 	public CodeProperties properties;
@@ -38,8 +39,24 @@ public class Enemy : MonoBehaviour {
 		attackDamage = properties.size;
 		reward = properties.size;
 
+		levelOne = true; 
+		if(Waypoints.points.Length > 12)
+		{
+			levelOne = false;
+		}
+
 		//Set target to 1st Waypoint
 		waypointTarget = Waypoints.points[0];
+
+		if(levelOne == false)
+		{
+			int rand = Random.Range(0, 2);
+			if (rand == 1)
+			{   
+				waypointTarget = Waypoints.points[13];
+				waypointIndex = 13;
+			}
+		}
 
 		maxHealthPoints = healthPoints;
         slowState = false;
@@ -100,7 +117,10 @@ public class Enemy : MonoBehaviour {
         }
         
         waypointIndex++;
-        waypointTarget = Waypoints.points[waypointIndex];
+		if (waypointIndex < Waypoints.points.Length)
+		{
+			waypointTarget = Waypoints.points[waypointIndex];
+		}
     }
     
     public float getHealth() {
