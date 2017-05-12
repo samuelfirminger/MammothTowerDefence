@@ -230,10 +230,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "To stop this attack on our computers, you must program hardware to target,
     attack and destroy these incoming viruses. \r\n\r\nOur antivirus software here
-    at MI5 consists of drag and drop system. Drag the \nappropriate boxes in the correct
-    order to correctly target the incoming viruses. \nEarly virus protection work
-    will tell you the characteristics of the incoming \nviruses between rounds. Use
-    this information to target the viruses. This information \nwill tell you speed,
+    at MI5 consists of a drag and drop system. Drag the \nappropriate boxes in the
+    correct order to correctly target the incoming viruses. \nEarly virus protection
+    work will tell you the characteristics of the incoming \nviruses between rounds.
+    Use this information to target the viruses. This information \nwill tell you speed,
     size, extension, encryption and source.\r\n\r\nTwo examples are as follows:\r\n\r\nIF
     Extension == .bat SHOOT\r\n\r\r\nIF Source == Suspicious AND Size == 3 SHOOT ELSE
     DON'T SHOOT \r\n\r\nGood luck young padawan. Do not let G.R.A.N. succeed. The
@@ -436,7 +436,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Defend MI6
+  m_Text: Defend MI5
 --- !u!222 &673259092
 CanvasRenderer:
   m_ObjectHideFlags: 0

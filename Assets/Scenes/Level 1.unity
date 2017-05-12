@@ -4236,8 +4236,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 518, y: -12.001}
-  m_SizeDelta: {x: 226, y: 69.1}
+  m_AnchoredPosition: {x: 552, y: -14}
+  m_SizeDelta: {x: 293, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774598352
 MonoBehaviour:
@@ -7689,6 +7689,7 @@ MonoBehaviour:
   newWaveClip: {fileID: 8300000, guid: 15728ae44d9e95d4da33aa9fe5ff15b5, type: 3}
   sellTurretClip: {fileID: 8300000, guid: c82627d03e148d74f9368e625709ebd5, type: 3}
   gameOverClip: {fileID: 8300000, guid: 04f8f3e076d3dc44997c505b05923fde, type: 3}
+  typeWriterClip: {fileID: 0}
 --- !u!4 &1292398632 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4343389107409014, guid: ee55a8fe1c55c2a4d99cb5796935dbb4,
