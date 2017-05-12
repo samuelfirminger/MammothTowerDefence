@@ -62,11 +62,9 @@ public class PhaseManager : MonoBehaviour {
 		foreach (GameObject turretButton in turretsInShop) {
 			turretButton.SetActive (true); 
 		}
-		Time.timeScale = 0; 
 	}
 
 	public void startWave() {
-		Time.timeScale = 1; 
 		phaseUI.SetActive (false); 
 		pauseButton.SetActive (true); 
 		turretShop.SetActive (false); 
@@ -79,6 +77,7 @@ public class PhaseManager : MonoBehaviour {
 			turretButton.SetActive (false); 
 		}
 		TurretManager.instance.chooseTurretToBuild (null); 
+		EnemySpawnManager.instance.setWaveStart(true);
 
 	}
 	
