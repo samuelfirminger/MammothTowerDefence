@@ -1,42 +1,37 @@
 fileFormatVersion: 2
-guid: a68d9c583e450e64a9dc076b0043ec3a
-timeCreated: 1494512102
+guid: d27fd3e7514ae7c4bb937cd8f7543622
+timeCreated: 1494511111
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: Cylinder_001
-    100004: Cylinder_004
-    100006: Cylinder_007
-    100008: Cylinder_011
-    100010: //RootNode
-    100012: Sphere
-    400000: Cylinder
-    400002: Cylinder_001
-    400004: Cylinder_004
-    400006: Cylinder_007
-    400008: Cylinder_011
-    400010: //RootNode
-    400012: Sphere
-    2300000: Cylinder
-    2300002: Cylinder_001
-    2300004: Cylinder_004
-    2300006: Cylinder_007
-    2300008: Cylinder_011
-    2300010: Sphere
-    3300000: Cylinder
-    3300002: Cylinder_001
-    3300004: Cylinder_004
-    3300006: Cylinder_007
-    3300008: Cylinder_011
-    3300010: Sphere
-    4300000: Cylinder
+    100000: Cylinder_001
+    100002: Cylinder_006
+    100004: Cylinder_007
+    100006: Cylinder_008
+    100008: //RootNode
+    100010: Sphere
+    400000: Cylinder_001
+    400002: Cylinder_006
+    400004: Cylinder_007
+    400006: Cylinder_008
+    400008: //RootNode
+    400010: Sphere
+    2300000: Cylinder_001
+    2300002: Cylinder_006
+    2300004: Cylinder_007
+    2300006: Cylinder_008
+    2300008: Sphere
+    3300000: Cylinder_001
+    3300002: Cylinder_006
+    3300004: Cylinder_007
+    3300006: Cylinder_008
+    3300008: Sphere
+    4300000: Cylinder_008
     4300002: Sphere
     4300004: Cylinder_001
-    4300006: Cylinder_007
-    4300008: Cylinder_011
-    4300010: Cylinder_004
+    4300006: Cylinder_006
+    4300008: Cylinder_007
     7400000: Default Take
     9500000: //RootNode
   materials:

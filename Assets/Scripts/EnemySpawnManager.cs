@@ -8,14 +8,11 @@ public class EnemySpawnManager : MonoBehaviour {
     
     //Types of enemy to spawn
 	[Header("Turret Prefabs")]
-	private Transform[] enemyTypes = new Transform[4];
-    public Transform badPrefab;
-    public Transform goodPrefab;
-    public Transform fastPrefab;
-    public Transform slowPrefab;
-    
+	public static int types;
+	public Transform[] enemyTypes = new Transform[types];
+
 	//How many waves in a game
-	private int gameLength = 2;
+	private static int gameLength = 2;
 	//Which wave you are on
 	public int waveIndex;
 	//How many groups in a wave
@@ -27,7 +24,7 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	private float timeBetweenSpawns = 0.2f;
 	private float timeBetweenGroups = 3f ; 
-	private bool waveStart = true ;
+	private bool waveStart = false ;
     
     public Transform spawnPoint;
  
@@ -50,17 +47,11 @@ public class EnemySpawnManager : MonoBehaviour {
     void Start() {
 		PhaseManager.instance.enableBuildPhase();
 
-		/*XXX
-		Enemy enemy = badPrefab.GetComponent(typeof(Enemy)) as Enemy;
-		enemy.isEnemy = false;
-		*/
+		Interpreter interpreter = new Interpreter ();
+		for(int i = 0; i < enemyTypes.Length; i++) {
+			interpreter.interpret(enemyTypes[i], BetweenScenes.parsedInstructionSet);
+		}
 
-        //Load all enemy types into array
-        enemyTypes[0] = badPrefab;
-        enemyTypes[1] = goodPrefab;
-        enemyTypes[2] = fastPrefab;
-        enemyTypes[3] = slowPrefab;
- 
 		waveIndex = 0;
     }
 
@@ -85,7 +76,6 @@ public class EnemySpawnManager : MonoBehaviour {
 					PhaseManager.instance.enableBuildPhase ();
 					TurretManager.instance.setSellState(false);
 					PhaseManager.instance.intoSellMode (); 
-					waveStart = true ; 
 				}
 			}
 		}
@@ -127,4 +117,8 @@ public class EnemySpawnManager : MonoBehaviour {
         Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
 		enemyCnt++;
     }
+
+	public void setWaveStart(bool flag) {
+		waveStart = flag;
+	}
 }
