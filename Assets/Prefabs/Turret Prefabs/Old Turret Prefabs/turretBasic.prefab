@@ -92,12 +92,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8513c2680f8780439747bf0843cb288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  minRange: 0
+  maxRange: 0
   fireRate: 1
-  baseDamage: 1
+  turnSpeed: 0
+  partToRotate: {fileID: 0}
   bulletPrefab: {fileID: 1113054760166758, guid: 3c021a6dbcc6e304bab1d0560b2ec179,
     type: 2}
-  userVariables: 0300000004000000
+  canSwitch: 0
+  switchCooldown: 0
+  bulletPrefabs: []
 --- !u!136 &136709010764596510
 CapsuleCollider:
   m_ObjectHideFlags: 1

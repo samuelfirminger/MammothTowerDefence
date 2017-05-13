@@ -18,6 +18,7 @@ public class ButtonNextLevel : MonoBehaviour
     public void SetCurrentLevel(string levelName)
     {
         BetweenScenes.CurrentLevel = levelName;
+        BetweenScenes.CurrentRound = 0;
     }
 
 }

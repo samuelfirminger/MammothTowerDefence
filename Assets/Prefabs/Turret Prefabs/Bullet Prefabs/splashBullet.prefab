@@ -198,11 +198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f461eea579c4db048a7e5d84069581ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  baseDamage: 1
+  speed: 33
   slowFactor: 0
   slowTime: 0
-  splashRadius: 3
-  splashDamage: 0
+  splashRadius: 4
+  splashDamage: 0.75
 --- !u!136 &136669764259927414
 CapsuleCollider:
   m_ObjectHideFlags: 1

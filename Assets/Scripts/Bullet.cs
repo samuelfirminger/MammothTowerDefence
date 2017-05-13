@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
 	private Transform target;
-    private float damage;
+    public float baseDamage;
     public float speed = 70f;
 	public float slowFactor;
 	public float slowTime;
@@ -40,16 +40,12 @@ public class Bullet : MonoBehaviour {
         //Havent hit yet: normalize to obtain constant speed
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 	}
-    
-    public void setDamage(float damageValue) {
-        damage = damageValue;
-    }
        
     void HitTarget() {
         //Deal damage to the target enemy
-        //target.dealDamage(damage); <- Subtracts damage value from enemy health bar
+        //target.dealDamage(baseDamage); <- Subtracts baseDamage value from enemy health bar
         Enemy targetEnemy = target.GetComponent<Enemy>();
-        DealDamage.dealDamageToEnemy(targetEnemy, damage);
+        DealDamage.dealDamageToEnemy(targetEnemy, baseDamage);
 
 		//Slow down enemy
         if (slowFactor != 0) {

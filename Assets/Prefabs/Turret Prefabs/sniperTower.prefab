@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4394621538304964}
   - component: {fileID: 114630861811642560}
   m_Layer: 0
-  m_Name: sniper
+  m_Name: sniperTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,10 +425,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8513c2680f8780439747bf0843cb288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  minRange: 4
+  maxRange: 11
   fireRate: 1
-  baseDamage: 1
   turnSpeed: 10
   partToRotate: {fileID: 4885606340412926}
   bulletPrefab: {fileID: 1043313359622818, guid: 087ca4020dae6714989a5c09302c2ed2,
     type: 2}
+  canSwitch: 0
+  switchCooldown: 0
+  bulletPrefabs: []

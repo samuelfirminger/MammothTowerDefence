@@ -44,7 +44,7 @@ public class Node : MonoBehaviour {
     void OnMouseDown() {
         //Check for pre-existing built turret
 		if (builtTurret != null && turretManager.getSellState() == true) {
-			turretManager.sellTurret (this); 
+			turretManager.sellTurret(this, this.name); 
 			return;
 		} else if (builtTurret == null && turretManager.getSellState() == true) {
 			return;
@@ -56,7 +56,7 @@ public class Node : MonoBehaviour {
 			return ;
 		}
 			
-		turretManager.createTurretOn (this);
+		turretManager.createTurretOn(this, this.name);
     }
     
     public void setSellValue(int value) {
