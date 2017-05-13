@@ -12,6 +12,8 @@ TagManager:
   - CardLevel1
   - CardLevel2
   - CardLevel3
+  - Gran
+  - Classified
   layers:
   - Default
   - TransparentFX
