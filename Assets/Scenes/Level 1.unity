@@ -7630,9 +7630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
-  - {fileID: 4049100305216446, guid: c485a90c0501a5540b7200599b05e9f9, type: 2}
+  - {fileID: 4365794377300518, guid: 4fa446a21afb14d99b98529260312a1b, type: 2}
   - {fileID: 4610287699380412, guid: 0e9136b62b3ea45f1b321bcb9d682ad0, type: 2}
-  - {fileID: 4575132120051880, guid: 9c995466d6e906d45b2cd3abdcc7cc68, type: 2}
   waveIndex: 0
   spawnPoint: {fileID: 583837682}
   briefingEnemy: 2

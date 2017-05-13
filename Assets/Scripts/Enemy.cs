@@ -162,5 +162,9 @@ public class Enemy : MonoBehaviour {
 			slowState = true;
 			movementSpeed *= slowFactor;
 		}
-	}   
+	}
+
+	public float getMovementSpeed() {
+		return movementSpeed;
+	}
 }

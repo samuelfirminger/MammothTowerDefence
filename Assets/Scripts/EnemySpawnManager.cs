@@ -8,13 +8,12 @@ public class EnemySpawnManager : MonoBehaviour {
     
     //Types of enemy to spawn
 	[Header("Turret Prefabs")]
-	public static int types;
-	public Transform[] enemyTypes = new Transform[types];
+	public Transform[] enemyTypes;
 
 	//How many waves in a game
 	private static int gameLength = 2;
 	//Which wave you are on
-	public int waveIndex;
+	public static int waveIndex;
 	//How many groups in a wave
 	private int waveSize = 2;
 	//How many spawns in a group

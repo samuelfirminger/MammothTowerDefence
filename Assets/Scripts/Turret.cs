@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour {
 
-    public float range;
+	public float minRange;
+    public float maxRange;
     public float fireRate;
-    public float baseDamage;
 	public float turnSpeed; 
     private float cooldown;
 
@@ -16,7 +16,13 @@ public class Turret : MonoBehaviour {
    
     public GameObject bulletPrefab;
 
-	//TODO userVariables
+	//Variables for switching ammunition
+	//Experimental, for basic turrets only
+	[Header("Ammo Switching")]
+	public bool canSwitch;
+	public int switchCooldown;
+	public GameObject[] bulletPrefabs;
+	private int enemiesInRange;
     
 	void Start () {
         //Need to constantly update to allow turrets to change targets frequently
@@ -52,7 +58,6 @@ public class Turret : MonoBehaviour {
 			Bullet bullet = firedBullet.GetComponent<Bullet> ();
 
 			if(bullet != null) {
-				bullet.setDamage(baseDamage);
 				bullet.Seek(target);
 			}
 		}  
@@ -61,6 +66,8 @@ public class Turret : MonoBehaviour {
     void UpdateTarget() {
         //Fill array of GameObjects: all enemies in scene
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Code");
+		enemiesInRange = 0;
+
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         
@@ -76,10 +83,14 @@ public class Turret : MonoBehaviour {
                     nearestEnemy = enemy;
                 }
             }
+			if(distanceToEnemy < maxRange && distanceToEnemy > minRange) {
+				enemiesInRange++;
+			}
         }
+		Debug.Log(enemiesInRange);
         
         //Check if found an enemy with our range, and set target
-        if(nearestEnemy != null && shortestDistance <= range) {
+        if(nearestEnemy != null && shortestDistance <= maxRange) {
             target = nearestEnemy.transform;
         } else {
             target = null;
@@ -90,7 +101,7 @@ public class Turret : MonoBehaviour {
     void OnDrawGizmosSelected() {
         //Draw at turret position, radius of size range;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, maxRange);
     }
     
     //Check the enemy properties against what the user has programmed the turret to fire at
@@ -99,4 +110,5 @@ public class Turret : MonoBehaviour {
 		if(enemy.getIsEnemy()) return true;
 		else return false;
     }
+
 }
