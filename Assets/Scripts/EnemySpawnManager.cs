@@ -10,10 +10,14 @@ public class EnemySpawnManager : MonoBehaviour {
 	[Header("Turret Prefabs")]
 	public Transform[] enemyTypes;
 
-	//How many waves in a game
-	private static int gameLength = 2;
+	//How many rounds in a game
+	public int gameLength;
+	//Which round you are on
+	private int roundIndex;
+	//How many waves in a round
+	public int roundSize;
 	//Which wave you are on
-	public static int waveIndex;
+	private int waveIndex;
 	//How many groups in a wave
 	private int waveSize = 2;
 	//How many spawns in a group
@@ -33,6 +37,10 @@ public class EnemySpawnManager : MonoBehaviour {
     //(will be visually shown in briefing)
     public int briefingEnemy = 0;
     public int lastSpawned   = 0;
+
+	//UI elements
+	public GameObject waveUI; 
+	public GameObject roundUI;
     
     void Awake() {
 		if (instance != null) {
@@ -52,14 +60,15 @@ public class EnemySpawnManager : MonoBehaviour {
 		}
 
 		waveIndex = 0;
+		roundIndex = 0;
     }
 
     void Update() {
+		updateUI();
 		//start wave start of game/new wave
-		if (waveStart && waveIndex < gameLength) {
+		if (waveStart && waveIndex < roundSize) {
 			waveStart = false; 
 			StartCoroutine (spawnWave ());
-			PlayerStats.instance.updateWave (waveIndex); 
 			waveIndex++; 
 		}
 
@@ -67,10 +76,14 @@ public class EnemySpawnManager : MonoBehaviour {
 		if (enemyCnt == groupSize * waveSize) {
 			//if all enemies destroyed
 			if (!enemiesRemaining ()) {
-				//go into build if not end of game, else game over prompt
-				if (waveIndex >= gameLength) {
+				if(waveIndex >= roundSize) {
+					waveIndex = 0;
+					roundIndex++;
+				}
+				if (roundIndex >= gameLength) {
 					PhaseManager.instance.gameOverPrompt ();
 				}
+				//go into build if not end of game, else game over prompt
 				else {
 					PhaseManager.instance.enableBuildPhase ();
 					TurretManager.instance.setSellState(false);
@@ -119,5 +132,13 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	public void setWaveStart(bool flag) {
 		waveStart = flag;
+	}
+
+	//Updates Round and Wave text on top bar UI
+	void updateUI() {
+		if(roundIndex <= gameLength) {
+			roundUI.GetComponent<Text>().text = "ROUND: " + (roundIndex+1).ToString() + " / " + gameLength.ToString();
+		}
+		waveUI.GetComponent<Text>().text =  "WAVE:  " + (waveIndex).ToString() + " / " + roundSize.ToString();
 	}
 }
