@@ -8,7 +8,8 @@ public class TypeWriter : MonoBehaviour {
     public Text txt;
     string story;
     public bool PlayOnAwake = true;
-    public float Delay;
+	public bool toRemove = false; 
+	public float Delay;
 
     void Awake()
     {
@@ -36,8 +37,12 @@ public class TypeWriter : MonoBehaviour {
         foreach (char c in story)
         {
             txt.text += c;
-            yield return new WaitForSeconds(0.125f);
+            yield return new WaitForSeconds(0.04f);
         }
+		if (toRemove) {
+			txt.text = "";
+		}
+
     }
 
 
