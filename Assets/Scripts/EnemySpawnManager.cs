@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawnManager : MonoBehaviour { 
     //Make EnemySpawnManager a Singleton class
@@ -69,7 +70,7 @@ public class EnemySpawnManager : MonoBehaviour {
 		if (waveStart && waveIndex < roundSize) {
 			waveStart = false; 
 			StartCoroutine (spawnWave ());
-			waveIndex++; 
+			waveIndex++;
 		}
 
 		//if all enemies of wave have spawned
@@ -79,6 +80,8 @@ public class EnemySpawnManager : MonoBehaviour {
 				if(waveIndex >= roundSize) {
 					waveIndex = 0;
 					roundIndex++;
+					BetweenScenes.CurrentRound = roundIndex;
+					SceneManager.LoadScene("Briefing");
 				}
 				if (roundIndex >= gameLength) {
 					PhaseManager.instance.gameOverPrompt ();
