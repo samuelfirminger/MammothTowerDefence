@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4405404442113870}
   - component: {fileID: 114753715904035008}
   m_Layer: 0
-  m_Name: plateBasic
+  m_Name: plateSlowing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,5 +361,5 @@ MonoBehaviour:
   baseDamage: 1
   turnSpeed: 10
   partToRotate: {fileID: 4165898624601930}
-  bulletPrefab: {fileID: 1113054760166758, guid: 3c021a6dbcc6e304bab1d0560b2ec179,
+  bulletPrefab: {fileID: 1369186221864396, guid: ae36300d07a7c79478e58d4bebe71ffa,
     type: 2}

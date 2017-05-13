@@ -14,6 +14,7 @@ public class Sound : MonoBehaviour {
     public AudioClip newWaveClip;
     public AudioClip sellTurretClip;
     public AudioClip gameOverClip;
+	public AudioClip typeWriterClip; 
 
     void Awake()
     {
@@ -58,5 +59,9 @@ public class Sound : MonoBehaviour {
     {
         AudioSource.PlayClipAtPoint(gameOverClip, transform.position);
     }
+
+	public void typewriterSound() {
+		AudioSource.PlayClipAtPoint(typeWriterClip, transform.position);
+	}
 
 }
