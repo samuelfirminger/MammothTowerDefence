@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class TurretManager : MonoBehaviour {
     public int[] classification;
 	private bool sell; 
     
-    void Awake() {
+    void Awake() {       
 		if (instance != null) {
 			Debug.Log ("More than one turretManager in scene."); 
 			return; 
@@ -22,8 +23,35 @@ public class TurretManager : MonoBehaviour {
         setClassification(1); //This to be moved somewhere else: classification of enemy changes between rounds (shoot red enemies one round, shoot blue and speed=2 enemies another round etc...)
         instance = this;
 		sell = false; 
+        
+        loadTurretData();
     }
 	
+    private void loadTurretData() {
+        int n, currentLevel = BetweenScenes.getCurrentLevelId();
+        Debug.Log("ATTEMPTING TO LOAD TURRET DATA");
+        GameObject tempTurret = null;
+        GameObject tempNode = null;
+        
+        //Determine the number of nodes to check, dependant on level
+        switch(currentLevel) {
+            case(1) : n = BetweenScenes.getNodeNum(1); Debug.Log("GOT NODENUM1 = " + n); break;
+            case(2) : n = BetweenScenes.getNodeNum(2); break;
+            default : n = 0; break;
+        }
+   
+        for(int i=0 ; i<n ; i++) {
+            tempTurret = BetweenScenes.getTurretData(i);
+            if(tempTurret != null) {
+                Debug.Log("TURRET FOUND ON NODE " + (i+1));
+                tempNode = GameObject.Find(Convert.ToString(i+1));
+                //turretToBuild = tempTurret.GetComponent<TurretSpec>();
+                //buildTurret(tempNode.GetComponent<Node>());
+                buildLoadedTurret(tempNode.GetComponent<Node>(), tempTurret);
+            }
+        }
+    }
+    
     public void setClassification(int property) {
         classification[0] = property;
     }
@@ -48,7 +76,7 @@ public class TurretManager : MonoBehaviour {
 		} 
 	}
 
-	public void createTurretOn(Node node) {
+	public void createTurretOn(Node node, string nodeName) {
 
 		if (PlayerStats.Cash < turretToBuild.cost) {
 			Debug.Log ("Not enough cash to build");
@@ -59,13 +87,30 @@ public class TurretManager : MonoBehaviour {
         node.setSellValue(turretToBuild.cost/2);
 		PlayerStats.instance.adjustCash(-(turretToBuild.cost));
 
-		GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition (), Quaternion.identity);
-
-		node.builtTurret = turret;
+        buildTurret(node);
+		//GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition(), Quaternion.identity);
+		//node.builtTurret = turret;
+        
+        storeTurretData(nodeName);       
         Sound.instance.placeTurretSound();
 
 		Debug.Log ("Turret built. Cash left = " + PlayerStats.Cash);
 	}
+    
+    private void buildTurret(Node node) {
+        GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition(), Quaternion.identity);
+		node.builtTurret = turret;
+    }
+    
+    private void buildLoadedTurret(Node node, GameObject tempTurret) {
+        GameObject turret = (GameObject)Instantiate(tempTurret, node.getBuildPosition(), Quaternion.identity);
+        node.builtTurret = turret;
+    }
+    
+    private void storeTurretData(string nodeName) {
+        int nodeId = Int32.Parse(nodeName);
+        BetweenScenes.storeTurretData(nodeId,turretToBuild.prefab);
+    }
     
 	public void chooseTurretToBuild(TurretSpec turret) {
 		turretToBuild = turret;
@@ -78,7 +123,10 @@ public class TurretManager : MonoBehaviour {
 		Debug.Log ("Sell mode activated"); 
 	}
 		
-	public void sellTurret(Node node) {
+	public void sellTurret(Node node, string nodeName) {
+        int nodeId = Int32.Parse(nodeName);
+        BetweenScenes.removeTurretData(nodeId);
+        
 		Destroy (node.builtTurret); 
 		PlayerStats.instance.adjustCash (+(node.getSellValue()));
         Sound.instance.sellTurretSound();

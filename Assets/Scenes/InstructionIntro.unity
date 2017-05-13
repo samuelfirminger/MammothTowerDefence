@@ -259,6 +259,7 @@ MonoBehaviour:
   PlayOnAwake: 1
   toRemove: 0
   Delay: 0
+  BetweenCharsDelay: 0
 --- !u!1 &621314314
 GameObject:
   m_ObjectHideFlags: 0
