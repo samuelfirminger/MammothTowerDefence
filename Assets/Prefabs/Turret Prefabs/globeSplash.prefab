@@ -430,5 +430,5 @@ MonoBehaviour:
   baseDamage: 1
   turnSpeed: 10
   partToRotate: {fileID: 4680128157606648}
-  bulletPrefab: {fileID: 1606203011598880, guid: cbe40f44ffe2144f5b4d6a0d0c7de25e,
+  bulletPrefab: {fileID: 1413334848924538, guid: faf18cf01448276499cda7b58af78f22,
     type: 2}
