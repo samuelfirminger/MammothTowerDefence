@@ -10,6 +10,7 @@ public class TypeWriter : MonoBehaviour {
     public bool PlayOnAwake = true;
 	public bool toRemove = false; 
 	public float Delay;
+    public float BetweenCharsDelay;
 
     void Awake()
     {
@@ -37,7 +38,7 @@ public class TypeWriter : MonoBehaviour {
         foreach (char c in story)
         {
             txt.text += c;
-            yield return new WaitForSeconds(0.04f);
+            yield return new WaitForSeconds(BetweenCharsDelay);
         }
 		if (toRemove) {
 			txt.text = "";
