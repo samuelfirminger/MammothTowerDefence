@@ -12,10 +12,10 @@ public class Parser : MonoBehaviour {
 	private bool validInstruction = true;
 	private bool endReached = false;
 
-	public void nextScene(string sceneName){
+	public void nextScene(){
 		if (parse ()) {
 			BetweenScenes.parsedInstructionSet = blocks;
-			SceneManager.LoadScene (sceneName);
+			SceneManager.LoadScene (BetweenScenes.CurrentLevel);
 		} else {
 			Debug.Log ("Invalid instruction, try again");
 		}

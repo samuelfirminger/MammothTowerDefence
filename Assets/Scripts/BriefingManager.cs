@@ -5,35 +5,28 @@ using UnityEngine;
 
 public class BriefingManager : MonoBehaviour {
     public static BriefingManager instance;
-    private GameObject[] cardsLevel1, cardsLevel2, cardsLevel3;
     
-    //public RectTransform cardPrefab;
-    //public RectTransform cardHolder;
+    //How data will enter this briefingManager
+    //BetweenScenes.CurrentLevel = level1
+    //BetweenScenes.CurrentRound = 0
+     
+    private int activeLevel = 1;
+    private int activeRound  = 1;
     
-    //public Sprite portrait0;
-    //public Sprite portrait1;
-    //public Sprite portrait2;   
-    //private Image portraitImage;
+    //Naming convention of arrays: 1_1 corresponds to level1, round1
+    private GameObject[] cards1_1, cards1_2, cards1_3, cards1_4;
+    private GameObject[] cards2_1, cards2_2, cards2_3;
     
     void Awake() {
 		if (instance != null) {
 			Debug.Log ("More than one briefingManager in scene."); 
 			return; 
 		}    
-        Debug.Log("Set singleton briefingManager");
+        
         instance = this;
         
-        //Collect Cards from scene
-        cardsLevel1 = GameObject.FindGameObjectsWithTag("CardLevel1");
-        hideCards(cardsLevel1);
-        cardsLevel2 = GameObject.FindGameObjectsWithTag("CardLevel2");
-        hideCards(cardsLevel2);
-        cardsLevel3 = GameObject.FindGameObjectsWithTag("CardLevel3"); 
-        hideCards(cardsLevel3);
-        
-        Debug.Log("L1: " + cardsLevel1.Length);
-        Debug.Log("L2: " + cardsLevel2.Length);
-        Debug.Log("L3: " + cardsLevel3.Length);
+        //Collect Cards from scene, then hide them
+        findCards();
     }
     
 	// Use this for initialization
@@ -46,34 +39,87 @@ public class BriefingManager : MonoBehaviour {
 		
 	}
     
-    /*public void createCard(string title, Sprite portrait, float speed, 
-                    float size, string extension, bool encryption, 
-                    string source) {
-        Debug.Log("Started creating a card");               
-        //var newCard = Instantiate(cardPrefab, new Vector3(10,10,10), Quaternion.identity);
-
-        //newCard.transform.parent = cardHolder;
-        newCard.transform.SetParent(cardHolder.transform, false);
-        Debug.Log("Finished creating a card");
-    }*/
-   
-    public void getCards1() {
-        hideCards(cardsLevel2);
-        hideCards(cardsLevel3);
-        showCards(cardsLevel1);
-    }   
-    
-    public void getCards2() {
-        hideCards(cardsLevel1);
-        hideCards(cardsLevel3);
-        showCards(cardsLevel2);
+    public void getLevelAndRound() {
+        //Comment out when BetweenScenes has been implemented
+        /*if(BetweenScenes.CurrentLevel.Equals("Level 1")) {
+            activeLevel = 1;
+        } else if(BetweenScenes.CurrentLevel.Equals("Level 2")) {
+            activeLevel = 2;
+        }
+        
+        activeRound = BetweenScenes.CurrentRound;*/
     }
     
-    public void getCards3() {
-        hideCards(cardsLevel1);
-        hideCards(cardsLevel2);
-        showCards(cardsLevel3);
+    public void findCards() {
+        if(activeLevel == 1) {
+            cards1_1 = GameObject.FindGameObjectsWithTag("card1_1"); hideCards(cards1_1);
+            cards1_2 = GameObject.FindGameObjectsWithTag("card1_2"); hideCards(cards1_2);
+            cards1_3 = GameObject.FindGameObjectsWithTag("card1_3"); hideCards(cards1_3);
+            cards1_4 = GameObject.FindGameObjectsWithTag("card1_4"); hideCards(cards1_4);
+        } else if (activeLevel == 2) {
+            cards2_1 = GameObject.FindGameObjectsWithTag("card2_1"); hideCards(cards2_1);
+            cards2_2 = GameObject.FindGameObjectsWithTag("card2_2"); hideCards(cards2_2);
+            cards2_3 = GameObject.FindGameObjectsWithTag("card2_3"); hideCards(cards2_3);
+        }
+    }
+    
+    public void getCards() {
+        switch(activeLevel) {
+            case 1 :
+                switch(activeRound) {               
+                    case 1 : getCards1_1(); break;
+                    case 2 : getCards1_2(); break;
+                    case 3 : getCards1_3(); break;
+                    case 4 : getCards1_4(); break;
+                } break;      
+            case 2 : 
+                switch(activeRound) {               
+                    case 1 : getCards2_1(); break;
+                    case 2 : getCards2_2(); break;
+                    case 3 : getCards2_3(); break;
+                } break;          
+        }
+    }
+    
+    //~~~~ W E T   C O D E ~~~~
+    public void getCards1_1() {
+        hideCards(cards1_2); hideCards(cards1_4);
+        hideCards(cards1_3); showCards(cards1_1);
+    }   
+    
+    public void getCards1_2() {
+        hideCards(cards1_1); hideCards(cards1_4);
+        hideCards(cards1_3); showCards(cards1_2);
+    }
+    
+    public void getCards1_3() {
+        hideCards(cards1_1); hideCards(cards1_4);
+        hideCards(cards1_2); showCards(cards1_3);
     }  
+    
+    public void getCards1_4() {
+        hideCards(cards1_1); hideCards(cards1_3);
+        hideCards(cards1_2); showCards(cards1_4);
+    }  
+    
+    public void getCards2_1() {
+        hideCards(cards2_2);
+        hideCards(cards2_3);
+        showCards(cards2_1);
+    }
+    
+    public void getCards2_2() {
+        hideCards(cards2_1);
+        hideCards(cards2_3);
+        showCards(cards2_2);
+    }
+    
+    public void getCards2_3() {
+        hideCards(cards2_1);
+        hideCards(cards2_2);
+        showCards(cards2_3);
+    }
+    
     
     private void hideCards(GameObject[] cards) {
         foreach (GameObject card in cards) {
