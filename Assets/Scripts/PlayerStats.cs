@@ -53,12 +53,16 @@ public class PlayerStats : MonoBehaviour {
     
     public void decreaseHealth(int damageValue) {
         Debug.Log("Inflicting " + damageValue + " to health");
-        Health -= damageValue;
+        if (Health > 0)
+        {
+            Health -= damageValue;
+        }
         updateHealth();
 		//make prompt that game is over, add button to start again 
 		if (Health <= 0) {
+            Effects.instance.GameLost();
 			PhaseManager.instance.gameOverPrompt (); 
-			Time.timeScale = 0; 
+			//Time.timeScale = 0; 
 			//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex); 
 		}
     }
