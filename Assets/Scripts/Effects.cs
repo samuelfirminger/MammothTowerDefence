@@ -3,40 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Effects : MonoBehaviour
-{
+public class Effects : MonoBehaviour
+{
     public static Effects instance;
-    public ParticleSystem end;
-    public ParticleSystem lose;
-    public ParticleSystem wave;
+    public ParticleSystem end;    public ParticleSystem lose;    public ParticleSystem wave;
 
-
-    void Awake()
+    void Awake()
     {
         if (instance != null)
-        {
-            Debug.Log("Effects activated");
-            return;
-        }
-        instance = this;
-    }
+        {            Debug.Log("Effects activated");            return;        }
+        instance = this;    }
 
     public void EndPoint()
     {
-        end.Emit(20);
-    }
-
+        end.Emit(20);    }
+
     public void GameLost()
-    {
-        lose.Play();
-
-    }
-
-    public void Wave()
-    {
-        wave.Emit(20);
-    }
-
-
+    {        lose.Play();    }
+
+    public void Wave()
+    {        wave.Emit(20);    }
+
+
 
 }
