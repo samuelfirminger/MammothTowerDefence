@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482447, g: 0.4982717, b: 0.57558084, a: 1}
+  m_IndirectSpecularColor: {r: 0.43679956, g: 0.4844272, b: 0.56468153, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -11872,77 +11872,6 @@ Transform:
   - {fileID: 1408069235}
   - {fileID: 384890237}
   - {fileID: 765507038}
-  - {fileID: 384890237}
-  - {fileID: 1408069235}
-  - {fileID: 926259905}
-  - {fileID: 321198551}
-  - {fileID: 1301350699}
-  - {fileID: 80481803}
-  - {fileID: 1960451544}
-  - {fileID: 1119066942}
-  - {fileID: 50938795}
-  - {fileID: 754680750}
-  - {fileID: 923810286}
-  - {fileID: 1839565782}
-  - {fileID: 1729697921}
-  - {fileID: 571948271}
-  - {fileID: 392802525}
-  - {fileID: 2084487440}
-  - {fileID: 1263649624}
-  - {fileID: 157783451}
-  - {fileID: 212660759}
-  - {fileID: 226970610}
-  - {fileID: 392864723}
-  - {fileID: 2018484274}
-  - {fileID: 1157147222}
-  - {fileID: 1918698836}
-  - {fileID: 914044477}
-  - {fileID: 415537651}
-  - {fileID: 817941120}
-  - {fileID: 723382264}
-  - {fileID: 988127468}
-  - {fileID: 716413556}
-  - {fileID: 849011652}
-  - {fileID: 1791967544}
-  - {fileID: 820495185}
-  - {fileID: 1334535182}
-  - {fileID: 574334210}
-  - {fileID: 959211187}
-  - {fileID: 645355587}
-  - {fileID: 1228423104}
-  - {fileID: 1537585924}
-  - {fileID: 1816360170}
-  - {fileID: 1457036016}
-  - {fileID: 735297021}
-  - {fileID: 1777641600}
-  - {fileID: 463315301}
-  - {fileID: 1924476064}
-  - {fileID: 178159612}
-  - {fileID: 487061641}
-  - {fileID: 1847336312}
-  - {fileID: 1543272877}
-  - {fileID: 199819365}
-  - {fileID: 1049605526}
-  - {fileID: 934923587}
-  - {fileID: 1557273174}
-  - {fileID: 2067840614}
-  - {fileID: 191784653}
-  - {fileID: 1964219049}
-  - {fileID: 1858983980}
-  - {fileID: 1344540500}
-  - {fileID: 147769784}
-  - {fileID: 597105217}
-  - {fileID: 1065368311}
-  - {fileID: 152708377}
-  - {fileID: 855452792}
-  - {fileID: 1390355873}
-  - {fileID: 2146200827}
-  - {fileID: 1075687536}
-  - {fileID: 1752943360}
-  - {fileID: 2048762786}
-  - {fileID: 570389628}
-  - {fileID: 1097232030}
-  - {fileID: 1104117420}
   m_Father: {fileID: 1272403285}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18032,7 +17961,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1613091786}
   - component: {fileID: 1613091787}
-  - component: {fileID: 1613091788}
   m_Layer: 0
   m_Name: Directional Light (1)
   m_TagString: Untagged
@@ -18087,20 +18015,6 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!111 &1613091788
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1613091785}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 22606af9be5d46e4e8d5349ad6d3c1f7, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1001 &1614761426
 Prefab:
   m_ObjectHideFlags: 0
