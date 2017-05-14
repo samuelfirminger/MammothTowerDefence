@@ -7605,8 +7605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
-  - {fileID: 4365794377300518, guid: 4fa446a21afb14d99b98529260312a1b, type: 2}
-  - {fileID: 4610287699380412, guid: 0e9136b62b3ea45f1b321bcb9d682ad0, type: 2}
+  - {fileID: 4826400942334800, guid: 43465c24757a5e74082fab971a842389, type: 2}
+  - {fileID: 4227202447977378, guid: d150833a4b0a9e447a1b6933a38195a7, type: 2}
   gameLength: 2
   roundSize: 2
   spawnPoint: {fileID: 583837682}
