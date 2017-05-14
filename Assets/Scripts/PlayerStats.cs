@@ -13,6 +13,8 @@ public class PlayerStats : MonoBehaviour {
 			return; 
 		}  
         instance = this;
+        
+        loadPlayerData();
     }
     
 	[Header("Health")] 
@@ -35,7 +37,7 @@ public class PlayerStats : MonoBehaviour {
         cashText = cashUI.GetComponent<Text>();
 
         //Set initial cash and health values
-		Cash = initialCash;
+		Cash = BetweenScenes.getPlayerCash();
         Health = initialHealth;
         updateCash();
         updateHealth();   
@@ -66,4 +68,12 @@ public class PlayerStats : MonoBehaviour {
         cashText.text = "$" + Cash.ToString();
     }
 
+    public int getCash() {
+        return Cash;
+    }
+       
+    public void loadPlayerData() {
+        Cash   = BetweenScenes.getPlayerCash();
+        //Health = BetweenScenes.getPlayerHealth();
+    }
 }
