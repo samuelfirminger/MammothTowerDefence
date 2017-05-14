@@ -9178,7 +9178,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Disable Music
+  m_Text: 
 --- !u!222 &1420167708
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -14,6 +14,5 @@ public class PauseMusic : MonoBehaviour {
 	public void toggleMusic() {
 		PlaylistManager.instance.pauseMusic (); 
 	}
-
-
+		
 }
