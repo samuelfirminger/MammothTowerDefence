@@ -7,17 +7,17 @@ public static class BetweenScenes {
     public static string CurrentLevel = "Level 1";
     public static int CurrentRound = 0;
     public static int CurrentWave  = 0;
-    public static int playerCash;
-    public static int playerHealth;
+    public static int playerCash   = 150;
+    public static int playerHealth = 50;
     
     
     //52 Nodes in level 1, ?? in level 2
     private static int nodeNum1 = 52;
-    private static int nodeNum2 = 0;
+    private static int nodeNum2 = 175;
     
     //Arrays for storing turrets between scenes:
     //TurretMarkers stores a 1 if a node has a turret, or 0 if not
-    public static GameObject[] TurretMarkers = new GameObject[nodeNum1];
+    public static GameObject[] TurretMarkers;
     
     public static GameObject DragNDrop;
     public static GameObject LevelScene;   
@@ -29,8 +29,8 @@ public static class BetweenScenes {
     public static void setArraySize(int level) {
         //Use to change size of TurretMarkers when switching to a level with a different number of nodes
         switch(level) {
-            case(1) : TurretMarkers = new GameObject[nodeNum1]; break;
-            case(0) : TurretMarkers = new GameObject[nodeNum2]; break;
+            case(1) : TurretMarkers = new GameObject[nodeNum1]; Debug.Log("Setting TurretMarkers size = " + nodeNum1); break;
+            case(2) : TurretMarkers = new GameObject[nodeNum2]; Debug.Log("Setting TurretMarkers size = " + nodeNum2); break;
             default : Debug.Log("Error: failed to initialise TurretMarkers array"); break;
         }
     }
@@ -57,6 +57,8 @@ public static class BetweenScenes {
         for(int i=0 ; i<TurretMarkers.Length ; i++) {
             TurretMarkers[i] = null;
         }
+        playerCash   = 150;
+        playerHealth = 50;
     }
     
     public static GameObject getTurretData(int n) {

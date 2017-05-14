@@ -112,6 +112,6 @@ MonoBehaviour:
   briefingEnemy: 1
   isEnemy: 1
   properties: {fileID: 114219635444336878}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1404810101004206, guid: 349c95a975b0c734a8d975348e3747ec, type: 2}
   deathEffect: {fileID: 1461648493237600, guid: 238b2819ebaaa2848b0ebb0fc8d6bd0b,
     type: 2}
