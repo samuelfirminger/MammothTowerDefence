@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114234963770112008}
   - component: {fileID: 114910124598042114}
   m_Layer: 0
-  m_Name: newFastEnemy 3
+  m_Name: newFastEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extension: 0
-  speed: 10
+  speed: 20
   size: 0
   encryption: 0
   source: 0
