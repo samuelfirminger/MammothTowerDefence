@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour {
 	public bool isEnemy;
 	public CodeProperties properties;
     
-    private float healthPoints;
-    private float maxHealthPoints;
+    private float health;
+    private float maxHealth;
 	public GameObject healthBar;
 
 	private int reward; 
@@ -33,9 +33,16 @@ public class Enemy : MonoBehaviour {
 	public GameObject deathEffect;
 
 	void Start () {
-		//Get game attributes from parser attributes
+
+		//Movement variables
 		movementSpeed = (float)properties.speed;
-		healthPoints = (float)properties.size;
+		slowState = false;
+
+		//Health variables
+		health = (float)properties.size;
+		maxHealth = health;
+
+		//Other
 		attackDamage = properties.size;
 		reward = properties.size;
 
@@ -57,9 +64,7 @@ public class Enemy : MonoBehaviour {
 				waypointIndex = 13;
 			}
 		}
-
-		maxHealthPoints = healthPoints;
-        slowState = false;
+        
 	}
 	
 	void Update () {
@@ -104,7 +109,7 @@ public class Enemy : MonoBehaviour {
 
         if(waypointIndex == 12) { //length of level 1, and longest path.
 			if (briefingEnemy) {
-				PlayerStats.instance.decreaseHealth (attackDamage);     
+				PlayerStats.instance.decreaseHealth(attackDamage);     
 				Debug.Log ("HP = " + PlayerStats.Health);
                 Sound.instance.healthlossSound();
 			} else {
@@ -117,41 +122,42 @@ public class Enemy : MonoBehaviour {
         }
         
         waypointIndex++;
-		if (waypointIndex < Waypoints.points.Length)
-		{
+		if (waypointIndex < Waypoints.points.Length) {
 			waypointTarget = Waypoints.points[waypointIndex];
 		}
     }
     
     public float getHealth() {
-        return healthPoints;
+        return health;
     }
     
     public void setHealth(float newHealth) {
-        healthPoints = newHealth;
+        health = newHealth;
         
-    	float calc_Health = healthPoints / maxHealthPoints;
-        SetHealthBar(calc_Health);
+    	float currentHealth = health / maxHealth;
+        SetHealthBar(currentHealth);
 
-        if(healthPoints <= 0) {
-           
-            if(briefingEnemy) {
-                PlayerStats.instance.adjustCash(10);
-                
-            }
-			else {
-				PlayerStats.instance.decreaseHealth(1);
-			}
-			GameObject particleEffect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation); 
-			Destroy(particleEffect, 0.5f); 
-            Destroy(gameObject);
-            Sound.instance.deathSound();
+        if(health <= 0) {
+			killEnemy();
         }
     }
+
+	void killEnemy() {
+		if(briefingEnemy) {
+			PlayerStats.instance.adjustCash(reward);
+		}
+		else {
+			PlayerStats.instance.decreaseHealth(attackDamage);
+		}
+		GameObject particleEffect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation); 
+		Destroy(particleEffect, 0.5f); 
+		Destroy(gameObject);
+		Sound.instance.deathSound();
+	}
     
-    public void SetHealthBar(float myHealth) {
-        //myHealth value 0-1 , calculated by maxhealth/Current health
-        healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+    public void SetHealthBar(float currentHealth) {
+		//myHealth (0-1), calculated by health/maxHealth
+        healthBar.transform.localScale = new Vector3(currentHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
     
 	public void setSlow(float slowFactor, float slowTime) {
@@ -167,4 +173,5 @@ public class Enemy : MonoBehaviour {
 	public float getMovementSpeed() {
 		return movementSpeed;
 	}
+
 }

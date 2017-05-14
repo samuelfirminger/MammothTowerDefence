@@ -34,13 +34,14 @@ public class EnemySpawnManager : MonoBehaviour {
 	private bool waveStart = false ;
     
     public Transform spawnPoint;
- 
-    //For simplified programming of turrets: this variable holds
-    //the value corresponding to the enemy type for this wave and the
-    //last spawned enemy type (used in enemy class)
-    //(will be visually shown in briefing)
-    private int briefingEnemy = 0;
-    private int lastSpawned   = 0;
+
+//    DO NOT REMOVE (ALTHOUGH NOT SURE WHAT THESE DID ANYWAY)
+//    For simplified programming of turrets: this variable holds
+//    the value corresponding to the enemy type for this wave and the
+//    last spawned enemy type (used in enemy class)
+//    (will be visually shown in briefing)
+//    private int briefingEnemy = 0;
+//    private int lastSpawned   = 0;
 
 	//UI elements
 	public GameObject waveUI; 
@@ -139,7 +140,7 @@ public class EnemySpawnManager : MonoBehaviour {
         //Spawn next enemy from premade
 		//list according to round and wave
 		int index = roundEnemies[groupIndex, j];
-        lastSpawned = index;
+//      lastSpawned = index;
 		Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
 		enemyCnt++;
     }
@@ -156,6 +157,10 @@ public class EnemySpawnManager : MonoBehaviour {
 		waveUI.GetComponent<Text>().text =  "WAVE:  " + (waveIndex).ToString() + " / " + roundSize.ToString();
 	}
 
+	//Rounds are made up of an array of groups
+	//Groups are made up of an array of enemies
+	//Rounds can be divided into waves
+	//Waves are sets of groups
 	void initialiseRound() {
 		roundIndex = BetweenScenes.CurrentRound;
 		switch(roundIndex)

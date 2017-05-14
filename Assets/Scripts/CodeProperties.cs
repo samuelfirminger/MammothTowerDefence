@@ -6,16 +6,10 @@ using UnityEngine;
 [System.Serializable]
 public class CodeProperties : MonoBehaviour {
 
-	//the extension of the file
-	//eg .zip, .exe etc.
 	public CodeExtension extension;
-
 	public int speed;
 	public int size;
-
 	public bool encryption;
-
-	//the author of the file
 	public CodeSource source;
 
 }
