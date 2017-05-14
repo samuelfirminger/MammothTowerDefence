@@ -16,6 +16,10 @@ public class PlaylistManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		if (instance == null) {
+			instance = this; 
+		}
+			
 		audioSource = FindObjectOfType<AudioSource> (); 
 		audioSource.loop = false;
 		disableButton = GameObject.FindGameObjectWithTag ("MusicToggle").GetComponent<Button> (); 
@@ -27,7 +31,7 @@ public class PlaylistManager : MonoBehaviour {
 			Destroy (this.gameObject); 
 		}
 		DontDestroyOnLoad (this.gameObject); 
-		instance = this; 
+
 	}
 
 	private AudioClip getRandomSong() { 
