@@ -1,52 +1,15 @@
 fileFormatVersion: 2
-guid: 2f83589718506a74fa69a7fabca36429
-timeCreated: 1494763170
+guid: 375fee043477d5048b95ca2b8e18df47
+timeCreated: 1494690966
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube_004
-    100004: Cube_011
-    100006: Cube_013
-    100008: Cube_014
-    100010: Cube_015
-    100012: Cube_017
-    100014: Cylinder_002
-    100016: //RootNode
-    400000: Cube
-    400002: Cube_004
-    400004: Cube_011
-    400006: Cube_013
-    400008: Cube_014
-    400010: Cube_015
-    400012: Cube_017
-    400014: Cylinder_002
-    400016: //RootNode
-    2300000: Cube
-    2300002: Cube_004
-    2300004: Cube_011
-    2300006: Cube_013
-    2300008: Cube_014
-    2300010: Cube_015
-    2300012: Cube_017
-    2300014: Cylinder_002
-    3300000: Cube
-    3300002: Cube_004
-    3300004: Cube_011
-    3300006: Cube_013
-    3300008: Cube_014
-    3300010: Cube_015
-    3300012: Cube_017
-    3300014: Cylinder_002
-    4300000: Cube_017
-    4300002: Cube
-    4300004: Cylinder_002
-    4300006: Cube_011
-    4300008: Cube_004
-    4300010: Cube_014
-    4300012: Cube_015
-    4300014: Cube_013
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Icosphere
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -92,7 +55,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -111,7 +74,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
