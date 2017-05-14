@@ -10,24 +10,27 @@ public class EnemySpawnManager : MonoBehaviour {
     //Types of enemy to spawn
 	[Header("Turret Prefabs")]
 	public Transform[] enemyTypes;
+	private int[,] roundEnemies;
 
 	//How many rounds in a game
-	public int gameLength;
+	private int gameLength;
 	//Which round you are on
 	private int roundIndex;
 	//How many waves in a round
-	public int roundSize;
+	private int roundSize;
 	//Which wave you are on
 	private int waveIndex;
 	//How many groups in a wave
-	private int waveSize = 2;
+	private int waveSize;
+	//Which group you are on
+	private int groupIndex;
 	//How many spawns in a group
-	private int groupSize = 5;
+	private int groupSize;
 	//How many enemies have we spawned
 	private int enemyCnt;
 
-	private float timeBetweenSpawns = 0.2f;
-	private float timeBetweenGroups = 3f ; 
+	private float timeBetweenSpawns = 0.5f;
+	private float timeBetweenGroups = 5f; 
 	private bool waveStart = false ;
     
     public Transform spawnPoint;
@@ -36,8 +39,8 @@ public class EnemySpawnManager : MonoBehaviour {
     //the value corresponding to the enemy type for this wave and the
     //last spawned enemy type (used in enemy class)
     //(will be visually shown in briefing)
-    public int briefingEnemy = 0;
-    public int lastSpawned   = 0;
+    private int briefingEnemy = 0;
+    private int lastSpawned   = 0;
 
 	//UI elements
 	public GameObject waveUI; 
@@ -60,16 +63,22 @@ public class EnemySpawnManager : MonoBehaviour {
 			interpreter.interpret(enemyTypes[i], BetweenScenes.parsedInstructionSet);
 		}
 
+		gameLength = 4;
+
+		groupIndex = 0;
 		waveIndex = 0;
 		roundIndex = 0;
+
+		initialiseRound();
     }
 
     void Update() {
 		updateUI();
 		//start wave start of game/new wave
 		if (waveStart && waveIndex < roundSize) {
+			initialiseRound();
 			waveStart = false; 
-			StartCoroutine (spawnWave ());
+			StartCoroutine(spawnWave());
 			waveIndex++;
 		}
 
@@ -79,6 +88,7 @@ public class EnemySpawnManager : MonoBehaviour {
 			if (!enemiesRemaining ()) {
 				if(waveIndex >= roundSize) {
 					waveIndex = 0;
+					groupIndex = 0;
 					roundIndex++;
 					BetweenScenes.CurrentRound = roundIndex;
 					SceneManager.LoadScene("Briefing");
@@ -107,29 +117,30 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 	IEnumerator spawnWave() {
-        briefingEnemy = Random.Range(0, enemyTypes.Length);
-        Debug.Log("================ briefingEnemy = " + briefingEnemy + " ====================");
+//        briefingEnemy = Random.Range(0, enemyTypes.Length);
+//        Debug.Log("================ briefingEnemy = " + briefingEnemy + " ====================");
 		for (int i = 0; i < waveSize; i++) {
 			if (enemyCnt % groupSize == 0) {
-				StartCoroutine (spawnGroup ());
+				StartCoroutine(spawnGroup());
 			}
 			yield return new WaitForSeconds(timeBetweenGroups);
 		}
 	}
 		
-    IEnumerator spawnGroup() {
-        for(int i = 0 ; i < groupSize ; i++) {
-            spawnEnemy();
+	IEnumerator spawnGroup() {
+        for(int j = 0 ; j < groupSize; j++) {
+			spawnEnemy(j);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
+		groupIndex++;
     }
     
-    void spawnEnemy() {
-        //Spawn random enemy from list of enemy types
-        var index = Random.Range(0, enemyTypes.Length);
+	void spawnEnemy(int j) {
+        //Spawn next enemy from premade
+		//list according to round and wave
+		int index = roundEnemies[groupIndex, j];
         lastSpawned = index;
-        //Debug.Log("(0-"+enemyTypes.Length+") Enemy spawn index " + index);
-        Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
+		Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
 		enemyCnt++;
     }
 
@@ -144,4 +155,89 @@ public class EnemySpawnManager : MonoBehaviour {
 		}
 		waveUI.GetComponent<Text>().text =  "WAVE:  " + (waveIndex).ToString() + " / " + roundSize.ToString();
 	}
+
+	void initialiseRound() {
+		roundIndex = BetweenScenes.CurrentRound;
+		switch(roundIndex)
+		{
+		case 0:
+			roundSize = 1;
+			waveSize = 5;
+			groupSize = 5;
+			roundEnemies = new int[,]
+			{
+				{1, 0, 0, 0, 1},
+				{1, 0, 1, 0, 1},
+			    {1, 0, 0, 0, 1},
+				{1, 0, 1, 0, 1},
+				{1, 1, 1, 1, 1}
+			};
+			break;
+		case 1:
+			roundSize = 3;
+			waveSize = 3;
+			groupSize = 5;
+			roundEnemies = new int[,]
+			{
+				{0, 1, 1, 1, 0},
+				{0, 1, 2, 1, 0},
+				{2, 1, 1, 1, 2},
+				{0, 1, 0, 1, 0},
+				{2, 1, 0, 1, 2},
+				{0, 1, 0, 1, 0},
+				{2, 1, 0, 1, 2},
+				{0, 1, 0, 1, 0},
+				{2, 1, 2, 1, 2}
+			};
+			break;
+		case 2:
+			roundSize = 3;
+			waveSize = 4;
+			groupSize = 5;
+			roundEnemies = new int[,]
+			{
+				{1, 0, 0, 0, 1},
+				{1, 0, 3, 0, 1},
+				{4, 0, 3, 0, 4},
+				{1, 0, 3, 0, 1},
+				{1, 0, 3, 0, 1},
+				{3, 4, 1, 4, 3},
+				{4, 0, 3, 0, 1},
+				{4, 0, 3, 0, 1},
+				{1, 4, 1, 4, 1},
+				{1, 4, 3, 4, 1},
+				{1, 4, 3, 4, 1},
+				{4, 1, 4, 1, 4}
+			};
+			break;
+		case 3:
+			roundSize = 17;
+			waveSize = 1;
+			groupSize = 5;
+			roundEnemies = new int[,]
+			{
+				{2, 0, 1, 0, 2},
+				{1, 2, 1, 2, 1},
+				{2, 0, 2, 0, 2},
+				{1, 2, 1, 2, 1},
+				{2, 2, 4, 2, 2},
+				{1, 4, 1, 4, 1},
+				{2, 0, 2, 0, 2},
+				{1, 4, 1, 4, 1},
+				{4, 2, 2, 2, 4},
+				{1, 4, 1, 4, 1},
+				{2, 0, 2, 0, 2},
+				{1, 4, 1, 4, 1},
+				{2, 0, 2, 0, 2},
+				{1, 4, 1, 4, 1},
+				{2, 4, 2, 4, 2},
+				{1, 4, 1, 4, 1},
+				{4, 2, 4, 2, 4}
+			};
+			break;
+		default:
+			return;
+		}
+	}
+
 }
