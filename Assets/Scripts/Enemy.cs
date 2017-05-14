@@ -127,15 +127,14 @@ public class Enemy : MonoBehaviour {
         if((waypointIndex == 3 && levelOne == false) || (waypointIndex == 12 && levelOne == true)) { //length of level 1, and longest path.
 			if (briefingEnemy) { 
 				PlayerStats.instance.decreaseHealth (attackDamage);     
-				Debug.Log ("HP = " + PlayerStats.Health);
-                Sound.instance.healthlossSound();
-                Effects.instance.EndPoint();
+				Debug.Log ("HP = " + PlayerStats.Health);     
 			} else {
 				PlayerStats.instance.adjustCash (reward);
 				Debug.Log ("Cash = " + PlayerStats.Cash);
-                Sound.instance.rewardSound(); 
-			}
-            Destroy(gameObject);
+             }
+            Sound.instance.rewardSound();
+               Effects.instance.EndPoint();
+        Destroy(gameObject);
             return;
         }
         
@@ -145,7 +144,7 @@ public class Enemy : MonoBehaviour {
 			waypointTarget = Waypoints.points[waypointIndex];
 		}
     }
-    
+
     public float getHealth() {
         return healthPoints;
     }
@@ -192,6 +191,3 @@ public class Enemy : MonoBehaviour {
 	}
 }
 
-                Sound.instance.rewardSound(); 
-			}
-            Effects.instance.EndPoint();
