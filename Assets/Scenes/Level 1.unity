@@ -7740,8 +7740,6 @@ MonoBehaviour:
   gameLength: 2
   roundSize: 2
   spawnPoint: {fileID: 583837682}
-  briefingEnemy: 2
-  lastSpawned: 0
   waveUI: {fileID: 774598350}
   roundUI: {fileID: 1830353254}
 --- !u!114 &1284036671
