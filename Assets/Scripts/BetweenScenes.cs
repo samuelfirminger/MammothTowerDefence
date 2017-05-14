@@ -7,9 +7,11 @@ public static class BetweenScenes {
     public static string CurrentLevel = "Level 1";
     public static int CurrentRound = 0;
     public static int CurrentWave  = 0;
-    public static int playerCash   = 150;
-    public static int playerHealth = 50;
-    
+    public static int playerCash;
+    public static int playerHealth;
+
+	// For drag and drop scene
+	public static string transName = null;
     
     //52 Nodes in level 1, ?? in level 2
     private static int nodeNum1 = 52;
