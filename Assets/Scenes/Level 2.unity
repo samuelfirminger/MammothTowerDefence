@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43679938, g: 0.4844272, b: 0.5646815, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482447, g: 0.4982717, b: 0.57558084, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -11656,12 +11656,12 @@ Transform:
   - {fileID: 147769784}
   - {fileID: 597105217}
   - {fileID: 1065368311}
-  - {fileID: 2146200827}
   - {fileID: 152708377}
-  - {fileID: 1390355873}
   - {fileID: 855452792}
-  - {fileID: 1752943360}
+  - {fileID: 1390355873}
+  - {fileID: 2146200827}
   - {fileID: 1075687536}
+  - {fileID: 1752943360}
   - {fileID: 2048762786}
   - {fileID: 570389628}
   - {fileID: 1097232030}
@@ -17521,6 +17521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1613091786}
   - component: {fileID: 1613091787}
+  - component: {fileID: 1613091788}
   m_Layer: 0
   m_Name: Directional Light (1)
   m_TagString: Untagged
@@ -17534,13 +17535,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613091785}
-  m_LocalRotation: {x: 0.68311983, y: -0, z: -0, w: 0.7303063}
-  m_LocalPosition: {x: -7, y: 32.6, z: -58.2}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -7, y: -5.9, z: -19.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 86.176, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!108 &1613091787
 Light:
   m_ObjectHideFlags: 0
@@ -17550,7 +17551,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 1
-  m_Color: {r: 0.8088235, g: 1, b: 0.8892495, a: 1}
+  m_Color: {r: 1, g: 1, b: 0.872, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -17575,6 +17576,20 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!111 &1613091788
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1613091785}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 22606af9be5d46e4e8d5349ad6d3c1f7, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &1614761426
 Prefab:
   m_ObjectHideFlags: 0
