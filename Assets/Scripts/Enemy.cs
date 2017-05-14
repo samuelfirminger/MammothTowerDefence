@@ -47,14 +47,15 @@ public class Enemy : MonoBehaviour {
 
 		//Set target to 1st Waypoint
 		waypointTarget = Waypoints.points[0];
+     
 
-		if(levelOne == false)
+        if (levelOne == false)
 		{
 			int rand = Random.Range(0, 2);
 			if (rand == 1)
 			{   
-				waypointTarget = Waypoints.points[13];
-				waypointIndex = 13;
+				waypointTarget = Waypoints.points[19];
+				waypointIndex = 19;
 			}
 		}
 
@@ -96,14 +97,35 @@ public class Enemy : MonoBehaviour {
 		//What to do at final waypoint
         //Inflict damage if code is "bad"
 		//Reward player if code is "good"
-        if(waypointIndex == 15)
+        if(waypointIndex == 19)
         {
-            waypointTarget = Waypoints.points[12];
-            waypointIndex = 11;
+            waypointTarget = Waypoints.points[4];
+            waypointIndex = 4;
+            waypointTarget = Waypoints.points[waypointIndex];
+            return;
         }
 
-        if(waypointIndex == 12) { //length of level 1, and longest path.
-			if (briefingEnemy) {
+        if(waypointIndex == 10)
+        {
+            int rand = Random.Range(0, 2);
+            if (rand == 1)
+            {
+                waypointTarget = Waypoints.points[15];
+                waypointIndex = 15;
+                waypointTarget = Waypoints.points[waypointIndex];
+                return;
+            }
+        }
+    
+
+        if(waypointIndex == 14 || waypointIndex == 18)
+        {
+            waypointTarget = Waypoints.points[3];
+            waypointIndex = 2;
+        }
+
+        if((waypointIndex == 3 && levelOne == false) || (waypointIndex == 12 && levelOne == true)) { //length of level 1, and longest path.
+			if (briefingEnemy) { 
 				PlayerStats.instance.decreaseHealth (attackDamage);     
 				Debug.Log ("HP = " + PlayerStats.Health);
                 Sound.instance.healthlossSound();
@@ -112,6 +134,7 @@ public class Enemy : MonoBehaviour {
 				Debug.Log ("Cash = " + PlayerStats.Cash);
                 Sound.instance.rewardSound(); 
 			}
+            Effects.instance.EndPoint();
             Destroy(gameObject);
             return;
         }

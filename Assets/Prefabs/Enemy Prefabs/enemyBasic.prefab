@@ -297,7 +297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc61e58ddcd06264183cd0a49af1e7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: {r: 0, g: 0, b: 0, a: 0}
+  levelOne: 0
+  briefingEnemy: 0
+  isEnemy: 1
   properties: {fileID: 114048192612418424}
   healthBar: {fileID: 1798652457185046}
   deathEffect: {fileID: 1461648493237600, guid: 238b2819ebaaa2848b0ebb0fc8d6bd0b,
