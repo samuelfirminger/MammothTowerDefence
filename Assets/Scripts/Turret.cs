@@ -23,7 +23,7 @@ public class Turret : MonoBehaviour {
 	public int switchCooldown;
 	public GameObject[] bulletPrefabs;
 	private int enemiesInRange;
-    
+
 	void Start () {
         //Need to constantly update to allow turrets to change targets frequently
         //Parameters: function name, when to run first, how often to repeat
@@ -31,7 +31,6 @@ public class Turret : MonoBehaviour {
 	}
 	
 	void Update () {
-
 		if (target == null) {
 			return; 
 		}
@@ -87,7 +86,6 @@ public class Turret : MonoBehaviour {
 				enemiesInRange++;
 			}
         }
-		Debug.Log(enemiesInRange);
         
         //Check if found an enemy with our range, and set target
         if(nearestEnemy != null && shortestDistance <= maxRange) {
@@ -109,6 +107,6 @@ public class Turret : MonoBehaviour {
         //TODO: write method to select enemies
 		if(enemy.getIsEnemy()) return true;
 		else return false;
-    }
+    }  
 
 }

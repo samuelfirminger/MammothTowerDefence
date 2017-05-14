@@ -15,7 +15,7 @@ public class Parser : MonoBehaviour {
 	public void nextScene(){
 		if (parse ()) {
 			BetweenScenes.parsedInstructionSet = blocks;
-			SceneManager.LoadScene (BetweenScenes.CurrentLevel);
+			SceneManager.LoadScene(BetweenScenes.CurrentLevel);
 		} else {
 			Debug.Log ("Invalid instruction, try again");
 		}
