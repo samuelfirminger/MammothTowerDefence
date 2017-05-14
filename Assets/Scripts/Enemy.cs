@@ -107,13 +107,11 @@ public class Enemy : MonoBehaviour {
 				PlayerStats.instance.decreaseHealth (attackDamage);     
 				Debug.Log ("HP = " + PlayerStats.Health);
                 Sound.instance.healthlossSound();
-                Effects.instance.EndPoint();
 			} else {
 				PlayerStats.instance.adjustCash (reward);
 				Debug.Log ("Cash = " + PlayerStats.Cash);
-                Sound.instance.rewardSound();
-                Effects.instance.EndPoint();
-            }
+                Sound.instance.rewardSound(); 
+			}
             Destroy(gameObject);
             return;
         }
@@ -137,7 +135,7 @@ public class Enemy : MonoBehaviour {
 
         if(healthPoints <= 0) {
            
-            if (briefingEnemy) {
+            if(briefingEnemy) {
                 PlayerStats.instance.adjustCash(10);
                 
             }

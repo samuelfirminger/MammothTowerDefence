@@ -7671,15 +7671,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
-  - {fileID: 4508229070476168, guid: fec97cf44310d9c4eb4701f99735582d, type: 2}
-  - {fileID: 4588149396578710, guid: 1ae21bc002b119442b8ff5eeeb2daecb, type: 2}
-  - {fileID: 4627268406944656, guid: 675d891f54162b245ad26341a8de33e1, type: 2}
-  - {fileID: 4227202447977378, guid: d150833a4b0a9e447a1b6933a38195a7, type: 2}
-  gameLength: 2
-  roundSize: 2
+  - {fileID: 4144446088331438, guid: fdf6b5c503c0b4f2cbe7e148365d66e5, type: 2}
+  - {fileID: 4475057712150454, guid: 3e9a7762f8175468d84c0692879cb2f0, type: 2}
+  - {fileID: 4023802733785522, guid: f516a7ddc9b0c418591aab61921972f3, type: 2}
+  - {fileID: 4418946545611426, guid: 4a95c2153fe6f40fe89f986aa19f8e0f, type: 2}
+  - {fileID: 4353926820492790, guid: 77662031bb24649d68252f6b4f6d8a57, type: 2}
+  - {fileID: 4604879679190100, guid: 2e1c3d62fc5da45db848b9404a7b8a2d, type: 2}
   spawnPoint: {fileID: 583837682}
-  briefingEnemy: 2
-  lastSpawned: 0
   waveUI: {fileID: 774598350}
   roundUI: {fileID: 1830353254}
 --- !u!114 &1284036671
