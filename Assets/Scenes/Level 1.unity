@@ -7671,7 +7671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
-  - {fileID: 4787770360340400, guid: cd79688689b0c4a469ec1659b7702239, type: 2}
+  - {fileID: 4508229070476168, guid: fec97cf44310d9c4eb4701f99735582d, type: 2}
   - {fileID: 4588149396578710, guid: 1ae21bc002b119442b8ff5eeeb2daecb, type: 2}
   - {fileID: 4627268406944656, guid: 675d891f54162b245ad26341a8de33e1, type: 2}
   - {fileID: 4227202447977378, guid: d150833a4b0a9e447a1b6933a38195a7, type: 2}
