@@ -50,9 +50,9 @@ public class PlayerStats : MonoBehaviour {
     
     public void decreaseHealth(int damageValue) {
         Debug.Log("Inflicting " + damageValue + " to health");
-        if (Health > 0)
-        {
-            Health -= damageValue;
+        if (Health > 0)
+        {
+            Health -= damageValue;
         }
         updateHealth();
 		//make prompt that game is over, add button to start again 
