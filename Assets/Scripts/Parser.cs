@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Parser : MonoBehaviour {
 	private Draggable[] blocks = null;
@@ -11,14 +12,12 @@ public class Parser : MonoBehaviour {
 	private bool validInstruction = true;
 	private bool endReached = false;
 
-	public void Update(){
+	public void nextScene(){
 		if (parse ()) {
-			Debug.Log ("Valid Tower Instruction");
-			// program tower
-		} 
-		else {
-			Debug.Log ("Error: Invalid Instruction Set");
-			// Display error message to player
+			BetweenScenes.parsedInstructionSet = blocks;
+			SceneManager.LoadScene(BetweenScenes.CurrentLevel);
+		} else {
+			Debug.Log ("Invalid instruction, try again");
 		}
 	}
 
@@ -26,7 +25,10 @@ public class Parser : MonoBehaviour {
 		blockNum = 0;
 		validInstruction = true;
 		endReached = false;
-		blocks = this.GetComponentsInChildren<Draggable> ();
+		//blocks = this.GetComponentsInChildren<Draggable> ();
+
+		GameObject g = GameObject.Find ("ProgramTower");
+		blocks = g.GetComponentsInChildren<Draggable> ();
 
 		checkFirstBlock ();
 		if (!validInstruction)

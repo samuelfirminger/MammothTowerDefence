@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114718941033920324}
   m_Layer: 0
   m_Name: Spyware2
-  m_TagString: Untagged
+  m_TagString: Code
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,10 +191,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc61e58ddcd06264183cd0a49af1e7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: {r: 0, g: 0, b: 0, a: 0}
+  levelOne: 0
+  briefingEnemy: 0
   isEnemy: 1
   properties: {fileID: 114718941033920324}
   healthBar: {fileID: 1404810101004206, guid: 349c95a975b0c734a8d975348e3747ec, type: 2}
+  deathEffect: {fileID: 0}
 --- !u!114 &114718941033920324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef668b0f8eae42c4bf7fd9afa7defbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extension: .word
+  extension: 0
   speed: 10
   size: 1
   encryption: 0
