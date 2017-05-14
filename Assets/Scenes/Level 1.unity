@@ -7671,7 +7671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
-  - {fileID: 4787770360340400, guid: cd79688689b0c4a469ec1659b7702239, type: 2}
+  - {fileID: 4508229070476168, guid: fec97cf44310d9c4eb4701f99735582d, type: 2}
   - {fileID: 4588149396578710, guid: 1ae21bc002b119442b8ff5eeeb2daecb, type: 2}
   - {fileID: 4627268406944656, guid: 675d891f54162b245ad26341a8de33e1, type: 2}
   - {fileID: 4227202447977378, guid: d150833a4b0a9e447a1b6933a38195a7, type: 2}
@@ -7693,9 +7693,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c8a930a9484da2b4ef72087b12e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 2
+  initialHealth: 50
   healthUI: {fileID: 485122018}
-  initialCash: 5000
+  initialCash: 150
   cashUI: {fileID: 883400673}
 --- !u!114 &1284036672
 MonoBehaviour:
@@ -11120,7 +11120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -697.7, y: 1.5758057}
+  m_AnchoredPosition: {x: -9, y: -9}
   m_SizeDelta: {x: 79, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827462391
