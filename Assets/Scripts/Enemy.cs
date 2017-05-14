@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour {
             return;
         }
 
-        if(waypointIndex == 10)
+        if(waypointIndex == 10 && levelOne == false)
         {
             int rand = Random.Range(0, 2);
             if (rand == 1)
