@@ -93,7 +93,8 @@ public class TurretManager : MonoBehaviour {
         
         storeTurretData(nodeName);       
         Sound.instance.placeTurretSound();
-
+        
+        BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
 		Debug.Log ("Turret built. Cash left = " + PlayerStats.Cash);
 	}
     
@@ -131,6 +132,7 @@ public class TurretManager : MonoBehaviour {
 		PlayerStats.instance.adjustCash (+(node.getSellValue()));
         Sound.instance.sellTurretSound();
 		Debug.Log ("Turret sold."); 
+        BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
 	}
 
 	public bool getSellState() {
