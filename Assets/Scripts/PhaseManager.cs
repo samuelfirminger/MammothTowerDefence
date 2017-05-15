@@ -11,7 +11,8 @@ public class PhaseManager : MonoBehaviour {
 	//get canvas objects to show/disable
 	[Header("UI elements on Canvas")]
 	public GameObject phaseUI;
-	public GameObject pauseButton; 
+	public GameObject pauseButton;
+	public GameObject speedButton ; 
 	public GameObject gameOver ; 
 	public GameObject restart; 
 	private bool start;
@@ -42,6 +43,7 @@ public class PhaseManager : MonoBehaviour {
 		gameOver.SetActive (false); 
 		sellButton.SetActive (true); 
 		turretShop.SetActive (true); 
+		speedButton.SetActive (true); 
 		turretsInShop = GameObject.FindGameObjectsWithTag ("TurretShop"); 
 
 		//initialise sell button
@@ -72,7 +74,7 @@ public class PhaseManager : MonoBehaviour {
 		sellButton.SetActive (false); 
 
 		start = true;
-        Sound.instance.newWaveSound();
+       // Sound.instance.newWaveSound();
 		foreach (GameObject turretButton in turretsInShop) {
 			turretButton.SetActive (false); 
 		}
@@ -85,11 +87,14 @@ public class PhaseManager : MonoBehaviour {
 		phaseUI.SetActive(false); 
 	}
 
-	public void gameOverPrompt() {
+	public void gameFailed() {
         Sound.instance.gameOverSound();
-		gameOver.SetActive (true);
-		restart.SetActive (true); 
-		pauseButton.SetActive (false); 
+		SceneManager.LoadScene ("MissionFailure"); 
+	}
+
+	public void gameSuccess() {
+		Sound.instance.gameOverSound (); 
+		SceneManager.LoadScene ("MissionSuccess"); 
 	}
 
 	public void intoSellMode() {

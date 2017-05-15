@@ -13,9 +13,13 @@ public class ButtonNextLevel : MonoBehaviour
     }
 
     public void NextLevelButton(string levelName)
-    {   
-		if(levelName == "StartScreen") {
-			BetweenScenes.clearAllData();
+	{   try {
+			if(levelName == "StartScreen") {
+				BetweenScenes.clearAllData();
+			}
+		}
+		catch (System.NullReferenceException e) {
+			//do nothing 
 		}
         SceneManager.LoadScene(levelName);
     }

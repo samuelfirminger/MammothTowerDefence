@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI ;
+using UnityEngine.SceneManagement ;
 
 public class PlaylistManager : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class PlaylistManager : MonoBehaviour {
 	private AudioSource audioSource; 
 	public bool paused = false ; 
 	private bool resumePlay = false ; 
+	private bool firstSong = true ; 
 
 	private Button disableButton ; 
 
@@ -50,21 +52,25 @@ public class PlaylistManager : MonoBehaviour {
 
 	public void changeButtonText() {
 		if (!paused) {
-			disableButton.GetComponentInChildren<Text> ().text = "Disable Music"; 
+			disableButton.GetComponentInChildren<Text> ().text = "DISABLE MUSIC"; 
 		} else {
-			disableButton.GetComponentInChildren<Text> ().text = "Enable Music"; 
+			disableButton.GetComponentInChildren<Text> ().text = "ENABLE MUSIC"; 
 		}
 	}
 
 	
 	// Update is called once per frame
 	void Update () {
-		
 		if (!audioSource.isPlaying && !paused) {
 			if (resumePlay) {
 				resumePlay = !resumePlay;
 			} else {
-				audioSource.clip = getRandomSong (); 
+				if (firstSong) {
+					audioSource.clip = clips [0];
+					firstSong = false; 
+				} else {
+					audioSource.clip = getRandomSong ();
+				}
 			}
 			audioSource.Play (); 
 		}

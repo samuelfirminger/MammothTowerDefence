@@ -44,6 +44,15 @@ public class TypeWriter : MonoBehaviour {
 			txt.text = "";
 		}
 
+		try {
+		    AudioSource typeSound = GameObject.FindGameObjectWithTag ("TypeWriter").GetComponent<AudioSource> (); 
+			typeSound.Stop ();
+		}
+		catch (System.NullReferenceException e) {
+			//do nothing
+		}
+		 
+
     }
 
 

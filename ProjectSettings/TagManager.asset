@@ -17,6 +17,8 @@ TagManager:
   - Classified
   - Gran
   - MusicToggle
+  - PauseGame
+  - TypeWriter
   layers:
   - Default
   - TransparentFX
