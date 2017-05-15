@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonExitProgram : MonoBehaviour {
-    void Start() { }
+    void Start() {
+        Time.timeScale = 1;
+    }
     void Update() { }
     public void ExitPress()
     { 

@@ -739,7 +739,6 @@ GameObject:
   - component: {fileID: 87439935}
   - component: {fileID: 87439934}
   - component: {fileID: 87439939}
-  - component: {fileID: 87439940}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -830,25 +829,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &87439940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 87439933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f1938cb92c76242928b665596504b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathClip: {fileID: 0}
-  rewardClip: {fileID: 0}
-  loseHealthClip: {fileID: 0}
-  placeTurretClip: {fileID: 0}
-  newWaveClip: {fileID: 0}
-  sellTurretClip: {fileID: 0}
-  gameOverClip: {fileID: 0}
-  typeWriterClip: {fileID: 0}
 --- !u!1 &114740680
 GameObject:
   m_ObjectHideFlags: 0
