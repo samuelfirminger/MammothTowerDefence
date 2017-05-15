@@ -63,5 +63,6 @@ public class Sound : MonoBehaviour {
 	public void typewriterSound() {
 		AudioSource.PlayClipAtPoint(typeWriterClip, transform.position);
 	}
+		
 
 }
