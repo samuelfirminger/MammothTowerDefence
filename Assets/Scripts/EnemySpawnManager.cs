@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class EnemySpawnManager : MonoBehaviour { 
     //Make EnemySpawnManager a Singleton class
     public static EnemySpawnManager instance;
@@ -34,13 +35,6 @@ public class EnemySpawnManager : MonoBehaviour {
 	private bool waveStart = false ;
     
     public Transform spawnPoint;
- 
-    //For simplified programming of turrets: this variable holds
-    //the value corresponding to the enemy type for this wave and the
-    //last spawned enemy type (used in enemy class)
-    //(will be visually shown in briefing)
-    private int briefingEnemy = 0;
-    private int lastSpawned   = 0;
 
 	//UI elements
 	public GameObject waveUI; 
@@ -74,37 +68,55 @@ public class EnemySpawnManager : MonoBehaviour {
 
     void Update() {
 		updateUI();
-		//start wave start of game/new wave
+		//start of wave conditions
 		if (waveStart && waveIndex < roundSize) {
-			initialiseRound();
-			waveStart = false; 
-			StartCoroutine(spawnWave());
-			waveIndex++;
+			atStartOfWave();
 		}
 
-		//if all enemies of wave have spawned
-		if (enemyCnt == groupSize * waveSize) {
-			//if all enemies destroyed
-			if (!enemiesRemaining ()) {
-				if(waveIndex >= roundSize) {
-					waveIndex = 0;
-					groupIndex = 0;
-					roundIndex++;
-					BetweenScenes.CurrentRound = roundIndex;
-					SceneManager.LoadScene("Briefing");
-				}
-				if (roundIndex >= gameLength) {
-					PhaseManager.instance.gameOverPrompt ();
-				}
-				//go into build if not end of game, else game over prompt
-				else {
-					PhaseManager.instance.enableBuildPhase ();
-					TurretManager.instance.setSellState(false);
-					PhaseManager.instance.intoSellMode (); 
-				}
+		//end of wave conditions -> 3 branches
+		//    end of wave
+		//	  end of round
+		//    gameover
+		if (enemyCnt == groupSize * waveSize && !enemiesRemaining() && PlayerStats.Health > 0) {
+			if(waveIndex >= roundSize) {
+				atEndOfRound();
+			}
+			if (roundIndex >= gameLength) {
+				PhaseManager.instance.phaseUI.SetActive(false);
+				PhaseManager.instance.gameOverPrompt();
+			}
+			//go into build if not end of game, else game over prompt
+			else {
+				atEndOfWave();
 			}
 		}
-    }
+	}
+
+	void atStartOfWave() {
+		initialiseRound();
+		waveStart = false; 
+		StartCoroutine(spawnWave());
+		waveIndex++;
+	}
+
+	void atEndOfWave() {
+		PhaseManager.instance.enableBuildPhase ();
+		TurretManager.instance.setSellState(false);
+		PhaseManager.instance.intoSellMode (); 
+	}
+
+	void atEndOfRound() {
+		waveIndex = 0;
+		groupIndex = 0;
+		roundIndex++;
+		BetweenScenes.CurrentRound = roundIndex;
+		BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
+		BetweenScenes.setPlayerHealth(PlayerStats.Health);
+		Time.timeScale = 1;
+		if(roundIndex < gameLength) {
+			SceneManager.LoadScene("Briefing");
+		}
+	}
 
 	bool enemiesRemaining() {
 		if (GameObject.FindGameObjectsWithTag ("Code").Length == 0) {
@@ -130,17 +142,15 @@ public class EnemySpawnManager : MonoBehaviour {
 	IEnumerator spawnGroup() {
         for(int j = 0 ; j < groupSize; j++) {
 			spawnEnemy(j);
+            Effects.instance.Wave();
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
 		groupIndex++;
     }
     
 	void spawnEnemy(int j) {
-        //Spawn next enemy from premade
-		//list according to round and wave
-		int index = roundEnemies[groupIndex, j];
-        lastSpawned = index;
-		Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
+        //Spawn next enemy from premade array
+		Instantiate(enemyTypes[roundEnemies[groupIndex, j]], spawnPoint.position, spawnPoint.rotation);
 		enemyCnt++;
     }
 
@@ -161,8 +171,8 @@ public class EnemySpawnManager : MonoBehaviour {
 		switch(roundIndex)
 		{
 		case 0:
-			roundSize = 1;
-			waveSize = 5;
+			roundSize = 2;
+			waveSize = 3;
 			groupSize = 5;
 			roundEnemies = new int[,]
 			{
@@ -170,6 +180,7 @@ public class EnemySpawnManager : MonoBehaviour {
 				{1, 0, 1, 0, 1},
 			    {1, 0, 0, 0, 1},
 				{1, 0, 1, 0, 1},
+				{1, 1, 1, 1, 1},
 				{1, 1, 1, 1, 1}
 			};
 			break;
@@ -211,8 +222,8 @@ public class EnemySpawnManager : MonoBehaviour {
 			};
 			break;
 		case 3:
-			roundSize = 17;
-			waveSize = 1;
+			roundSize = 4;
+			waveSize = 4;
 			groupSize = 5;
 			roundEnemies = new int[,]
 			{
@@ -231,8 +242,7 @@ public class EnemySpawnManager : MonoBehaviour {
 				{2, 0, 2, 0, 2},
 				{1, 4, 1, 4, 1},
 				{2, 4, 2, 4, 2},
-				{1, 4, 1, 4, 1},
-				{4, 2, 4, 2, 4}
+				{1, 4, 1, 4, 5}
 			};
 			break;
 		default:

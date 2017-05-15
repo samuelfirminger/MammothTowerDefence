@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour {
     private float healthPoints;
     private float maxHealthPoints;
 	public GameObject healthBar;
+//	public TextMesh healthText;
 
 	private int reward; 
 	private int attackDamage;
@@ -47,14 +49,15 @@ public class Enemy : MonoBehaviour {
 
 		//Set target to 1st Waypoint
 		waypointTarget = Waypoints.points[0];
+     
 
-		if(levelOne == false)
+        if (levelOne == false)
 		{
 			int rand = Random.Range(0, 2);
 			if (rand == 1)
 			{   
-				waypointTarget = Waypoints.points[13];
-				waypointIndex = 13;
+				waypointTarget = Waypoints.points[19];
+				waypointIndex = 19;
 			}
 		}
 
@@ -82,6 +85,7 @@ public class Enemy : MonoBehaviour {
 			slowState = false;
 			movementSpeed = tempSpeed;
 		}
+
 	}
 
 	public void setIsEnemy(bool isEnemy){
@@ -96,24 +100,45 @@ public class Enemy : MonoBehaviour {
 		//What to do at final waypoint
         //Inflict damage if code is "bad"
 		//Reward player if code is "good"
-        if(waypointIndex == 15)
+        if(waypointIndex == 19)
         {
-            waypointTarget = Waypoints.points[12];
-            waypointIndex = 11;
+            waypointTarget = Waypoints.points[4];
+            waypointIndex = 4;
+            waypointTarget = Waypoints.points[waypointIndex];
+            return;
         }
 
-        if(waypointIndex == 12) { //length of level 1, and longest path.
-			if (briefingEnemy) {
+        if(waypointIndex == 10 && levelOne == false)
+        {
+            int rand = Random.Range(0, 2);
+            if (rand == 1)
+            {
+                waypointTarget = Waypoints.points[15];
+                waypointIndex = 15;
+                waypointTarget = Waypoints.points[waypointIndex];
+                return;
+            }
+        }
+    
+
+        if(waypointIndex == 14 || waypointIndex == 18)
+        {
+            waypointTarget = Waypoints.points[3];
+            waypointIndex = 2;
+        }
+
+        if((waypointIndex == 3 && levelOne == false) || (waypointIndex == 12 && levelOne == true)) { //length of level 1, and longest path.
+			if (briefingEnemy) { 
 				PlayerStats.instance.decreaseHealth (attackDamage);     
-				Debug.Log ("HP = " + PlayerStats.Health);
-                Sound.instance.healthlossSound();
+				Debug.Log ("HP = " + PlayerStats.Health);     
 			} else {
 				PlayerStats.instance.adjustCash(reward);
                 BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
 				Debug.Log ("Cash = " + PlayerStats.Cash);
-                Sound.instance.rewardSound(); 
-			}
-            Destroy(gameObject);
+             }
+            Sound.instance.rewardSound();
+               Effects.instance.EndPoint();
+        Destroy(gameObject);
             return;
         }
         
@@ -123,7 +148,7 @@ public class Enemy : MonoBehaviour {
 			waypointTarget = Waypoints.points[waypointIndex];
 		}
     }
-    
+
     public float getHealth() {
         return healthPoints;
     }
@@ -136,18 +161,39 @@ public class Enemy : MonoBehaviour {
 
         if(healthPoints <= 0) {
            
-            if(briefingEnemy) {
-                PlayerStats.instance.adjustCash(10);               
+            if (briefingEnemy) {
+                PlayerStats.instance.adjustCash(attackDamage);
+                
             }
 			else {
-				PlayerStats.instance.decreaseHealth(1);
+				PlayerStats.instance.decreaseHealth(attackDamage);
 			}
 			GameObject particleEffect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation); 
 			Destroy(particleEffect, 0.5f); 
             Destroy(gameObject);
             Sound.instance.deathSound();
         }
+		
+//		StartCoroutine(showHealthText());
+//		healthText.text = "";
+
     }
+
+//	IEnumerator showHealthText() {
+//		float healthPercentage = (healthPoints / maxHealthPoints) * 100;
+//		healthText.text = healthPercentage.ToString() + "%";
+//		if (healthPercentage >= 50) {
+//			healthText.color = Color.green;
+//		}
+//		else if (healthPercentage < 50 && healthPercentage >= 25) {
+//			healthText.color = Color.yellow;
+//		}
+//		else {
+//			healthText.color = Color.red;
+//		}
+//		healthText.transform.LookAt(Camera.main.transform);
+//		yield return new WaitForSeconds(1f);
+//	}
     
     public void SetHealthBar(float myHealth) {
         //myHealth value 0-1 , calculated by maxhealth/Current health

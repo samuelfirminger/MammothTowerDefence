@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonNextLevel : MonoBehaviour
+
 {
 
     public void NextLevelButton(int index)
@@ -12,7 +13,10 @@ public class ButtonNextLevel : MonoBehaviour
     }
 
     public void NextLevelButton(string levelName)
-    {        
+    {   
+		if(levelName == "StartScreen") {
+			BetweenScenes.clearAllData();
+		}
         SceneManager.LoadScene(levelName);
     }
 

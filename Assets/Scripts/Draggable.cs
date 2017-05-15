@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+	// XXX
+	public GameObject replacementCard = null;
+	private bool deletePlaceHolder = false;
+	// XXX
+
 	public Transform parentReturn = null;
 	GameObject placeHolder = null;
 	public BlockType typeOfBlock;
@@ -29,11 +34,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		this.transform.SetParent(this.transform.parent.parent);
 
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
-    }
+
+		BetweenScenes.transName = this.transform.parent.name;
+	}
 
     public void OnDrag(PointerEventData eventData)
     {
-        this.transform.position = eventData.position;
+		this.transform.position = eventData.position;
 
 		int newSiblingIndex = parentReturn.childCount;
 
@@ -48,7 +55,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 			}
 		}
 		placeHolder.transform.SetSiblingIndex(newSiblingIndex);
-
     }
 
     public void OnEndDrag(PointerEventData eventData)
