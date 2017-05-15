@@ -92,6 +92,7 @@ public class EnemySpawnManager : MonoBehaviour {
 					groupIndex = 0;
 					roundIndex++;
 					BetweenScenes.CurrentRound = roundIndex;
+					BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
 					SceneManager.LoadScene("Briefing");
 				}
 				if (roundIndex >= gameLength) {
@@ -242,4 +243,3 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 }
-

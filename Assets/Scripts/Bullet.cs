@@ -27,8 +27,10 @@ public class Bullet : MonoBehaviour {
             return;
         }
         
-        //Calculate bullet direction
+        //Calculate bullet direction and rotation
         Vector3 dir = target.position - transform.position;
+		transform.rotation = Quaternion.LookRotation(dir);
+
         float distanceThisFrame = speed * Time.deltaTime;
         
         //Check if hit something
@@ -42,27 +44,25 @@ public class Bullet : MonoBehaviour {
 	}
        
     void HitTarget() {
-        //Deal damage to the target enemy
-        //target.dealDamage(baseDamage); <- Subtracts baseDamage value from enemy health bar
         Enemy targetEnemy = target.GetComponent<Enemy>();
-        DealDamage.dealDamageToEnemy(targetEnemy, baseDamage);
+        dealDamage(targetEnemy, baseDamage);
 
 		//Slow down enemy
-        if (slowFactor != 0) {
+        if (slowFactor > 0) {
             slowTarget(targetEnemy);
         }
-       
+
 		//Deal splash damage
-        if (splashDamage != 0) {
+        if (splashDamage > 0) {
             splashNearby(targetEnemy);
         }
-                    
+ 
         //Destroy bullet on impact
         Destroy(gameObject);       
     }
 
-	void slowTarget(Enemy targetEnemy) {		
-        targetEnemy.setSlow(slowFactor, slowTime);
+	void slowTarget(Enemy target) {		
+        target.setSlow(slowFactor, slowTime);
 	}
 
 	void splashNearby(Enemy targetEnemy) {
@@ -73,8 +73,13 @@ public class Bullet : MonoBehaviour {
 			float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, enemy.transform.position);
 			Enemy enemyToCheck = enemy.GetComponent<Enemy>();
 			if(distanceToEnemy <= splashRadius) {
-				DealDamage.dealDamageToEnemy(enemyToCheck, splashDamage);
+				dealDamage(enemyToCheck, splashDamage);
 			}
 		}
 	}
+
+	void dealDamage(Enemy target, float damage) {
+		target.setHealth(target.getHealth() - damage);
+	}
+
 }
