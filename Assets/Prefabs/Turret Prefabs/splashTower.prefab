@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRange: 0
-  maxRange: 4
+  maxRange: 9
   fireRate: 1
   turnSpeed: 10
   partToRotate: {fileID: 4680128157606648}

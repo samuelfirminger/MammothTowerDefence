@@ -14,6 +14,7 @@ public class Restart : MonoBehaviour {
 	}
 	
 	public void restartLevel() { 
+        BetweenScenes.clearAllData();
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex); 
 	}
 }

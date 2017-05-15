@@ -27,6 +27,8 @@ public class BriefingManager : MonoBehaviour {
         
         //Collect Cards from scene, then hide them
         findCards();
+        activeRound = BetweenScenes.CurrentRound + 1;
+        getCards();
     }
     
 	// Use this for initialization

@@ -7693,7 +7693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 50
   healthUI: {fileID: 485122018}
-  initialCash: 150
+  initialCash: 300
   cashUI: {fileID: 883400673}
 --- !u!114 &1284036672
 MonoBehaviour:

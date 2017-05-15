@@ -7,7 +7,7 @@ public static class BetweenScenes {
     public static string CurrentLevel = "Level 1";
     public static int CurrentRound = 0;
     public static int CurrentWave  = 0;
-    public static int playerCash   = 150;
+    public static int playerCash   = 300;
     public static int playerHealth = 50;
     
     
@@ -57,8 +57,10 @@ public static class BetweenScenes {
         for(int i=0 ; i<TurretMarkers.Length ; i++) {
             TurretMarkers[i] = null;
         }
-        playerCash   = 150;
+        playerCash   = 300;
         playerHealth = 50;
+        CurrentRound = 0;
+        CurrentWave  = 0;
     }
     
     public static GameObject getTurretData(int n) {

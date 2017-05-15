@@ -381,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extension: 0
   speed: 10
-  size: 0
+  size: 1
   encryption: 0
   source: 0
 --- !u!114 &114962730431781640

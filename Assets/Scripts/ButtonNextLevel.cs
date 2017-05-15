@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonNextLevel : MonoBehaviour
 {
+
     public void NextLevelButton(int index)
     {
         SceneManager.LoadScene(index);
@@ -20,5 +22,4 @@ public class ButtonNextLevel : MonoBehaviour
         BetweenScenes.CurrentRound = 0;
         BetweenScenes.setArraySize(BetweenScenes.getCurrentLevelId());
     }
-
 }
