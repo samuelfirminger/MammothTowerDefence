@@ -133,6 +133,7 @@ public class EnemySpawnManager : MonoBehaviour {
 	IEnumerator spawnGroup() {
         for(int j = 0 ; j < groupSize; j++) {
 			spawnEnemy(j);
+            Effects.instance.Wave();
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
 		groupIndex++;

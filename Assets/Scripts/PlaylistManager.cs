@@ -16,6 +16,10 @@ public class PlaylistManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		if (instance == null) {
+			instance = this; 
+		}
+			
 		audioSource = FindObjectOfType<AudioSource> (); 
 		audioSource.loop = false;
 		disableButton = GameObject.FindGameObjectWithTag ("MusicToggle").GetComponent<Button> (); 
@@ -27,7 +31,7 @@ public class PlaylistManager : MonoBehaviour {
 			Destroy (this.gameObject); 
 		}
 		DontDestroyOnLoad (this.gameObject); 
-		instance = this; 
+
 	}
 
 	private AudioClip getRandomSong() { 
@@ -36,26 +40,26 @@ public class PlaylistManager : MonoBehaviour {
 
 	public void pauseMusic() {
 		
-
-		if (audioSource.isPlaying) {
-			Debug.Log ("ITS ALREADY FUCKING PLAYING"); 
-		} else {
-			Debug.Log ("ITS BEEN PAUSED ALREADY"); 
-		}
-
 		audioSource.Pause();
-		if (paused) {
+		changeButtonText (); 
+		paused = !paused; 
+		if (!resumePlay) {
+			resumePlay = true; 
+		}
+	}
+
+	public void changeButtonText() {
+		if (!paused) {
 			disableButton.GetComponentInChildren<Text> ().text = "Disable Music"; 
 		} else {
 			disableButton.GetComponentInChildren<Text> ().text = "Enable Music"; 
 		}
-		paused = !paused; 
-		resumePlay = true; 
 	}
 
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (!audioSource.isPlaying && !paused) {
 			if (resumePlay) {
 				resumePlay = !resumePlay;
@@ -64,7 +68,13 @@ public class PlaylistManager : MonoBehaviour {
 			}
 			audioSource.Play (); 
 		}
-		disableButton = GameObject.FindGameObjectWithTag ("MusicToggle").GetComponent<Button> (); 
+		try { 
+			disableButton = GameObject.FindGameObjectWithTag ("MusicToggle").GetComponent<Button> ();
+			changeButtonText() ; 		
+		}
+		catch (System.NullReferenceException e) {
+			//Do Nothing
+		}
 
 	}
 }
