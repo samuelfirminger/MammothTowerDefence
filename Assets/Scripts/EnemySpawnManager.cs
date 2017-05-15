@@ -83,7 +83,7 @@ public class EnemySpawnManager : MonoBehaviour {
 			}
 			if (roundIndex >= gameLength) {
 				PhaseManager.instance.phaseUI.SetActive(false);
-				PhaseManager.instance.gameOverPrompt();
+				PhaseManager.instance.gameSuccess (); 
 			}
 			//go into build if not end of game, else game over prompt
 			else {

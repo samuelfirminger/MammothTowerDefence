@@ -56,7 +56,7 @@ public class PlayerStats : MonoBehaviour {
 		//make prompt that game is over, add button to start again 
 		if (Health <= 0) {
             Effects.instance.GameLost();
-			PhaseManager.instance.gameOverPrompt (); 
+			PhaseManager.instance.gameFailed (); 
 			//Time.timeScale = 0; 
 			//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex); 
 		}

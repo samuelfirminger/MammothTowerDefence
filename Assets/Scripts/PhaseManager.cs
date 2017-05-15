@@ -87,9 +87,14 @@ public class PhaseManager : MonoBehaviour {
 		phaseUI.SetActive(false); 
 	}
 
-	public void gameOverPrompt() {
+	public void gameFailed() {
         Sound.instance.gameOverSound();
 		SceneManager.LoadScene ("MissionFailure"); 
+	}
+
+	public void gameSuccess() {
+		Sound.instance.gameOverSound (); 
+		SceneManager.LoadScene ("MissionSuccess"); 
 	}
 
 	public void intoSellMode() {

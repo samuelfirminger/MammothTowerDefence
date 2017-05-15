@@ -18,6 +18,7 @@ TagManager:
   - Gran
   - MusicToggle
   - PauseGame
+  - TypeWriter
   layers:
   - Default
   - TransparentFX
