@@ -82,6 +82,7 @@ public class EnemySpawnManager : MonoBehaviour {
 				atEndOfRound();
 			}
 			if (roundIndex >= gameLength) {
+				PhaseManager.instance.phaseUI.SetActive(false);
 				PhaseManager.instance.gameOverPrompt();
 			}
 			//go into build if not end of game, else game over prompt
@@ -170,8 +171,8 @@ public class EnemySpawnManager : MonoBehaviour {
 		switch(roundIndex)
 		{
 		case 0:
-			roundSize = 1;
-			waveSize = 5;
+			roundSize = 2;
+			waveSize = 3;
 			groupSize = 5;
 			roundEnemies = new int[,]
 			{
@@ -179,6 +180,7 @@ public class EnemySpawnManager : MonoBehaviour {
 				{1, 0, 1, 0, 1},
 			    {1, 0, 0, 0, 1},
 				{1, 0, 1, 0, 1},
+				{1, 1, 1, 1, 1},
 				{1, 1, 1, 1, 1}
 			};
 			break;
@@ -220,8 +222,8 @@ public class EnemySpawnManager : MonoBehaviour {
 			};
 			break;
 		case 3:
-			roundSize = 1;
-			waveSize = 17;
+			roundSize = 4;
+			waveSize = 4;
 			groupSize = 5;
 			roundEnemies = new int[,]
 			{
@@ -240,8 +242,7 @@ public class EnemySpawnManager : MonoBehaviour {
 				{2, 0, 2, 0, 2},
 				{1, 4, 1, 4, 1},
 				{2, 4, 2, 4, 2},
-				{1, 4, 1, 4, 1},
-				{4, 2, 4, 2, 4}
+				{1, 4, 1, 4, 5}
 			};
 			break;
 		default:

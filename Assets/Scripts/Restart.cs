@@ -20,7 +20,8 @@ public class Restart : MonoBehaviour {
 
 	//Use this to switch levels
 	public void NextLevelButton(string levelName)
-	{        
+	{   
+		BetweenScenes.clearAllData();
 		SceneManager.LoadScene(levelName);
 	}
 

@@ -12,7 +12,10 @@ public class ButtonNextLevel : MonoBehaviour
     }
 
     public void NextLevelButton(string levelName)
-    {        
+    {   
+		if(levelName == "StartScreen") {
+			BetweenScenes.clearAllData();
+		}
         SceneManager.LoadScene(levelName);
     }
 
