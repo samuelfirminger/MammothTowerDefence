@@ -52,9 +52,9 @@ public class PlaylistManager : MonoBehaviour {
 
 	public void changeButtonText() {
 		if (!paused) {
-			disableButton.GetComponentInChildren<Text> ().text = "Disable Music"; 
+			disableButton.GetComponentInChildren<Text> ().text = "DISABLE MUSIC"; 
 		} else {
-			disableButton.GetComponentInChildren<Text> ().text = "Enable Music"; 
+			disableButton.GetComponentInChildren<Text> ().text = "ENABLE MUSIC"; 
 		}
 	}
 
