@@ -358,11 +358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRange: 0
   maxRange: 5.8
-  fireRate: 1
+  fireRate: 0.5
   turnSpeed: 10
   partToRotate: {fileID: 4165898624601930}
   bulletPrefab: {fileID: 1369186221864396, guid: ae36300d07a7c79478e58d4bebe71ffa,
     type: 2}
-  canSwitch: 0
-  switchCooldown: 0
-  bulletPrefabs: []

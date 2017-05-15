@@ -2627,10 +2627,10 @@ RectTransform:
   m_Father: {fileID: 1218249655}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.045, y: 0.86472917}
+  m_AnchorMin: {x: 0.045, y: 0.8393899}
   m_AnchorMax: {x: 1, y: 0.98383045}
-  m_AnchoredPosition: {x: -0.89990234, y: -0.040000916}
-  m_SizeDelta: {x: 0.80000305, y: 1.6650009}
+  m_AnchoredPosition: {x: -1.4001, y: -0.40000153}
+  m_SizeDelta: {x: -0.20013, y: 2.3000002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503683350
 MonoBehaviour:
@@ -3597,7 +3597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.045, y: 0.110389896}
   m_AnchorMax: {x: 0.96210355, y: 0.5}
-  m_AnchoredPosition: {x: -0.51494, y: -0.95001}
+  m_AnchoredPosition: {x: -0.51494, y: -0.9500084}
   m_SizeDelta: {x: 2, y: -1.9000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &722828853
@@ -3637,7 +3637,7 @@ MonoBehaviour:
 
     Size:10 MB
 
-    Extension:.jar
+    Extension:.xls
 
     Encryption:yes'
 --- !u!222 &722828854
@@ -7663,7 +7663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.086413786, y: 0.037779786}
   m_AnchorMax: {x: 1, y: 0.47838992}
-  m_AnchoredPosition: {x: -2.8, y: -1.9}
+  m_AnchoredPosition: {x: -2.8, y: -1.9000015}
   m_SizeDelta: {x: 5.6, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1732211694
