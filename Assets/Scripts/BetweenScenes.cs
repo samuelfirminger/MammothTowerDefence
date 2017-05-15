@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class BetweenScenes {
+
+	//Set these to change starting statistics
+	private static int INITIAL_CASH = 500;
+	private static int INITIAL_HEALTH = 100;
+
 	public static Draggable[] parsedInstructionSet = null;
     public static string CurrentLevel = "Level 1";
     public static int CurrentRound = 0;
     public static int CurrentWave  = 0;
-    public static int playerCash;
-    public static int playerHealth;
+	public static int playerCash = INITIAL_CASH;
+    public static int playerHealth = INITIAL_HEALTH;
 
 	// For drag and drop scene
 	public static string transName = null;
@@ -59,8 +64,8 @@ public static class BetweenScenes {
         for(int i=0 ; i<TurretMarkers.Length ; i++) {
             TurretMarkers[i] = null;
         }
-        playerCash   = 150;
-        playerHealth = 50;
+        playerCash   = INITIAL_CASH;
+        playerHealth = INITIAL_HEALTH;
     }
     
     public static GameObject getTurretData(int n) {

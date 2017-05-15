@@ -35,13 +35,6 @@ public class EnemySpawnManager : MonoBehaviour {
 	private bool waveStart = false ;
     
     public Transform spawnPoint;
- 
-    //For simplified programming of turrets: this variable holds
-    //the value corresponding to the enemy type for this wave and the
-    //last spawned enemy type (used in enemy class)
-    //(will be visually shown in briefing)
-    private int briefingEnemy = 0;
-    private int lastSpawned   = 0;
 
 	//UI elements
 	public GameObject waveUI; 
@@ -86,14 +79,22 @@ public class EnemySpawnManager : MonoBehaviour {
 		//if all enemies of wave have spawned
 		if (enemyCnt == groupSize * waveSize) {
 			//if all enemies destroyed
-			if (!enemiesRemaining ()) {
+			if (!enemiesRemaining() && PlayerStats.Health > 0) {
+				//When the wave index is >= roundSize
+				//the round is over and the briefing
+				//scene is shown
 				if(waveIndex >= roundSize) {
 					waveIndex = 0;
 					groupIndex = 0;
 					roundIndex++;
 					BetweenScenes.CurrentRound = roundIndex;
 					BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
-					SceneManager.LoadScene("Briefing");
+					Time.timeScale = 1;
+					//TODO: maybe add button to prompt player
+					//		to move to briefing screen
+					if(roundIndex < gameLength) {
+						SceneManager.LoadScene("Briefing");
+					}
 				}
 				if (roundIndex >= gameLength) {
 					PhaseManager.instance.gameOverPrompt ();
@@ -138,11 +139,8 @@ public class EnemySpawnManager : MonoBehaviour {
     }
     
 	void spawnEnemy(int j) {
-        //Spawn next enemy from premade
-		//list according to round and wave
-		int index = roundEnemies[groupIndex, j];
-        lastSpawned = index;
-		Instantiate(enemyTypes[index], spawnPoint.position, spawnPoint.rotation);
+        //Spawn next enemy from premade array
+		Instantiate(enemyTypes[roundEnemies[groupIndex, j]], spawnPoint.position, spawnPoint.rotation);
 		enemyCnt++;
     }
 
@@ -213,8 +211,8 @@ public class EnemySpawnManager : MonoBehaviour {
 			};
 			break;
 		case 3:
-			roundSize = 17;
-			waveSize = 1;
+			roundSize = 1;
+			waveSize = 17;
 			groupSize = 5;
 			roundEnemies = new int[,]
 			{

@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class ButtonNextLevel : MonoBehaviour
+
 {
+
     public void NextLevelButton(int index)
     {
         SceneManager.LoadScene(index);

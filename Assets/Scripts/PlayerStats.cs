@@ -19,14 +19,12 @@ public class PlayerStats : MonoBehaviour {
     
 	[Header("Health")] 
     public static int Health;
-    public int initialHealth = 20;
     public GameObject healthUI;
     private Text healthText;
     private string healthDisplay;
 
 	[Header("Cash")] 
     public static int Cash;
-	public int initialCash = 500;
     public GameObject cashUI;
     private Text cashText;
     private string cashDisplay;
@@ -38,7 +36,7 @@ public class PlayerStats : MonoBehaviour {
 
         //Set initial cash and health values
 		Cash = BetweenScenes.getPlayerCash();
-        Health = initialHealth;
+		Health = BetweenScenes.getPlayerHealth();
         updateCash();
         updateHealth();   
 	}   
@@ -65,11 +63,11 @@ public class PlayerStats : MonoBehaviour {
     }
 		
     private void updateHealth() {
-        healthText.text = "HEALTH: " + Health.ToString();
+		healthText.text = "DATA LOSS: " + healthAsPC(Health);
     }
     
     private void updateCash() {
-        cashText.text = "$" + Cash.ToString();
+        cashText.text = "£" + Cash.ToString();
     }
 
     public int getCash() {
@@ -80,4 +78,8 @@ public class PlayerStats : MonoBehaviour {
         Cash   = BetweenScenes.getPlayerCash();
         //Health = BetweenScenes.getPlayerHealth();
     }
+
+	string healthAsPC(int health) {
+		return (100 - health).ToString() + "%";
+	}
 }

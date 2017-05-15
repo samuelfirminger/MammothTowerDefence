@@ -10,10 +10,18 @@ public class Restart : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		restart.SetActive (false); 
+		restart.SetActive(false); 
 	}
-	
-	public void restartLevel() { 
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex); 
+
+	//Unused but keeping just in case
+	void restartLevel() { 
+		SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex); 
 	}
+
+	//Use this to switch levels
+	public void NextLevelButton(string levelName)
+	{        
+		SceneManager.LoadScene(levelName);
+	}
+
 }

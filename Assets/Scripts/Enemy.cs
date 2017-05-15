@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour {
     private float healthPoints;
     private float maxHealthPoints;
 	public GameObject healthBar;
+//	public TextMesh healthText;
 
 	private int reward; 
 	private int attackDamage;
@@ -83,6 +85,7 @@ public class Enemy : MonoBehaviour {
 			slowState = false;
 			movementSpeed = tempSpeed;
 		}
+
 	}
 
 	public void setIsEnemy(bool isEnemy){
@@ -158,18 +161,38 @@ public class Enemy : MonoBehaviour {
         if(healthPoints <= 0) {
            
             if (briefingEnemy) {
-                PlayerStats.instance.adjustCash(10);
+                PlayerStats.instance.adjustCash(attackDamage);
                 
             }
 			else {
-				PlayerStats.instance.decreaseHealth(1);
+				PlayerStats.instance.decreaseHealth(attackDamage);
 			}
 			GameObject particleEffect = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation); 
 			Destroy(particleEffect, 0.5f); 
             Destroy(gameObject);
             Sound.instance.deathSound();
         }
+		
+//		StartCoroutine(showHealthText());
+//		healthText.text = "";
+
     }
+
+//	IEnumerator showHealthText() {
+//		float healthPercentage = (healthPoints / maxHealthPoints) * 100;
+//		healthText.text = healthPercentage.ToString() + "%";
+//		if (healthPercentage >= 50) {
+//			healthText.color = Color.green;
+//		}
+//		else if (healthPercentage < 50 && healthPercentage >= 25) {
+//			healthText.color = Color.yellow;
+//		}
+//		else {
+//			healthText.color = Color.red;
+//		}
+//		healthText.transform.LookAt(Camera.main.transform);
+//		yield return new WaitForSeconds(1f);
+//	}
     
     public void SetHealthBar(float myHealth) {
         //myHealth value 0-1 , calculated by maxhealth/Current health

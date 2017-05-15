@@ -9510,13 +9510,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
-  - {fileID: 4365794377300518, guid: 4fa446a21afb14d99b98529260312a1b, type: 2}
-  - {fileID: 4610287699380412, guid: 0e9136b62b3ea45f1b321bcb9d682ad0, type: 2}
-  gameLength: 2
-  roundSize: 2
+  - {fileID: 4144446088331438, guid: fdf6b5c503c0b4f2cbe7e148365d66e5, type: 2}
+  - {fileID: 4475057712150454, guid: 3e9a7762f8175468d84c0692879cb2f0, type: 2}
+  - {fileID: 4023802733785522, guid: f516a7ddc9b0c418591aab61921972f3, type: 2}
+  - {fileID: 4418946545611426, guid: 4a95c2153fe6f40fe89f986aa19f8e0f, type: 2}
+  - {fileID: 4353926820492790, guid: 77662031bb24649d68252f6b4f6d8a57, type: 2}
+  - {fileID: 4604879679190100, guid: 2e1c3d62fc5da45db848b9404a7b8a2d, type: 2}
   spawnPoint: {fileID: 2117698687}
-  briefingEnemy: 2
-  lastSpawned: 0
   waveUI: {fileID: 1632417746}
   roundUI: {fileID: 1926079694}
 --- !u!114 &784981923
@@ -17962,7 +17962,7 @@ GameObject:
   - component: {fileID: 1613091786}
   - component: {fileID: 1613091787}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
