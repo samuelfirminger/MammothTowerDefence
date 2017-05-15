@@ -7386,7 +7386,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.54509807, g: 0.54509807, b: 0.54509807, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -7654,6 +7654,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a7a19c8d3b6414e4ba8b39386da49d29, type: 3}
   - {fileID: 8300000, guid: 31dece888957f024891f18ac32a2a686, type: 3}
   - {fileID: 8300000, guid: 7d16d0c015545fd46b597d1a1a1ecd68, type: 3}
+  - {fileID: 8300000, guid: 4c23b4b71338f5d4f9732295f3fbc7e8, type: 3}
+  - {fileID: 8300000, guid: bc96a39b7eb564c47bea8e3d068a602a, type: 3}
   paused: 0
 --- !u!1 &1002765540
 GameObject:
@@ -12305,7 +12307,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.54509807, g: 0.54509807, b: 0.54509807, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1

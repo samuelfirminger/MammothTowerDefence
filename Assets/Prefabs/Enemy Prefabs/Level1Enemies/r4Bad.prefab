@@ -642,6 +642,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extension: 2
   speed: 2
-  size: 1200
+  size: 500
   encryption: 1
   source: 1

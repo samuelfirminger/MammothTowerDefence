@@ -172,8 +172,8 @@ public class Enemy : MonoBehaviour {
 			Destroy(particleEffect, 0.5f); 
             Destroy(gameObject);
             Sound.instance.deathSound();
+
         }
-		
 //		StartCoroutine(showHealthText());
 //		healthText.text = "";
 
