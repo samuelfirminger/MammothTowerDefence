@@ -22,11 +22,13 @@ public class Pause : MonoBehaviour {
 
 		if(paused) {
 			pause ();
-			pauseText.text = "Play";
+			pauseText.text = "PLAY";
+			PhaseManager.instance.speedButton.SetActive (false); 
 		}
 		else if(!paused) {
 			unpause (); 
-			pauseText.text = "Pause";
+			pauseText.text = "PAUSE";
+			PhaseManager.instance.speedButton.SetActive (true); 
 		}
 
 	}
@@ -36,7 +38,7 @@ public class Pause : MonoBehaviour {
 	}
 
 	public void unpause() {
-		Time.timeScale = 1; 
+		Time.timeScale = SpeedSetter.instance.getSpeed (); 
 	}
 
 
