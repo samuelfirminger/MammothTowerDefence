@@ -229,7 +229,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Protect your computer by programming your towers to destroy bad code!\n\n\u2022
     Use the information in the briefing to select your targets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u2022
-    Look carefully at the properties of the enemies, and plan accordingly!"
+    Look carefully at the properties of the enemies, and plan accordingly!\n\u2022
+    Enemies reaching your processing will increase your data loss:\n\u2022 The mission
+    will fail if data loss reaches 100% !"
 --- !u!222 &379353031
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1132,7 +1134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1278650697
 RectTransform:
   m_ObjectHideFlags: 0

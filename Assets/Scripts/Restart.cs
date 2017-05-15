@@ -15,6 +15,8 @@ public class Restart : MonoBehaviour {
 
 	//Unused but keeping just in case
 	void restartLevel() { 
+        BriefingManager.instance.resetBriefings();
+        BetweenScenes.clearAllData();
 		SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex); 
 	}
 

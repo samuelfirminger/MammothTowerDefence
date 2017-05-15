@@ -5659,7 +5659,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'RESTART GAME '
+  m_Text: DEBRIEFING
 --- !u!222 &940798390
 CanvasRenderer:
   m_ObjectHideFlags: 0
