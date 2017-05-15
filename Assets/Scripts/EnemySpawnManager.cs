@@ -82,6 +82,7 @@ public class EnemySpawnManager : MonoBehaviour {
 				atEndOfRound();
 			}
 			if (roundIndex >= gameLength) {
+				Time.timeScale = 1;
 				PhaseManager.instance.phaseUI.SetActive(false);
 				PhaseManager.instance.gameSuccess (); 
 			}
