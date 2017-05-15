@@ -132,7 +132,8 @@ public class Enemy : MonoBehaviour {
 				PlayerStats.instance.decreaseHealth (attackDamage);     
 				Debug.Log ("HP = " + PlayerStats.Health);     
 			} else {
-				PlayerStats.instance.adjustCash (reward);
+				PlayerStats.instance.adjustCash(reward);
+                BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
 				Debug.Log ("Cash = " + PlayerStats.Cash);
              }
             Sound.instance.rewardSound();
