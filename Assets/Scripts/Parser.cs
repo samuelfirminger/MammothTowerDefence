@@ -11,13 +11,14 @@ public class Parser : MonoBehaviour {
 	private int blockNum = 0;
 	private bool validInstruction = true;
 	private bool endReached = false;
-
+    public GameObject errorPanel;
+    
 	public void nextScene(){
 		if (parse ()) {
 			BetweenScenes.parsedInstructionSet = blocks;
 			SceneManager.LoadScene(BetweenScenes.CurrentLevel);
 		} else {
-			Debug.Log ("Invalid instruction, try again");
+			errorPanel.SetActive(true);
 		}
 	}
 

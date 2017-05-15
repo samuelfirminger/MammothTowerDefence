@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.75686276, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a51e8cfa86ac2274d83b316129deb065, type: 3}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.75686276, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -774,7 +774,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a51e8cfa86ac2274d83b316129deb065, type: 3}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -785,16 +785,16 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "          newintern@mi6.secret.uk\n          *************  \n\n... LOGIN
-    SUCCESS \n\nOver the past year, an organisation known by the name of G.R.A.N.
-    (Global Reconnaissance \nof Ageing Networks) has been infiltrating, hacking and
-    disrupting computers in order to gain access to top secret information.\n\nEarly
-    spy work has indicated that this group are made up entirely of \n70 - 90 year
-    old women located in a small village somewhere in the heart of \nEngland. Do not
-    let this fool you. They are skilled and dangerous in their \nline of work.\n\nOur
-    intelligence has intercepted data indicating G.R.A.N. are trying to seek \naccess
-    to our computers by sending a number of viruses our way. As the new \nintern here
-    at MI5, I'm sure you'll be eager to prove yourself as an \nadept programmer and
-    save our data from being breached.\n \n\n\n"
+    SUCCESS \n\nOver the past year, an organisation known by the name of N.A.N (Nans
+    Against Nations) has been infiltrating, hacking and disrupting computers in order
+    to gain access to top secret information.\n\nEarly spy work has indicated that
+    this group are made up entirely of \n70 - 90 year old women located in a small
+    village somewhere in the heart of \nEngland. Do not let this fool you. They are
+    skilled and dangerous in their \nline of work.\n\nOur intelligence has intercepted
+    data indicating G.R.A.N. are trying to seek \naccess to our computers by sending
+    a number of viruses our way. As the new \nintern here at MI5, I'm sure you'll
+    be eager to prove yourself as an \nadept programmer and save our data from being
+    breached.\n \n\n\n"
 --- !u!222 &494073987
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.75686276, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -984,7 +984,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a51e8cfa86ac2274d83b316129deb065, type: 3}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.75686276, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a51e8cfa86ac2274d83b316129deb065, type: 3}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40

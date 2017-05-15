@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 4bc8f9a3a25e0144e83b94f96235a22a
+timeCreated: 1494860059
+=======
 guid: fec97cf44310d9c4eb4701f99735582d
 timeCreated: 1494691092
+>>>>>>> HealthBarV2
 licenseType: Free
 NativeFormatImporter:
   userData: 

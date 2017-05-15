@@ -41,15 +41,9 @@ public class BriefingManager : MonoBehaviour {
 		
 	}
     
-    public void getLevelAndRound() {
-        //Comment out when BetweenScenes has been implemented
-        /*if(BetweenScenes.CurrentLevel.Equals("Level 1")) {
-            activeLevel = 1;
-        } else if(BetweenScenes.CurrentLevel.Equals("Level 2")) {
-            activeLevel = 2;
-        }
-        
-        activeRound = BetweenScenes.CurrentRound;*/
+    public void resetBriefings() {
+        activeLevel = 1;
+        activeRound = 1;
     }
     
     public void findCards() {

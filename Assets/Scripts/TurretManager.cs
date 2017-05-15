@@ -88,8 +88,6 @@ public class TurretManager : MonoBehaviour {
 		PlayerStats.instance.adjustCash(-(turretToBuild.cost));
 
         buildTurret(node);
-		//GameObject turret = (GameObject)Instantiate (turretToBuild.prefab, node.getBuildPosition(), Quaternion.identity);
-		//node.builtTurret = turret;
         
         storeTurretData(nodeName);       
         Sound.instance.placeTurretSound();
@@ -128,8 +126,8 @@ public class TurretManager : MonoBehaviour {
         int nodeId = Int32.Parse(nodeName);
         BetweenScenes.removeTurretData(nodeId);
         
+		PlayerStats.instance.adjustCash (+(50));
 		Destroy (node.builtTurret); 
-		PlayerStats.instance.adjustCash (+(node.getSellValue()));
         Sound.instance.sellTurretSound();
 		Debug.Log ("Turret sold."); 
         BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
