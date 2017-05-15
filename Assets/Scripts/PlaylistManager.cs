@@ -81,6 +81,13 @@ public class PlaylistManager : MonoBehaviour {
 		catch (System.NullReferenceException e) {
 			//Do Nothing
 		}
-
 	}
+
+
+	public void changeSong() { 
+		audioSource.clip = getRandomSong (); 
+	}
+
+
+
 }
