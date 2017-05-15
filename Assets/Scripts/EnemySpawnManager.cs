@@ -68,46 +68,54 @@ public class EnemySpawnManager : MonoBehaviour {
 
     void Update() {
 		updateUI();
-		//start wave start of game/new wave
+		//start of wave conditions
 		if (waveStart && waveIndex < roundSize) {
-			initialiseRound();
-			waveStart = false; 
-			StartCoroutine(spawnWave());
-			waveIndex++;
+			atStartOfWave();
 		}
 
-		//if all enemies of wave have spawned
-		if (enemyCnt == groupSize * waveSize) {
-			//if all enemies destroyed
-			if (!enemiesRemaining() && PlayerStats.Health > 0) {
-				//When the wave index is >= roundSize
-				//the round is over and the briefing
-				//scene is shown
-				if(waveIndex >= roundSize) {
-					waveIndex = 0;
-					groupIndex = 0;
-					roundIndex++;
-					BetweenScenes.CurrentRound = roundIndex;
-					BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
-					Time.timeScale = 1;
-					//TODO: maybe add button to prompt player
-					//		to move to briefing screen
-					if(roundIndex < gameLength) {
-						SceneManager.LoadScene("Briefing");
-					}
-				}
-				if (roundIndex >= gameLength) {
-					PhaseManager.instance.gameOverPrompt ();
-				}
-				//go into build if not end of game, else game over prompt
-				else {
-					PhaseManager.instance.enableBuildPhase ();
-					TurretManager.instance.setSellState(false);
-					PhaseManager.instance.intoSellMode (); 
-				}
+		//end of wave conditions -> 3 branches
+		//    end of wave
+		//	  end of round
+		//    gameover
+		if (enemyCnt == groupSize * waveSize && !enemiesRemaining() && PlayerStats.Health > 0) {
+			if(waveIndex >= roundSize) {
+				atEndOfRound();
+			}
+			if (roundIndex >= gameLength) {
+				PhaseManager.instance.gameOverPrompt();
+			}
+			//go into build if not end of game, else game over prompt
+			else {
+				atEndOfWave();
 			}
 		}
-    }
+	}
+
+	void atStartOfWave() {
+		initialiseRound();
+		waveStart = false; 
+		StartCoroutine(spawnWave());
+		waveIndex++;
+	}
+
+	void atEndOfWave() {
+		PhaseManager.instance.enableBuildPhase ();
+		TurretManager.instance.setSellState(false);
+		PhaseManager.instance.intoSellMode (); 
+	}
+
+	void atEndOfRound() {
+		waveIndex = 0;
+		groupIndex = 0;
+		roundIndex++;
+		BetweenScenes.CurrentRound = roundIndex;
+		BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
+		BetweenScenes.setPlayerHealth(PlayerStats.Health);
+		Time.timeScale = 1;
+		if(roundIndex < gameLength) {
+			SceneManager.LoadScene("Briefing");
+		}
+	}
 
 	bool enemiesRemaining() {
 		if (GameObject.FindGameObjectsWithTag ("Code").Length == 0) {
