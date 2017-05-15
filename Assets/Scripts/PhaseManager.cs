@@ -89,9 +89,7 @@ public class PhaseManager : MonoBehaviour {
 
 	public void gameOverPrompt() {
         Sound.instance.gameOverSound();
-		gameOver.SetActive (true);
-		restart.SetActive (true); 
-		pauseButton.SetActive (false); 
+		SceneManager.LoadScene ("MissionFailure"); 
 	}
 
 	public void intoSellMode() {
