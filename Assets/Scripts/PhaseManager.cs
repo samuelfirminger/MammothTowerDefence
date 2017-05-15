@@ -30,11 +30,9 @@ public class PhaseManager : MonoBehaviour {
 
 
 	void Awake() {
-		if (instance != null) {
-			Debug.Log ("More than one PlayerStats in scene."); 
-			return; 
+		if (instance == null) {
+            instance = this;
 		}  
-		instance = this;
 	}
 		
 	// Use this for initialization
@@ -54,6 +52,7 @@ public class PhaseManager : MonoBehaviour {
 	}
 
 	public void enableBuildPhase() {
+        Debug.Log("start set to false in enableBuildPhase");
 		start = false;
 		phaseUI.SetActive(true);
 		pauseButton.SetActive (false);
@@ -67,6 +66,7 @@ public class PhaseManager : MonoBehaviour {
 	}
 
 	public void startWave() {
+        Debug.Log("In startWave function");
 		phaseUI.SetActive (false); 
 		pauseButton.SetActive (true); 
 		turretShop.SetActive (false); 
@@ -74,6 +74,7 @@ public class PhaseManager : MonoBehaviour {
 		sellButton.SetActive (false); 
 
 		start = true;
+        Debug.Log("Altered start: start = " + start);
        // Sound.instance.newWaveSound();
 		foreach (GameObject turretButton in turretsInShop) {
 			turretButton.SetActive (false); 

@@ -129,7 +129,7 @@ public class Enemy : MonoBehaviour {
 
         if((waypointIndex == 3 && levelOne == false) || (waypointIndex == 12 && levelOne == true)) { //length of level 1, and longest path.
 			if (briefingEnemy) { 
-				PlayerStats.instance.decreaseHealth (attackDamage);     
+				PlayerStats.instance.decreaseHealth (attackDamage/2);     
 				Debug.Log ("HP = " + PlayerStats.Health);     
 			} else {
 				PlayerStats.instance.adjustCash(reward);

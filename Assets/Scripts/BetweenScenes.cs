@@ -5,7 +5,7 @@ using UnityEngine;
 public static class BetweenScenes {
 
 	//Set these to change starting statistics
-	private static int INITIAL_CASH = 500;
+	private static int INITIAL_CASH = 450;
 	private static int INITIAL_HEALTH = 100;
 
 	public static Draggable[] parsedInstructionSet = null;
