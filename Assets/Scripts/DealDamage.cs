@@ -8,6 +8,6 @@ public class DealDamage : MonoBehaviour {
         float currentHealth = target.getHealth();
         float newHealth     = currentHealth - damageValue;
         target.setHealth(newHealth);
-        Debug.Log(damageValue);
+        Debug.Log(newHealth);
     }
 }
