@@ -363,3 +363,4 @@ MonoBehaviour:
   partToRotate: {fileID: 4165898624601930}
   bulletPrefab: {fileID: 1369186221864396, guid: ae36300d07a7c79478e58d4bebe71ffa,
     type: 2}
+  cost: 100

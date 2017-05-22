@@ -38,7 +38,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01af5113e156a43f0b188bd99b9ae4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1331348520714288}
+  prefab: {fileID: 1502104801177366, guid: 5f99ad2caa6efa8459e581a323674171, type: 2}
   cost: 200
 --- !u!224 &224826064933388898
 RectTransform:

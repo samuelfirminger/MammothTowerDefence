@@ -100,12 +100,7 @@ public class Turret : MonoBehaviour {
     }
 
 	bool withinRange(float dis) {
-		if(dis > minRange && dis < maxRange) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (dis > minRange && dis < maxRange);
 	}
 
 }
