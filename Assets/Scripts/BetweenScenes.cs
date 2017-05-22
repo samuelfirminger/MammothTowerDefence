@@ -18,7 +18,7 @@ public static class BetweenScenes {
 	// For drag and drop scene
 	public static string transName = null;
     
-    //52 Nodes in level 1, ?? in level 2
+    //52 Nodes in level 1, 175 in level 2
     private static int nodeNum1 = 52;
     private static int nodeNum2 = 175;
     

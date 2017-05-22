@@ -6,7 +6,9 @@ public class Bullet : MonoBehaviour {
 
 	private Transform target;
     public float baseDamage;
-    public float speed = 70f;
+    public float speed;
+
+	//Slow fields
 	public float slowFactor;
 	public float slowTime;
 
@@ -39,7 +41,7 @@ public class Bullet : MonoBehaviour {
             return;
         }
         
-        //Havent hit yet: normalize to obtain constant speed
+        //Haven't hit yet: normalize to obtain constant speed
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 	}
        

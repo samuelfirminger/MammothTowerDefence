@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour {
         transform.Translate(dir.normalized * movementSpeed * Time.deltaTime, Space.World);
 		transform.LookAt(waypointTarget);
 
-        //Check if enemy is within distance 
+        //Check if enemy is within distance of a waypoint
         if(Vector3.Distance(transform.position, waypointTarget.position) <= distanceCheck) {
             GetNextWaypoint();
         }
@@ -97,9 +97,6 @@ public class Enemy : MonoBehaviour {
 	}
     
     void GetNextWaypoint() {
-		//What to do at final waypoint
-        //Inflict damage if code is "bad"
-		//Reward player if code is "good"
         if(waypointIndex == 19)
         {
             waypointTarget = Waypoints.points[4];
@@ -127,24 +124,27 @@ public class Enemy : MonoBehaviour {
             waypointIndex = 2;
         }
 
-        if((waypointIndex == 3 && levelOne == false) || (waypointIndex == 12 && levelOne == true)) { //length of level 1, and longest path.
+		//What to do at final waypoint (different for levels one and two)
+        if((waypointIndex == 3 && levelOne == false) || (waypointIndex == 12 && levelOne == true)) {
+			//Inflict damage if code is "bad"
 			if (briefingEnemy) { 
-				PlayerStats.instance.decreaseHealth (attackDamage/2);     
+				PlayerStats.instance.decreaseHealth(attackDamage/2);     
 				Debug.Log ("HP = " + PlayerStats.Health);     
-			} else {
+			}
+			//Reward player if code is "good"
+			else {
 				PlayerStats.instance.adjustCash(reward);
                 BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
 				Debug.Log ("Cash = " + PlayerStats.Cash);
-             }
+            }
             Sound.instance.rewardSound();
-               Effects.instance.EndPoint();
-        Destroy(gameObject);
+            Effects.instance.EndPoint();
+        	Destroy(gameObject);
             return;
         }
         
         waypointIndex++;
-		if (waypointIndex < Waypoints.points.Length)
-		{
+		if (waypointIndex < Waypoints.points.Length) {
 			waypointTarget = Waypoints.points[waypointIndex];
 		}
     }
@@ -156,14 +156,13 @@ public class Enemy : MonoBehaviour {
     public void setHealth(float newHealth) {
         healthPoints = newHealth;
         
-    	float calc_Health = healthPoints / maxHealthPoints;
-        SetHealthBar(calc_Health);
+    	float calcHealth = healthPoints/maxHealthPoints;
+        SetHealthBar(calcHealth);
 
+		//What to do when enemy is killed
         if(healthPoints <= 0) {
-           
             if (briefingEnemy) {
                 PlayerStats.instance.adjustCash(attackDamage);
-                
             }
 			else {
 				PlayerStats.instance.decreaseHealth(attackDamage);
@@ -174,26 +173,8 @@ public class Enemy : MonoBehaviour {
             Sound.instance.deathSound();
 
         }
-//		StartCoroutine(showHealthText());
-//		healthText.text = "";
 
     }
-
-//	IEnumerator showHealthText() {
-//		float healthPercentage = (healthPoints / maxHealthPoints) * 100;
-//		healthText.text = healthPercentage.ToString() + "%";
-//		if (healthPercentage >= 50) {
-//			healthText.color = Color.green;
-//		}
-//		else if (healthPercentage < 50 && healthPercentage >= 25) {
-//			healthText.color = Color.yellow;
-//		}
-//		else {
-//			healthText.color = Color.red;
-//		}
-//		healthText.transform.LookAt(Camera.main.transform);
-//		yield return new WaitForSeconds(1f);
-//	}
     
     public void SetHealthBar(float myHealth) {
         //myHealth value 0-1 , calculated by maxhealth/Current health

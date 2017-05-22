@@ -4,16 +4,17 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour {
 
     public Color hoverColor;
+	private Color startColor;
     private Renderer rend;
-    private Color startColor;
     
-    //Turret Building Variables:
-	[Header("Optional parameter")]
-    public GameObject builtTurret;  
-    public Vector3 offset;
+	[Header("Turret Building Fields")]
+    public GameObject builtTurret;
+	//Y-axis offset for placing
+	//turret above node
+    private Vector3 offset = 0.1f;
     private int sellValue = 0;
     
-	TurretManager turretManager ;
+	TurretManager turretManager;
     
     void Start() {
         //Get the renderer of node, which holds info about material

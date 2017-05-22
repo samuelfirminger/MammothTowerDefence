@@ -16,7 +16,7 @@ public class Turret : MonoBehaviour {
    
     public GameObject bulletPrefab;
 
-//	TODO: Add bullet switching
+	private string enemyTag = "Code";
 
 //	Variables for switching ammunition
 //	Experimental, for basic turrets only
@@ -38,7 +38,7 @@ public class Turret : MonoBehaviour {
 			return; 
 		}
 
-		//rotate the turret 
+		//Rotate the turret to point towards target
 		Vector3 dir = target.position - transform.position; 
 		Quaternion lookRotation = Quaternion.LookRotation (dir); 
 		Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles; 
@@ -48,17 +48,17 @@ public class Turret : MonoBehaviour {
         //Check if cooldown time has passed then shoot
 		if(cooldown <= 0f) {
             Shoot();
-            cooldown = 1f/ fireRate;
+            cooldown = 1f / fireRate;
         }
         cooldown -= Time.deltaTime;
 	}
     
     void Shoot() {
-        //Get bullet script access
-        Debug.Log("Instantiating a Fired Bullet");
+		//Instantiate a bullet
         GameObject firedBullet = (GameObject)Instantiate (bulletPrefab, transform.position, transform.rotation);        
         Bullet bullet = firedBullet.GetComponent<Bullet> ();
 
+		//Set bullet target to turret target
         if(bullet != null) {
             bullet.Seek(target);
         }
@@ -66,7 +66,7 @@ public class Turret : MonoBehaviour {
     
     void UpdateTarget() {
         //Fill array of GameObjects: all enemies in scene
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Code");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
@@ -77,8 +77,8 @@ public class Turret : MonoBehaviour {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             Enemy enemyToCheck = enemy.GetComponent<Enemy>();
                        
-            if(distanceToEnemy < shortestDistance && distanceToEnemy > minRange && distanceToEnemy < maxRange) {
-                if (checkIfEnemy(enemyToCheck)) {                
+			if(distanceToEnemy < shortestDistance && withinRange(distanceToEnemy)) {
+				if (enemyToCheck.getIsEnemy()) {                
                     shortestDistance = distanceToEnemy;
                     nearestEnemy = enemy;
                 }
@@ -99,11 +99,14 @@ public class Turret : MonoBehaviour {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, maxRange);
     }
-    
-    //Check the enemy properties against what the user has programmed the turret to fire at
-    bool checkIfEnemy(Enemy enemy) {
-		if(enemy.getIsEnemy()) return true;
-		else return false;
-    }
+
+	bool withinRange(float dis) {
+		if(dis > minRange && dis < maxRange) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
