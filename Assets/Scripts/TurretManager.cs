@@ -9,8 +9,7 @@ public class TurretManager : MonoBehaviour {
     //Make TurretManager a "Singleton Class" : only 1 instance can ever exist
     //See: http://answers.unity3d.com/questions/753488/
     public static TurretManager instance;
-    
-    public int[] classification;
+   	
 	private bool sell; 
     
     void Awake() {       
@@ -18,9 +17,7 @@ public class TurretManager : MonoBehaviour {
 			Debug.Log ("More than one turretManager in scene."); 
 			return; 
 		}
-               
-        classification = new int[1];
-        setClassification(1); //This to be moved somewhere else: classification of enemy changes between rounds (shoot red enemies one round, shoot blue and speed=2 enemies another round etc...)
+
         instance = this;
 		sell = false; 
         
@@ -50,16 +47,6 @@ public class TurretManager : MonoBehaviour {
                 buildLoadedTurret(tempNode.GetComponent<Node>(), tempTurret);
             }
         }
-    }
-    
-    public void setClassification(int property) {
-        classification[0] = property;
-    }
-    
-    //Set the properties that define an enemy: will change between rounds
-    //Should this be in turret manager? Probably not.   
-    public int getClassification(int index) {
-        return classification[index];
     }
     
     //Turret types: future examples commented out
@@ -125,11 +112,11 @@ public class TurretManager : MonoBehaviour {
 	public void sellTurret(Node node, string nodeName) {
         int nodeId = Int32.Parse(nodeName);
         BetweenScenes.removeTurretData(nodeId);
-        
-		PlayerStats.instance.adjustCash (+(50));
-		Destroy (node.builtTurret); 
+        //Player is refunded half the cost of the turret
+		PlayerStats.instance.adjustCash(node.builtTurret.GetComponent<Turret>().cost / 2);
+		Destroy(node.builtTurret); 
         Sound.instance.sellTurretSound();
-		Debug.Log ("Turret sold."); 
+		Debug.Log("Turret sold."); 
         BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
 	}
 

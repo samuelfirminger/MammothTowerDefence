@@ -11,7 +11,7 @@ public class Node : MonoBehaviour {
     public GameObject builtTurret;
 	//Y-axis offset for placing
 	//turret above node
-    private Vector3 offset = 0.1f;
+	private Vector3 offset = new Vector3(0f, 0.1f);
     private int sellValue = 0;
     
 	TurretManager turretManager;

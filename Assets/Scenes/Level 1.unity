@@ -2243,12 +2243,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1877580168}
-        m_MethodName: buySplashTurret
-        m_Mode: 1
+        m_MethodName: chooseTurret
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3216,8 +3216,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1877580168}
-        m_MethodName: chooseStandardTurret
-        m_Mode: 1
+        m_MethodName: chooseTurret
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5602,7 +5602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87abe028097f53946b94764e751da042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classification: 
   turretBasicPrefab: {fileID: 0}
   turretSlowPrefab: {fileID: 0}
   turretSplashPrefab: {fileID: 0}
@@ -7767,7 +7766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87abe028097f53946b94764e751da042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classification: 
   turretBasicPrefab: {fileID: 1177937868983076, guid: 829e493b788b1fd4095e89aa6151fd34,
     type: 2}
   turretSlowPrefab: {fileID: 1849312113349924, guid: 7b21d076bbea55c47a6ad9fd37d9b4f4,
@@ -9774,7 +9772,6 @@ RectTransform:
   - {fileID: 849152291}
   - {fileID: 1090309026}
   - {fileID: 488501720}
-  - {fileID: 1877580167}
   m_Father: {fileID: 1835627777}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9890,12 +9887,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1877580168}
-        m_MethodName: buySniperTurret
-        m_Mode: 1
+        m_MethodName: chooseTurret
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11182,12 +11179,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1877580168}
-        m_MethodName: chooseSlowTurret
-        m_Mode: 1
+        m_MethodName: chooseTurret
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11521,6 +11518,7 @@ RectTransform:
   - {fileID: 1553973551}
   - {fileID: 1456444174}
   - {fileID: 1621571428}
+  - {fileID: 1877580167}
   m_Father: {fileID: 911939898}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11871,15 +11869,20 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1553973551}
+    m_TransformParent: {fileID: 1835627777}
     m_Modifications:
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turrets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4356444889119534, guid: ec5ddc848e3b84a4697e60f73b4a1bbc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -99.24768
+      value: -66.83103
       objectReference: {fileID: 0}
     - target: {fileID: 4356444889119534, guid: ec5ddc848e3b84a4697e60f73b4a1bbc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 95.715225
+      value: 95.71523
       objectReference: {fileID: 0}
     - target: {fileID: 4356444889119534, guid: ec5ddc848e3b84a4697e60f73b4a1bbc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11903,7 +11906,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4356444889119534, guid: ec5ddc848e3b84a4697e60f73b4a1bbc, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
         type: 2}
@@ -11949,6 +11952,30 @@ Prefab:
       propertyPath: turretSniper.cost
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turrets.Array.data[0]
+      value: 
+      objectReference: {fileID: 114124876281375618, guid: 3934d4112c406444bb33622dfe7c7618,
+        type: 2}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turrets.Array.data[1]
+      value: 
+      objectReference: {fileID: 114121019505728402, guid: 342616bd44a4b42258db9185295d38df,
+        type: 2}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turrets.Array.data[3]
+      value: 
+      objectReference: {fileID: 114246445055009222, guid: be1240e8ab3a8450284833b9d92b84af,
+        type: 2}
+    - target: {fileID: 114473646425499100, guid: ec5ddc848e3b84a4697e60f73b4a1bbc,
+        type: 2}
+      propertyPath: turrets.Array.data[2]
+      value: 
+      objectReference: {fileID: 114896135631433490, guid: ff70c2adcfb0340e19afb216217b8592,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec5ddc848e3b84a4697e60f73b4a1bbc, type: 2}
   m_IsPrefabParent: 0

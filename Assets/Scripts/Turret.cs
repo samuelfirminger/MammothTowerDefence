@@ -10,13 +10,12 @@ public class Turret : MonoBehaviour {
 	public float turnSpeed; 
     private float cooldown;
 
+	private string enemyTag = "Code";
     private Transform target;
-
 	public Transform partToRotate; 
-   
     public GameObject bulletPrefab;
 
-	private string enemyTag = "Code";
+	public int cost;
 
 //	Variables for switching ammunition
 //	Experimental, for basic turrets only
