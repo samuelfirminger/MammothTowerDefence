@@ -12,8 +12,6 @@ public class Enemy : MonoBehaviour {
     
     private float healthPoints;
     private float maxHealthPoints;
-	public GameObject healthBar;
-//	public TextMesh healthText;
 
 	private int reward; 
 	private int attackDamage;
@@ -152,12 +150,13 @@ public class Enemy : MonoBehaviour {
     public float getHealth() {
         return healthPoints;
     }
+
+	public float getMaxHealth() {
+		return maxHealthPoints;
+	}
     
     public void setHealth(float newHealth) {
         healthPoints = newHealth;
-        
-    	float calcHealth = healthPoints/maxHealthPoints;
-        SetHealthBar(calcHealth);
 
 		//What to do when enemy is killed
         if(healthPoints <= 0) {
@@ -176,11 +175,6 @@ public class Enemy : MonoBehaviour {
 
     }
     
-    public void SetHealthBar(float myHealth) {
-        //myHealth value 0-1 , calculated by maxhealth/Current health
-        healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
-    }
-    
 	public void setSlow(float slowFactor, float slowTime) {
 		slowStartTime = Time.time;
 		slowCooldown = slowTime;
@@ -193,5 +187,13 @@ public class Enemy : MonoBehaviour {
 
 	public float getMovementSpeed() {
 		return movementSpeed;
+	}
+
+	public void setLevelOne(bool value) {
+		levelOne = value;
+	}
+
+	public int getWaypointIndex() {
+		return waypointIndex;
 	}
 }
