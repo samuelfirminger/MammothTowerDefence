@@ -67,4 +67,10 @@ public class Node : MonoBehaviour {
     public int getSellValue() {
         return sellValue;
     }
+
+    public void buildTurret(TurretSpec turretToBuild)
+    {
+        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, getBuildPosition(), Quaternion.identity);
+        builtTurret = turret;
+    }
 }

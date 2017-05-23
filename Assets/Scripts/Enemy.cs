@@ -194,4 +194,9 @@ public class Enemy : MonoBehaviour {
 	public float getMovementSpeed() {
 		return movementSpeed;
 	}
+
+    public void setLevelOne(bool value)
+    {
+        levelOne = value;
+    }
 }
