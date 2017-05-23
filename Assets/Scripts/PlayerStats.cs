@@ -9,7 +9,6 @@ public class PlayerStats : MonoBehaviour {
     public static PlayerStats instance;
     void Awake() {
 		if (instance != null) {
-			Debug.Log ("More than one PlayerStats in scene."); 
 			return; 
 		}  
         instance = this;
@@ -47,7 +46,6 @@ public class PlayerStats : MonoBehaviour {
     }
     
     public void decreaseHealth(int damageValue) {
-        Debug.Log("Inflicting " + damageValue + " to health");
         if (Health > 0)
         {
             Health -= damageValue;

@@ -14,7 +14,7 @@ public class TurretManager : MonoBehaviour {
     
     void Awake() {       
 		if (instance != null) {
-			Debug.Log ("More than one turretManager in scene."); 
+
 			return; 
 		}
 
@@ -26,13 +26,12 @@ public class TurretManager : MonoBehaviour {
 	
     private void loadTurretData() {
         int n, currentLevel = BetweenScenes.getCurrentLevelId();
-        Debug.Log("ATTEMPTING TO LOAD TURRET DATA");
         GameObject tempTurret = null;
         GameObject tempNode = null;
         
         //Determine the number of nodes to check, dependant on level
         switch(currentLevel) {
-            case(1) : n = BetweenScenes.getNodeNum(1); Debug.Log("GOT NODENUM1 = " + n); break;
+            case(1) : n = BetweenScenes.getNodeNum(1); break;
             case(2) : n = BetweenScenes.getNodeNum(2); break;
             default : n = 0; break;
         }
@@ -40,7 +39,6 @@ public class TurretManager : MonoBehaviour {
         for(int i=0 ; i<n ; i++) {
             tempTurret = BetweenScenes.getTurretData(i);
             if(tempTurret != null) {
-                Debug.Log("TURRET FOUND ON NODE " + (i+1));
                 tempNode = GameObject.Find(Convert.ToString(i+1));
                 //turretToBuild = tempTurret.GetComponent<TurretSpec>();
                 //buildTurret(tempNode.GetComponent<Node>());
@@ -66,7 +64,6 @@ public class TurretManager : MonoBehaviour {
 	public void createTurretOn(Node node, string nodeName) {
 
 		if (PlayerStats.Cash < turretToBuild.cost) {
-			Debug.Log ("Not enough cash to build");
 			return;
 		}
         
@@ -80,7 +77,6 @@ public class TurretManager : MonoBehaviour {
         Sound.instance.placeTurretSound();
         
         BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
-		Debug.Log ("Turret built. Cash left = " + PlayerStats.Cash);
 	}
     
     private void buildTurret(Node node) {
@@ -106,7 +102,6 @@ public class TurretManager : MonoBehaviour {
 	public void sellMode() {
 		sell = !sell; 
 		PhaseManager.instance.intoSellMode(); 
-		Debug.Log ("Sell mode activated"); 
 	}
 		
 	public void sellTurret(Node node, string nodeName) {
@@ -116,7 +111,6 @@ public class TurretManager : MonoBehaviour {
 		PlayerStats.instance.adjustCash(node.builtTurret.GetComponent<Turret>().cost / 2);
 		Destroy(node.builtTurret); 
         Sound.instance.sellTurretSound();
-		Debug.Log("Turret sold."); 
         BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
 	}
 

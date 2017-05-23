@@ -20,7 +20,6 @@ public class Sound : MonoBehaviour {
     {
         if (instance != null)
         {
-            Debug.Log("Sound activated");
             return;
         }
         instance = this;

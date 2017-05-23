@@ -36,9 +36,9 @@ public static class BetweenScenes {
     public static void setArraySize(int level) {
         //Use to change size of TurretMarkers when switching to a level with a different number of nodes
         switch(level) {
-            case(1) : TurretMarkers = new GameObject[nodeNum1]; Debug.Log("Setting TurretMarkers size = " + nodeNum1); break;
-            case(2) : TurretMarkers = new GameObject[nodeNum2]; Debug.Log("Setting TurretMarkers size = " + nodeNum2); break;
-            default : Debug.Log("Error: failed to initialise TurretMarkers array"); break;
+            case(1) : TurretMarkers = new GameObject[nodeNum1];  break;
+            case(2) : TurretMarkers = new GameObject[nodeNum2];  break;
+            default : break;
         }
     }
     

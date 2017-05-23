@@ -11,7 +11,7 @@ public class Effects : MonoBehaviour
     void Awake()
     {
         if (instance != null)
-        {            Debug.Log("Effects activated");            return;        }
+        {            return;        }
         instance = this;    }
 
     public void EndPoint()
@@ -22,8 +22,5 @@ public class Effects : MonoBehaviour
     {        lose.Play();    }
 
     public void Wave()
-    {        wave.Emit(20);    }
-
-
-
+    {        wave.Emit(20);    }		
 }

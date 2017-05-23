@@ -24,11 +24,7 @@ public class Interpreter {
 		}
 
 		Enemy enemy = enemyPrefab.GetComponent (typeof(Enemy)) as Enemy;
-		//XXX
-		if (isEnemy == true) {
-			Debug.Log ("isEnemy == true");
-		}
-		//XXXX
+
 		enemy.isEnemy = isEnemy;
 	}
 
@@ -73,21 +69,9 @@ public class Interpreter {
 
 	private void checkExtension(){
 		blockNum += 2;
-		//XXXXXX
-		Debug.Log ("Test -------");
-		if (blocks [0].typeOfBlock == BlockType.IF) {
-			Debug.Log ("Test 2 ------");
-		}
-		//XXXXXX
+
 		CodeProperties cp = enemyPrefab.GetComponent (typeof(CodeProperties)) as CodeProperties;
-		//XXXX
-		if (cp.extension == CodeExtension.BAT) {
-			Debug.Log ("Test extension --------");
-		}
-		if (blocks [blockNum].getCodeExtension() == CodeExtension.BAT) {
-			Debug.Log ("Test extension 2 --------");
-		}
-		//XXXX
+
 		conditionMet = (blocks[blockNum].getCodeExtension() == cp.extension);
 	}
 
@@ -172,7 +156,7 @@ public class Interpreter {
 			conditionMet = (cp.size == blocks [blockNum].getIntValue());
 			return;
 		default:
-			Debug.Log ("Interpreter Error - checkSize()");
+
 			return;
 		}
 	}
@@ -194,7 +178,7 @@ public class Interpreter {
 			conditionMet = (cp.speed == blocks [blockNum].getIntValue());
 			return;
 		default:
-			Debug.Log ("Interpreter Error - checkSpeed()");
+
 			return;
 		}
 	}

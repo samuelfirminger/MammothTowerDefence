@@ -126,14 +126,12 @@ public class Enemy : MonoBehaviour {
         if((waypointIndex == 3 && levelOne == false) || (waypointIndex == 12 && levelOne == true)) {
 			//Inflict damage if code is "bad"
 			if (briefingEnemy) { 
-				PlayerStats.instance.decreaseHealth(attackDamage/2);     
-				Debug.Log ("HP = " + PlayerStats.Health);     
+				PlayerStats.instance.decreaseHealth(attackDamage/2);       
 			}
 			//Reward player if code is "good"
 			else {
 				PlayerStats.instance.adjustCash(reward);
                 BetweenScenes.setPlayerCash(PlayerStats.instance.getCash());
-				Debug.Log ("Cash = " + PlayerStats.Cash);
             }
             Sound.instance.rewardSound();
             Effects.instance.EndPoint();

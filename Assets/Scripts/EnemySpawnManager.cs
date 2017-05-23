@@ -42,7 +42,6 @@ public class EnemySpawnManager : MonoBehaviour {
     
     void Awake() {
 		if (instance != null) {
-			Debug.Log ("More than one EnemySpawnManager in scene."); 
 			return; 
 		}
   
@@ -130,8 +129,6 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 	IEnumerator spawnWave() {
-//        briefingEnemy = Random.Range(0, enemyTypes.Length);
-//        Debug.Log("================ briefingEnemy = " + briefingEnemy + " ====================");
 		for (int i = 0; i < waveSize; i++) {
 			if (enemyCnt % groupSize == 0) {
 				StartCoroutine(spawnGroup());
