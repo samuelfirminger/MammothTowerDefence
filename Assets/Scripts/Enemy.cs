@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Enemy script encodes the information associated with instantied enemies
 public class Enemy : MonoBehaviour {
 
 	public bool levelOne;
@@ -48,7 +49,6 @@ public class Enemy : MonoBehaviour {
 		//Set target to 1st Waypoint
 		waypointTarget = Waypoints.points[0];
      
-
         if (levelOne == false)
 		{
 			int rand = Random.Range(0, 2);

@@ -3,10 +3,9 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//Script for any button that enables the user to go from a menu to a level
 public class ButtonNextLevel : MonoBehaviour
-
 {
-
     public void NextLevelButton(int index)
     {
         SceneManager.LoadScene(index);

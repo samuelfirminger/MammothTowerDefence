@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//BetweenScenes serialises data for storage between scenes.
+//This enables crucial player data to be stored despite the gameflow taking the player across scenes
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

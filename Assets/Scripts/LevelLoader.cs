@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+//Script used on buttons that enable the user to load a specific level
 public class LevelLoader : MonoBehaviour
 {
     public void NextLevelButton(int index)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script relating to bullets instantiated by turrets: handles special effects from slow and splash turrets
 public class Bullet : MonoBehaviour {
 
 	private Transform target;

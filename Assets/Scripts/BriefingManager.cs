@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//BriefingManager controls the visual display of briefing cards for the user
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;

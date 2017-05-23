@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script used to display and hide information panels in the briefing scene
 public class InfoController : MonoBehaviour {
 
     public GameObject info1;
@@ -9,17 +10,7 @@ public class InfoController : MonoBehaviour {
     public GameObject info3;
     public GameObject info4;
     public GameObject info5;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
+ 
     public void showInfo(int enemyType) {
         switch(enemyType) {
             //ANTI-VIRUS

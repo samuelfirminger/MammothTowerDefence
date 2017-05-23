@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+//Parser is used to check the validity of user-entered statements in the DragNDrop interface
 public class Parser : MonoBehaviour {
 	private Draggable[] blocks = null;
 	private int minNumBlocks = 5;
@@ -22,6 +23,7 @@ public class Parser : MonoBehaviour {
 		}
 	}
 
+    //Parse the player statement to determine validity
 	private bool parse() {
 		blockNum = 0;
 		validInstruction = true;

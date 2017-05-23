@@ -2,20 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script used to display an error message if the parser detects an invalid statement
 public class ErrorMessage : MonoBehaviour {
 
     public GameObject errorPanel;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
     public void closeError() {
         errorPanel.SetActive(false);
     }

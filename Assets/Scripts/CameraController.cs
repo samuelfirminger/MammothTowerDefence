@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script enables the user to switch from a side view to a top view by changing the active camera
 public class CameraController : MonoBehaviour {
     public Camera sideCam;
     public Camera topCam;

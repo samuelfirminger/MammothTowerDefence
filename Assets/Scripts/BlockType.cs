@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Defines block types for the DragNDrop Interface
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

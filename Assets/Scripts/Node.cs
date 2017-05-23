@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
+//Node script involves storing properties of nodes within the level, as well as functions associated with
+//changing node appearance. Turrets built upon nodes are also stored
 public class Node : MonoBehaviour {
 
     public Color hoverColor;
@@ -9,8 +11,7 @@ public class Node : MonoBehaviour {
     
 	[Header("Turret Building Fields")]
     public GameObject builtTurret;
-	//Y-axis offset for placing
-	//turret above node
+	//Y-axis offset for placing turret above node
 	private Vector3 offset = new Vector3(0f, 0.1f);
     private int sellValue = 0;
     

@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//Draggable sript encodes information regarding draggable elements of the DragNDrop interface
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-	// XXX
 	public GameObject replacementCard = null;
 	private bool deletePlaceHolder = false;
-	// XXX
 
 	public Transform parentReturn = null;
 	GameObject placeHolder = null;
@@ -38,6 +37,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		BetweenScenes.transName = this.transform.parent.name;
 	}
 
+    //Drag events must replace cards once they are put into the programming interface
     public void OnDrag(PointerEventData eventData)
     {
 		this.transform.position = eventData.position;
@@ -57,6 +57,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		placeHolder.transform.SetSiblingIndex(newSiblingIndex);
     }
 
+    //placeHolder blankSpace is filled by a duplicate card when the drag ends
     public void OnEndDrag(PointerEventData eventData)
     {
 		this.transform.SetParent(parentReturn);
@@ -65,6 +66,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		Destroy(placeHolder);
     }
 
+    //Getters and Setters for various properties
 	public void setIntValue(int intValue){
 		this.intValue = intValue;
 	}

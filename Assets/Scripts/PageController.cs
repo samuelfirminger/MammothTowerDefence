@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Page controller used to control which set of instructions are shown to the user on the instructions scene
 public class PageController : MonoBehaviour {
 
     public GameObject page1;

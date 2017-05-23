@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
+//Script controlling the spawning of enemies across waves and rounds
 public class EnemySpawnManager : MonoBehaviour { 
     //Make EnemySpawnManager a Singleton class
     public static EnemySpawnManager instance;
@@ -164,6 +164,7 @@ public class EnemySpawnManager : MonoBehaviour {
 		waveUI.GetComponent<Text>().text =  "WAVE:  " + (waveIndex).ToString() + " / " + roundSize.ToString();
 	}
 
+    //Hard coded enemy properties for each wave
 	void initialiseRound() {
 		roundIndex = BetweenScenes.CurrentRound;
 		switch(roundIndex)

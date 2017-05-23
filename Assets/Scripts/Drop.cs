@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//Script relating to the dropping of block ui elements in the DragNDrop interface
 public class Drop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {
 
+    //Blank functions : do not remove! Needed for interface to work
 	public void OnPointerEnter(PointerEventData eventData){
 
 	}
@@ -13,8 +15,8 @@ public class Drop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
 	}
 
+    //Create new cards on a drop event to replace the card
 	public void OnDrop(PointerEventData eventData) {
-
 		Draggable drag = eventData.pointerDrag.GetComponent<Draggable>();
 		if(drag != null) {
 			drag.parentReturn = this.transform;
@@ -41,6 +43,7 @@ public class Drop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 		}
 	}
 
+    //Destroy replacement cards 
 	private void destroyReplacementCard(BlockType bt){
 		bool hasDeleted = false;
 		string str = getName (bt);

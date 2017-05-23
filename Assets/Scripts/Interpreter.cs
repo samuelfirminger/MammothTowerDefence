@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script controlling the interpreter of the DragNDrop interface
 public class Interpreter {
 	private Draggable[] blocks = null;
 	private Transform enemyPrefab = null;
@@ -10,6 +11,7 @@ public class Interpreter {
 	private bool endReached = false;
 	private bool isEnemy = false;
 
+    //Interpret player statements
 	public void interpret(Transform enemyPrefab, Draggable[] blocks){
 		this.blocks = blocks;
 		this.enemyPrefab = enemyPrefab;
@@ -67,6 +69,7 @@ public class Interpreter {
 		}
 	}
 
+    //Individual functions used to check each paramater of the user statement
 	private void checkExtension(){
 		blockNum += 2;
 
