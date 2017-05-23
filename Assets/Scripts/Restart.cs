@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//this script restarts the game when needed
 public class Restart : MonoBehaviour {
 
 	public static Restart instance ; 

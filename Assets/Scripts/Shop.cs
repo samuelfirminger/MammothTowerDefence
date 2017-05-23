@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI; 
 
+//this script passes the choice of turret to be built from the turret shop
 public class Shop : MonoBehaviour {
 
 	public TurretSpec[] turrets; 

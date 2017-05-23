@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI ;
 using UnityEngine.SceneManagement ;
 
+//this script holds the music throughout the game and 
+//is responsible for choosing the next song and pausing it
 public class PlaylistManager : MonoBehaviour {
 
 	public static PlaylistManager instance ; 
@@ -21,11 +23,13 @@ public class PlaylistManager : MonoBehaviour {
 		if (instance == null) {
 			instance = this; 
 		}
-			
+
+		//find the AudioSource and assign it to this classes field
 		audioSource = FindObjectOfType<AudioSource> (); 
 		audioSource.loop = false;
-		disableButton = GameObject.FindGameObjectWithTag ("MusicToggle").GetComponent<Button> (); 
 
+		//find the disable music button
+		disableButton = GameObject.FindGameObjectWithTag ("MusicToggle").GetComponent<Button> (); 
 		disableButton.GetComponentInChildren<Text> ().text = "Disable Music"; 
 
 		GameObject[] objs = GameObject.FindGameObjectsWithTag ("GameMusic"); 

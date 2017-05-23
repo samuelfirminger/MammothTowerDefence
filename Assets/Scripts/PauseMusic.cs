@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//pause the music
 public class PauseMusic : MonoBehaviour {
 
 	public void toggleMusic() {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI ; 
 
+//this script is attached to each turret shop button to hold, display
+//and remove the buttons
 public class ShopInfo : MonoBehaviour {
 
 

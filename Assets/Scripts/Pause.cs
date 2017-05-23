@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//for pausing of the game
 public class Pause : MonoBehaviour {
 
 	public bool paused ; 
 
+	//pause button
 	public GameObject pauseUI;
 	private Text pauseText;
 

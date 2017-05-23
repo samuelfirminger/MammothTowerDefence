@@ -37,11 +37,13 @@ public class Turret : MonoBehaviour {
 			return; 
 		}
 
-		//Rotate the turret to point towards target
+		//Rotate the turret to point towards target, this was created from Brackeys at 
+		//https://www.youtube.com/watch?v=QKhn2kl9_8I&t=1435s&ab_channel=Brackeys
 		Vector3 dir = target.position - transform.position; 
 		Quaternion lookRotation = Quaternion.LookRotation (dir); 
 		Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles; 
-
+        
+       
 		partToRotate.rotation = Quaternion.Euler (0f, rotation.y, 0f); 
 
         //Check if cooldown time has passed then shoot

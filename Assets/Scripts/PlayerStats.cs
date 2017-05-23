@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+//this script keeps track of player stats and update the UI appropriately
 public class PlayerStats : MonoBehaviour {
     //Make Singleton class
     public static PlayerStats instance;
@@ -47,10 +49,11 @@ public class PlayerStats : MonoBehaviour {
     
     public void decreaseHealth(int damageValue) {
         if (Health > 0)
-        {
-            Health -= damageValue;
+        {
+            Health -= damageValue;
         }
         updateHealth();
+
 		//make prompt that game is over, add button to start again 
 		if (Health <= 0) {
             Effects.instance.GameLost();

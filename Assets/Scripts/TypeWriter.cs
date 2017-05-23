@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//this script prints a section of the text to the canvas letter by letter
 public class TypeWriter : MonoBehaviour {
 	
     public Text txt;
     string story;
     public bool PlayOnAwake = true;
 	public bool toRemove = false; 
+	//float to detemine the speed of the text
 	public float Delay;
     public float BetweenCharsDelay;
 
@@ -33,6 +35,7 @@ public class TypeWriter : MonoBehaviour {
         StartCoroutine(animateText());
     }
 
+	//print character by character, pause the typewrite rmusic when finished
     IEnumerator animateText()
     {
         foreach (char c in story)
@@ -40,6 +43,7 @@ public class TypeWriter : MonoBehaviour {
             txt.text += c;
             yield return new WaitForSeconds(BetweenCharsDelay);
         }
+		//if the text needs to be wiped from the screen
 		if (toRemove) {
 			txt.text = "";
 		}
@@ -51,7 +55,6 @@ public class TypeWriter : MonoBehaviour {
 		catch (System.NullReferenceException e) {
 			//do nothing
 		}
-		 
 
     }
 

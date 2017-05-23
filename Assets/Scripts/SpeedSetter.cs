@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI ; 
 
+
+//this script speeds up/slows down the in-game speed after button presses by the 
+//user
 public class SpeedSetter : MonoBehaviour {
 
 	public static SpeedSetter instance ; 
@@ -21,7 +24,7 @@ public class SpeedSetter : MonoBehaviour {
 		speedText.text = "1x"; 
 	}
 
-
+	//change the speed and text of button based on the current state
     public void changeTime()
     {
 		switch (speed) {

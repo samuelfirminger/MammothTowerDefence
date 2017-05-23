@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI ; 
 using UnityEngine.SceneManagement;
 
+//this script sets asctive the UI elements base don what game phase
+//is currently in play 
 public class PhaseManager : MonoBehaviour {
 
 	public static PhaseManager instance ; 
@@ -51,6 +53,7 @@ public class PhaseManager : MonoBehaviour {
 
 	}
 
+	//bring up the turret shop
 	public void enableBuildPhase() {
 
 		start = false;

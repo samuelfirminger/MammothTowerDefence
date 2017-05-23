@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//this script holds functions to call sound effects 
 public class Sound : MonoBehaviour {
 
     public static Sound instance;
